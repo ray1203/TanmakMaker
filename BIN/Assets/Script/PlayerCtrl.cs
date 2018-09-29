@@ -19,7 +19,7 @@ public class PlayerCtrl : MonoBehaviour {
         
         aliveTime += Time.deltaTime;
         
-        gameManager.instance.AddScore(1);
+        
 	}
 
     private void move()

@@ -56,4 +56,8 @@ public class PlayerCtrl : MonoBehaviour {
         Vector3 worldPos = Camera.main.ViewportToWorldPoint(viewPos);
         transform.position = worldPos;
     }
+    public Vector3 pos()
+    {
+        return this.gameObject.transform.position;
+    }
 }

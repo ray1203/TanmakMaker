@@ -605,7 +605,7 @@ Prefab:
     - target: {fileID: 114502809956509970, guid: a60dcc09c741a764897f81ee76596fb8,
         type: 2}
       propertyPath: firerate
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114502809956509970, guid: a60dcc09c741a764897f81ee76596fb8,
         type: 2}
@@ -743,7 +743,7 @@ MonoBehaviour:
   aliveTime: 0
   bullet: {fileID: 1253843480136902, guid: 49fa0c3b641bd0c45bece9986e906e4c, type: 2}
   rate: 0
-  firerate: 0.5
+  firerate: 100
 --- !u!212 &1249654048
 SpriteRenderer:
   m_ObjectHideFlags: 0

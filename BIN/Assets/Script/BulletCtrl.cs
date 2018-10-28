@@ -5,23 +5,36 @@ using UnityEngine;
 public class BulletCtrl : MonoBehaviour {
     public float bulletSpeed = 1f;
     public bool normalBullet = true;
-    public bool playeFollowingBullet = false;
-    
+    public bool playerFollowingBullet = false;
+    Vector3 followPos;
     Vector3 playerPos;
 	// Use this for initialization
 	void Start () {
-        playerPos = GameObject.Find("player").GetComponent<PlayerCtrl>().pos();
+        if (GameObject.Find("player") == true)
+        {
+            playerPos = GameObject.Find("player").GetComponent<PlayerCtrl>().pos();
+            followPos.x = (playerPos.x-this.gameObject.transform.position.x) * 100;
+            followPos.y = (playerPos.y- this.gameObject.transform.position.y) * 100;
+            
+        }
+        else
+        {
+            normalBullet = true;
+            playerFollowingBullet = false;
+        }
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
         if (normalBullet){
             transform.Translate(0, -bulletSpeed * Time.deltaTime, 0);
         }
-        else if (playeFollowingBullet)
+        else if (playerFollowingBullet)
         {
-            transform.position = Vector3.MoveTowards(transform.position, playerPos, bulletSpeed * Time.deltaTime);
+            
+            
+            transform.position = Vector3.MoveTowards(transform.position, followPos, bulletSpeed * Time.deltaTime);
            
         }
 

@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 1
   normalBullet: 0
-  playeFollowingBullet: 1
+  playerFollowingBullet: 1
 --- !u!212 &212079454920573072
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -14,6 +14,7 @@ public class EnemyCtrl : MonoBehaviour {
     public GameObject bullet;
     public float firerate = 0.5f;
     private float rate = 0f;
+    public float bulletSpeed=10.0f;
 	void Start () {
         
 	}
@@ -65,6 +66,7 @@ public class EnemyCtrl : MonoBehaviour {
         rate += Time.deltaTime;
         if (rate >= firerate)
         {
+            bullet.GetComponent<BulletCtrl>().giveSpeed(bulletSpeed);
             Instantiate(bullet,transform.position,Quaternion.identity);
             rate = 0;
         }

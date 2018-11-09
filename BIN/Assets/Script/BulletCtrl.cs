@@ -40,6 +40,10 @@ public class BulletCtrl : MonoBehaviour {
 
         
 	}
+    public void giveSpeed(float sp)
+    {
+        bulletSpeed = sp;
+    }
     private void OnBecameInvisible()
     {
         Destroy(gameObject);

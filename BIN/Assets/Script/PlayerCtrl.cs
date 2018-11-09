@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour {
     public float playerSpeed = 10f;
+    public float normalSpeed = 10f, slowSpeed = 1f;
     public float aliveTime = 0f;
     public GameObject bullet;
     public float rate = 0f;
@@ -59,5 +60,13 @@ public class PlayerCtrl : MonoBehaviour {
     public Vector3 pos()
     {
         return this.gameObject.transform.position;
+    }
+    public void SlowSpeed()
+    {
+        playerSpeed = slowSpeed;
+    }
+    public void NormalSpeed()
+    {
+        playerSpeed = normalSpeed;
     }
 }

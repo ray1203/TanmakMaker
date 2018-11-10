@@ -4,27 +4,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class MiniCtrl : MonoBehaviour {
-    GameObject player;
-    private bool isBtnDown = false;
-    private void Update()
+    public GameObject player; 
+    public void normal()
     {
-        if (isBtnDown)
-        {
-            player.GetComponent<PlayerCtrl>().SlowSpeed();
-        }
-        else
-        {
-            player.GetComponent<PlayerCtrl>().NormalSpeed();
-        }
+        if(player!=null)
+        player.GetComponent<PlayerCtrl>().NormalSpeed();
     }
-
-    public void OnPointerDown(PointerEventData eventData)
+    public void slow()
     {
-        isBtnDown = true;
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        isBtnDown = false;
+        if (player != null)
+           player.GetComponent<PlayerCtrl>().SlowSpeed();
     }
 }

@@ -64,10 +64,12 @@
     <Compile Include="Assets\Script\BulletCtrl.cs" />
     <Compile Include="Assets\Script\EnemyCtrl.cs" />
     <Compile Include="Assets\Script\gameManager.cs" />
+    <Compile Include="Assets\Script\MapObjSummon.cs" />
     <Compile Include="Assets\Script\MiniCtrl.cs" />
     <Compile Include="Assets\Script\PlayerBulletCtrl.cs" />
     <Compile Include="Assets\Script\PlayerCtrl.cs" />
     <Compile Include="Assets\Script\TargetCtrl.cs" />
+    <Compile Include="Assets\Script\UIclose.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

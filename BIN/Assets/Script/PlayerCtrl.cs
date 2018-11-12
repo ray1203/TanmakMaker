@@ -9,6 +9,7 @@ public class PlayerCtrl : MonoBehaviour {
     public GameObject bullet;
     public float rate = 0f;
     public float firerate = 0.5f;
+    public bool god = false;
 	void Start () {
 		
 	}
@@ -37,7 +38,7 @@ public class PlayerCtrl : MonoBehaviour {
         if (other.gameObject.tag.Equals("Enemy")||other.gameObject.tag.Equals("enemyBullet"))
         {
             Destroy(other.gameObject);
-            Destroy(this.gameObject);
+            if(!god)Destroy(this.gameObject);
         }
     }
     private void fire()

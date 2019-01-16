@@ -1,19 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MapObjSummon : MonoBehaviour {
     public GameObject baseEnemy;
-    private SpriteRenderer spriteRenderer;
+    private Image image;
+    private SpriteRenderer SpriteRenderer;
     private Sprite currentSprite;
     private Color currentColor;
+    private GameObject[,] aaa;
+    private List<GameObject> list;
+    
     private void Start()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        currentSprite = spriteRenderer.sprite;
-        currentColor = spriteRenderer.color;
+        /*list = new List<GameObject>();
+        
+        list.Add(baseEnemy);
+        list.Remove(baseEnemy);
+        list.Contains(baseEnemy);
+        int a = list.Count;
+        for(int i=0; i < list.Count; i++)
+        {
+            Instantiate(list[i]);
+        }*/
+        image = gameObject.GetComponent<Image>();
+        SpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        currentSprite = image.sprite;
+        currentColor = image.color;
     }
-    private void OnMouseDown()
+    public void Summon()
     {
         GameObject newObject = Instantiate(baseEnemy) as GameObject;
         newObject.transform.localScale = new Vector3(1, 1, 1);

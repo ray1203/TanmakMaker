@@ -55,6 +55,8 @@
   <ItemGroup>
      <Compile Include="Assets\Script\BulletCtrl.cs" />
      <Compile Include="Assets\Script\EnemyCtrl.cs" />
+     <Compile Include="Assets\Script\EnemyData.cs" />
+     <Compile Include="Assets\Script\EnemyEdit.cs" />
      <Compile Include="Assets\Script\gameManager.cs" />
      <Compile Include="Assets\Script\MapObjSummon.cs" />
      <Compile Include="Assets\Script\MiniCtrl.cs" />

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyData:MonoBehaviour {
-    private Vector2 spawnPoint;
-    private Vector2 pos1;
-    private Vector2 pos2;
+    private Vector2 spawnPoint = new Vector2(0, 0);
+    private Vector2 pos1=new Vector2(0,0);
+    private Vector2 pos2 = new Vector2(0, 0);
     private float spawnTime = 2f;
     private float enemySpeed = 2.0f;
     private GameObject bullet;
+    private int bullettype;//0:normal 1:following
     private float firerate = 0f;
     private float bulletSpeed = 0f;
 
@@ -91,14 +92,26 @@ public class EnemyData:MonoBehaviour {
             bulletSpeed = value;
         }
     }
-    public void SetEnemyData(Vector2 spawnPoint, Vector2 pos1, Vector2 pos2, float spawnTime, float enemySpeed, GameObject bullet, float firerate, float bulletSpeed) {
-        this.SpawnPoint = spawnPoint;
-        this.Pos1 = pos1;
-        this.Pos2 = pos2;
-        this.SpawnTime = spawnTime;
-        this.EnemySpeed = enemySpeed;
-        this.Bullet = bullet;
-        this.Firerate = firerate;
-        this.BulletSpeed = bulletSpeed;
+
+    public int Bullettype {
+        get {
+            return bullettype;
+        }
+
+        set {
+            bullettype = value;
+        }
+    }
+
+    public EnemyData(Vector2 spawnPoint, Vector2 pos1, Vector2 pos2, float spawnTime, float enemySpeed, GameObject bullet, int bullettype, float firerate, float bulletSpeed) {
+        this.spawnPoint = spawnPoint;
+        this.pos1 = pos1;
+        this.pos2 = pos2;
+        this.spawnTime = spawnTime;
+        this.enemySpeed = enemySpeed;
+        this.bullet = bullet;
+        this.Bullettype = bullettype;
+        this.firerate = firerate;
+        this.bulletSpeed = bulletSpeed;
     }
 }

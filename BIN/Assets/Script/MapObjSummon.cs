@@ -37,7 +37,8 @@ public class MapObjSummon : MonoBehaviour {
         newObject.transform.localPosition = new Vector3(0,0,1);
         newObject.GetComponent<Image>().sprite = currentSprite;
         newObject.GetComponent<Image>().color = currentColor;
-        newObject.transform.parent=canvas.transform.Find("Enemy");
+        //newObject.transform.parent=canvas.transform.Find("Enemy");
+        newObject.rectTransform.SetParent(canvas.transform.Find("Enemy"));
     }
     /*private void OnMouseDrag()
     {

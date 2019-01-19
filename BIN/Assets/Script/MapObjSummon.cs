@@ -33,8 +33,10 @@ public class MapObjSummon : MonoBehaviour {
     {
         Image newObject = Instantiate(baseEnemy) as Image;
         //newObject.transform.localScale = new Vector3(0.1f, 0.1f, 1);
-        newObject.rectTransform.localScale = new Vector3(0.01f, 0.01f, 1);
-        newObject.transform.localPosition = new Vector3(0,0,1);
+        newObject.rectTransform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        //newObject.transform.position = new Vector3(0f,0f,0f);
+        //newObject.rectTransform.position= new Vector3(0f, 0f, 0f);
+        newObject.gameObject.transform.position=new Vector3(0f, 0f, 0f);
         newObject.GetComponent<Image>().sprite = currentSprite;
         newObject.GetComponent<Image>().color = currentColor;
         //newObject.transform.parent=canvas.transform.Find("Enemy");

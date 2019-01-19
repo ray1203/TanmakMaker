@@ -53,6 +53,7 @@ public class UIclose : MonoBehaviour {
         enemyData.Firerate = float.Parse(firerate.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Bullettype = bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value;
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemy.gameObject.transform.position = Camera.main.ScreenToWorldPoint(enemyData.SpawnPoint);
         for (int i = 0; i < this.transform.childCount; i++) {
             this.transform.GetChild(i).gameObject.SetActive(false);
         }

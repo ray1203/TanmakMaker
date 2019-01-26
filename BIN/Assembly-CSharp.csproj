@@ -65,7 +65,9 @@
      <Compile Include="Assets\Script\PlayerBulletCtrl.cs" />
      <Compile Include="Assets\Script\PlayerCtrl.cs" />
      <Compile Include="Assets\Script\SendGameObject.cs" />
+     <Compile Include="Assets\Script\ShowEnemyByTime.cs" />
      <Compile Include="Assets\Script\TargetCtrl.cs" />
+     <Compile Include="Assets\Script\TimeSelect.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

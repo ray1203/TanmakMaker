@@ -6,6 +6,7 @@ public class UIclose : MonoBehaviour {
     private GameObject enemy;
     public GameObject summonTime, summonxy, firstmovexy, secondmovexy, movespeed, firerate, bullettype, bulletspeed;
     private EnemyData enemyData;
+    public Slider slider;
     void Start() {
     }
 	public void close()
@@ -46,6 +47,7 @@ public class UIclose : MonoBehaviour {
     }
     public void closeEnemyOption() {
         enemyData.SpawnTime = float.Parse(summonTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        slider.GetComponent<TimeSelect>().MaxSummonTime(enemyData.SpawnTime);
         enemyData.SpawnPoint = new Vector2(float.Parse(summonxy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(summonxy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
         enemyData.Pos1 = new Vector2(float.Parse(firstmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(firstmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
         enemyData.Pos2 = new Vector2(float.Parse(secondmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(secondmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));

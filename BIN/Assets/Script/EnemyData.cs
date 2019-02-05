@@ -8,11 +8,11 @@ public class EnemyData:MonoBehaviour {
     private Vector2 pos2 = new Vector2(0, 0);
     private float spawnTime = 2f;
     private float enemySpeed = 2.0f;
-    private GameObject bullet;
+    private Sprite bulletSprite;
     private int bullettype;//0:normal 1:following
     private float firerate = 0f;
     private float bulletSpeed = 0f;
-
+    private Sprite enemySprite;
     public Vector2 SpawnPoint {
         get {
             return spawnPoint;
@@ -63,13 +63,13 @@ public class EnemyData:MonoBehaviour {
         }
     }
 
-    public GameObject Bullet {
+    public Sprite BulletSprite {
         get {
-            return bullet;
+            return bulletSprite;
         }
 
         set {
-            bullet = value;
+            bulletSprite = value;
         }
     }
 
@@ -102,16 +102,15 @@ public class EnemyData:MonoBehaviour {
             bullettype = value;
         }
     }
+    public Sprite EnemySprite {
+        get {
+            return enemySprite;
+        }
 
-    public EnemyData(Vector2 spawnPoint, Vector2 pos1, Vector2 pos2, float spawnTime, float enemySpeed, GameObject bullet, int bullettype, float firerate, float bulletSpeed) {
-        this.spawnPoint = spawnPoint;
-        this.pos1 = pos1;
-        this.pos2 = pos2;
-        this.spawnTime = spawnTime;
-        this.enemySpeed = enemySpeed;
-        this.bullet = bullet;
-        this.Bullettype = bullettype;
-        this.firerate = firerate;
-        this.bulletSpeed = bulletSpeed;
+        set {
+            enemySprite = value;
+        }
     }
+
+   
 }

@@ -10,10 +10,10 @@ public class MapObjSummon : MonoBehaviour {
     private Color currentColor;
     private GameObject[,] aaa;
     private List<GameObject> list;
-    public Canvas canvas;
+    private GameObject canvas;
     private void Start()
     {
-
+        canvas = GameObject.Find("Canvas");
         /*list = new List<GameObject>();
         
         list.Add(baseEnemy);
@@ -40,6 +40,7 @@ public class MapObjSummon : MonoBehaviour {
         newObject.GetComponent<Image>().sprite = currentSprite;
         newObject.GetComponent<Image>().color = currentColor;
         newObject.GetComponent<EnemyData>().SpawnTime = canvas.transform.Find("Slider").GetComponent<TimeSelect>().GetValue();
+        newObject.GetComponent<EnemyData>().EnemySprite = this.GetComponent<Image>().sprite;
         //newObject.transform.parent=canvas.transform.Find("Enemy");
         newObject.rectTransform.SetParent(canvas.transform.Find("Enemy"));
     }

@@ -61,6 +61,8 @@
      <Compile Include="Assets\Script\GetTouchXY.cs" />
      <Compile Include="Assets\Script\MapObjSummon.cs" />
      <Compile Include="Assets\Script\MiniCtrl.cs" />
+     <Compile Include="Assets\Script\MoveScene.cs" />
+     <Compile Include="Assets\Script\MyUIHoverListener.cs" />
      <Compile Include="Assets\Script\Pause.cs" />
      <Compile Include="Assets\Script\PlayerBulletCtrl.cs" />
      <Compile Include="Assets\Script\PlayerCtrl.cs" />

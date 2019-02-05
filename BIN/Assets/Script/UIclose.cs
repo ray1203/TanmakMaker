@@ -7,6 +7,7 @@ public class UIclose : MonoBehaviour {
     public GameObject summonTime, summonxy, firstmovexy, secondmovexy, movespeed, firerate, bullettype, bulletspeed;
     private EnemyData enemyData;
     public Slider slider;
+    public GameObject ClickBan;
     void Start() {
     }
 	public void close()
@@ -44,6 +45,8 @@ public class UIclose : MonoBehaviour {
         firerate.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Firerate;
         bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value = enemyData.Bullettype;
         bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.BulletSpeed;
+        ClickBan.SetActive(true);
+        GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = false;
     }
     public void closeEnemyOption() {
         enemyData.SpawnTime = float.Parse(summonTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
@@ -59,6 +62,8 @@ public class UIclose : MonoBehaviour {
         for (int i = 0; i < this.transform.childCount; i++) {
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
+        ClickBan.SetActive(false);
+        GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = true;
         this.gameObject.SetActive(false);
     }
 }

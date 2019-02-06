@@ -83,14 +83,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f250b90154523314ea37093a35b42296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: -1.501129, y: 1.2528217}
-  pos1: {x: -0.033860024, y: -0.846501}
-  pos2: {x: 1.4559819, y: 2.9909706}
-  spawnTime: 0
+  spawnPoint: {x: -1.8171558, y: 2.2009027}
+  pos1: {x: -2.8103838, y: -5}
+  pos2: {x: -2.8103838, y: -5}
+  spawnTime: 2
   enemySpeed: 2
   bullet: {fileID: 1051164381364156, guid: 82d137ba888337447bb1739375cfe369, type: 3}
-  firerate: 2
-  bulletSpeed: 2
+  firerate: 0
+  bulletSpeed: 0
 --- !u!212 &212289193864929494
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d546e8836f1622240ac17c2031c69b72, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -29,7 +29,6 @@ public class GetTouchXY : MonoBehaviour
                     secondmove.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text = "" + XY.y;
                     break;
             }
-            Debug.Log("좌표 설정 완료" + XY);
             this.gameObject.SetActive(false);
 
         }

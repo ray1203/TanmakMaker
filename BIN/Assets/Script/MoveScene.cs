@@ -6,9 +6,14 @@ public class MoveScene : MonoBehaviour
 {
     public void startTest(string name) {
         GameObject e = GameObject.Find("Enemy");
-        e.transform.parent = null;
+        e.tag = "fill";
+        e.transform.SetParent(null);
+        for(int i = 0; i < e.transform.childCount; i++) {
+            e.transform.GetChild(i).gameObject.SetActive(false);
+        }
         DontDestroyOnLoad(e.gameObject);
         SceneManager.LoadScene(name);
     }
     
+
 }

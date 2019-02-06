@@ -5373,6 +5373,7 @@ GameObject:
   - component: {fileID: 1091076711}
   - component: {fileID: 1091076710}
   - component: {fileID: 1091076714}
+  - component: {fileID: 1091076715}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -5453,12 +5454,12 @@ RectTransform:
   m_Children:
   - {fileID: 1676623412}
   - {fileID: 735743274}
-  - {fileID: 1317883707}
+  - {fileID: 1202088400}
   - {fileID: 344531852}
   - {fileID: 214804524}
   - {fileID: 90249127}
   - {fileID: 471336970}
-  - {fileID: 1202088400}
+  - {fileID: 1317883707}
   - {fileID: 1354723010}
   - {fileID: 2063769407}
   - {fileID: 577966616}
@@ -5483,6 +5484,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327a6a95f20800947a2479c586d9eca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1091076715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091076709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960db5a370466544586259eadc5b6c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1354723011}
 --- !u!1 &1093425961
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,7 +6153,7 @@ GameObject:
   - component: {fileID: 1202088401}
   m_Layer: 5
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: empty
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6151,12 +6165,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202088399}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1091076713}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6604,7 +6618,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1091076713}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

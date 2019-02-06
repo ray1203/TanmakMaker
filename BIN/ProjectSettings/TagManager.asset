@@ -9,6 +9,8 @@ TagManager:
   - enemyBullet
   - Target
   - Canvas
+  - empty
+  - fill
   layers:
   - Default
   - TransparentFX

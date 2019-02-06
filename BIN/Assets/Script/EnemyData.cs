@@ -13,6 +13,7 @@ public class EnemyData:MonoBehaviour {
     private float firerate = 0f;
     private float bulletSpeed = 0f;
     private Sprite enemySprite;
+    private Color color;
     public Vector2 SpawnPoint {
         get {
             return spawnPoint;
@@ -112,5 +113,13 @@ public class EnemyData:MonoBehaviour {
         }
     }
 
-   
+    public Color Color {
+        get {
+            return color;
+        }
+
+        set {
+            color = value;
+        }
+    }
 }

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\BulletCtrl.cs" />
+     <Compile Include="Assets\Script\EditorStarter.cs" />
      <Compile Include="Assets\Script\EnemyCtrl.cs" />
      <Compile Include="Assets\Script\EnemyData.cs" />
      <Compile Include="Assets\Script\EnemyEdit.cs" />

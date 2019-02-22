@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyData:MonoBehaviour {
+public class EnemyData :MonoBehaviour {
     private Vector2 spawnPoint = new Vector2(0, 0);
     private Vector2 pos1=new Vector2(0,0);
     private Vector2 pos2 = new Vector2(0, 0);
@@ -14,6 +14,21 @@ public class EnemyData:MonoBehaviour {
     private float bulletSpeed = 0f;
     private Sprite enemySprite;
     private Color color;
+
+    public EnemyData(Vector2 spawnPoint, Vector2 pos1, Vector2 pos2, float spawnTime, float enemySpeed,  int bullettype, float firerate, float bulletSpeed,  Color color,Sprite bulletSprite,Sprite enemySprite) {
+        this.spawnPoint = spawnPoint;
+        this.pos1 = pos1;
+        this.pos2 = pos2;
+        this.spawnTime = spawnTime;
+        this.enemySpeed = enemySpeed;
+        this.bulletSprite = bulletSprite;
+        this.bullettype = bullettype;
+        this.firerate = firerate;
+        this.bulletSpeed = bulletSpeed;
+        this.enemySprite = enemySprite;
+        this.color = color;
+    }
+
     public Vector2 SpawnPoint {
         get {
             return spawnPoint;

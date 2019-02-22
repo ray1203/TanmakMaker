@@ -60,7 +60,9 @@
      <Compile Include="Assets\Script\EnemyEdit.cs" />
      <Compile Include="Assets\Script\gameManager.cs" />
      <Compile Include="Assets\Script\GetTouchXY.cs" />
+     <Compile Include="Assets\Script\mapData.cs" />
      <Compile Include="Assets\Script\MapObjSummon.cs" />
+     <Compile Include="Assets\Script\MapReader.cs" />
      <Compile Include="Assets\Script\MiniCtrl.cs" />
      <Compile Include="Assets\Script\MoveScene.cs" />
      <Compile Include="Assets\Script\MyUIHoverListener.cs" />
@@ -72,6 +74,8 @@
      <Compile Include="Assets\Script\TargetCtrl.cs" />
      <Compile Include="Assets\Script\TimeSelect.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
+     <None Include="Assets\Resources\mapnum1.txt" />
+     <None Include="Assets\Resources\mapnum2.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

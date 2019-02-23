@@ -11,6 +11,7 @@ TagManager:
   - Canvas
   - empty
   - fill
+  - mapcontent
   layers:
   - Default
   - TransparentFX

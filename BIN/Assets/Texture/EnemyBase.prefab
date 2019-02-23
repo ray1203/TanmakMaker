@@ -83,10 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f250b90154523314ea37093a35b42296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: 0.086956665, y: 0.23913026}
-  pos1: {x: -0.2391305, y: 2.23913}
-  pos2: {x: -1.8913045, y: 1.4565217}
-  spawnTime: 1
+  spawnPoint: {x: -1.767409, y: 2.51593}
+  pos1: {x: -2.8103838, y: -5}
+  pos2: {x: -2.8103838, y: -5}
+  spawnTime: 0
   enemySpeed: 0
   bullet: {fileID: 1051164381364156, guid: 82d137ba888337447bb1739375cfe369, type: 3}
   firerate: 0

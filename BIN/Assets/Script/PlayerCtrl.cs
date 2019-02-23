@@ -10,6 +10,7 @@ public class PlayerCtrl:MonoBehaviour {
     public float rate = 0f;
     public float firerate = 0.5f;
     public bool god = false;
+    public GameObject gameover;
     void Start() {
 
     }
@@ -60,5 +61,9 @@ public class PlayerCtrl:MonoBehaviour {
     }
     public void NormalSpeed() {
         playerSpeed = normalSpeed;
+    }
+    void OnDestroy() {
+        gameover.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 }

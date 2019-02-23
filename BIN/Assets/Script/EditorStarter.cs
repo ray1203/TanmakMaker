@@ -18,8 +18,6 @@ public class EditorStarter : MonoBehaviour {
             }
             Destroy(e_fill);
         }
-        if (GameObject.FindWithTag("MapName")) {
-            GameObject.FindWithTag("MapName").transform.SetParent(OptionBar.transform);
-        }
+        
     }
 }

@@ -18,7 +18,7 @@ public class MainToEdit : MonoBehaviour
     {
         
     }
-    public void toEdit() {
+    public void toEdit(string name) {
         List<EnemyData> enemyDatas = this.GetComponent<mapData>().EnemyDatas;
         GameObject gameObject = new GameObject();
         GameObject mapName = new GameObject();
@@ -36,7 +36,7 @@ public class MainToEdit : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(mapName);
-        SceneManager.LoadScene("mapEditor");
+        SceneManager.LoadScene(name);
 
     }
 }

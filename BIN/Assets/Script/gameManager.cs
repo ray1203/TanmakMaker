@@ -10,9 +10,10 @@ public class gameManager : MonoBehaviour {
     public GameObject EnemyBase;
     public Sprite sprite;
     private GameObject e;
-    void Awake()
+    public GameObject victory;
+    void Start()
     {
-        if (GameObject.Find("Enemy")) {
+        if (GameObject.FindWithTag("fill")) {
             e = GameObject.FindWithTag("fill").gameObject;
             for (int i = 0; i < e.transform.childCount; i++) {
                 GameObject E = EnemyBase;
@@ -47,13 +48,14 @@ public class gameManager : MonoBehaviour {
         score += num; //점수를 더해줍니다.
         scoreText.text = "Score : " + score;
     }
-    // Use this for initialization
-    void Start () {
-		
-	}
+    private int t = 0;
 	
 	// Update is called once per frame
 	void Update () {
-		
+        t++;
+        if (t>10&&!GameObject.FindWithTag("Enemy")) {
+            victory.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
 	}
 }

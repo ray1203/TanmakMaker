@@ -13,6 +13,8 @@ public class MapReader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameObject.FindWithTag("MapName")) Destroy(GameObject.FindWithTag("MapName"));
+        if (GameObject.FindWithTag("fill")) Destroy(GameObject.FindWithTag("fill"));
         reloadmap();
     }
     public void reloadmap() {

@@ -20,13 +20,12 @@ public class EnemyCtrl : MonoBehaviour {
 	}
 	
 	void Update () {
-
-        if (spawnflag==0&&GameObject.Find("player").GetComponent<PlayerCtrl>().aliveTime >= spawnTime)
-        {
-            gameObject.transform.position=spawnPoint;
-            spawnflag = 1;
+        if (GameObject.Find("player")) {
+            if (spawnflag == 0 && GameObject.Find("player").GetComponent<PlayerCtrl>().aliveTime >= spawnTime) {
+                gameObject.transform.position = spawnPoint;
+                spawnflag = 1;
+            }
         }
-		    
         pos = gameObject.transform.position;
         if (spawnflag == 1)
         {

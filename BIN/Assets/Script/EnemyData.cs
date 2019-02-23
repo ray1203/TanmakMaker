@@ -28,7 +28,22 @@ public class EnemyData :MonoBehaviour {
         this.enemySprite = enemySprite;
         this.color = color;
     }
-
+    public void putDatas(EnemyData e) {
+        this.spawnPoint = e.spawnPoint;
+        this.pos1 = e.pos1;
+        this.pos2 = e.pos2;
+        this.spawnTime = e.spawnTime;
+        this.enemySpeed = e.enemySpeed;
+        this.bulletSprite = e.bulletSprite;
+        this.bullettype = e.bullettype;
+        this.firerate = e.firerate;
+        this.bulletSpeed = e.bulletSpeed;
+        this.enemySprite = e.enemySprite;
+        this.color = e.color;
+    }
+    public void printDatas() {
+        Debug.Log("spawnpoint:" + spawnPoint + ",pos1:" + pos1 + ",pos2:" + pos2 + ",spawntime:" + spawnTime + ",enemyspeed:" + enemySpeed);
+    }
     public Vector2 SpawnPoint {
         get {
             return spawnPoint;

@@ -35,11 +35,9 @@ public class MapReader : MonoBehaviour
             List<EnemyData> enemyDatas = new List<EnemyData>();
             newObject.transform.Find("mapname").GetComponent<Text>().text = Item.Name.Replace(".txt", "");
             TextAsset data = Resources.Load(Item.Name.Replace(".txt", ""), typeof(TextAsset)) as TextAsset;
-            Debug.Log("Data:"+data);
             if (data != null) {
                 StringReader sr = new StringReader(data.text);
                 string source = sr.ReadLine();
-                Debug.Log(source);
                 while (source != null) {
                     string[] values;
                     values = source.Split(',');
@@ -50,10 +48,10 @@ public class MapReader : MonoBehaviour
                     enemyDatas.Add(new EnemyData(new Vector2(float.Parse(values[0]), float.Parse(values[1])), new Vector2(float.Parse(values[2]), float.Parse(values[3])), new Vector2(float.Parse(values[4]), float.Parse(values[5])), float.Parse(values[6]), float.Parse(values[7]), int.Parse(values[8]), float.Parse(values[9]), float.Parse(values[10]), new Color(float.Parse(values[11]), float.Parse(values[12]), float.Parse(values[13])), null, null));
                     source = sr.ReadLine();    // 한줄 읽는다.
                 }
-                newObject.GetComponent<mapData>().EnemyDatas = enemyDatas;
             }
                 rt.sizeDelta = new Vector2(rt.sizeDelta.x, 100 * (c+1));
             newObject = Instantiate(newObject);
+                newObject.GetComponent<mapData>().EnemyDatas = enemyDatas;
             newObject.transform.SetParent(Content.transform);
             newObject.transform.localPosition = new Vector3(0f, -75+FileCount*50-100 * (c++), 0);
             newObject.transform.localScale = new Vector3(1f, 1f, 1f);

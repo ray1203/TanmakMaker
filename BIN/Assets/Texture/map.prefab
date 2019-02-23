@@ -115,7 +115,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7514153796721093739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8968831785266975840}
+        m_MethodName: toEdit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &7514153797309810357
@@ -209,6 +220,7 @@ GameObject:
   - component: {fileID: 7514153797879469066}
   - component: {fileID: 7514153797879469061}
   - component: {fileID: 4429980714114425409}
+  - component: {fileID: 8968831785266975840}
   m_Layer: 5
   m_Name: map
   m_TagString: Untagged
@@ -286,6 +298,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac105ece1b1e5b4bb08a67484f162f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDatas: []
+--- !u!114 &8968831785266975840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7514153797879469063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e891099f69773e54a9e152a3ec6731b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemySprite: {fileID: 21300000, guid: d546e8836f1622240ac17c2031c69b72, type: 3}
+  EnemyEditor: {fileID: 6706692032986895290, guid: a64ef182e9514ee42ba1fcb64be2f814,
+    type: 3}
 --- !u!1 &7514153798400582815
 GameObject:
   m_ObjectHideFlags: 0

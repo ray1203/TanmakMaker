@@ -6,6 +6,7 @@ public class BulletCtrl : MonoBehaviour {
     public float bulletSpeed = 1f;
     public bool normalBullet = true;
     public bool playerFollowingBullet = false;
+    private int t = 0;
     Vector3 followPos;
     Vector3 playerPos;
 	// Use this for initialization
@@ -27,6 +28,10 @@ public class BulletCtrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (bulletSpeed == 0f) {
+            t++;
+            if (t > 20) Destroy(this.gameObject);
+        }
         if (normalBullet){
             transform.Translate(0, -bulletSpeed * Time.deltaTime, 0);
         }

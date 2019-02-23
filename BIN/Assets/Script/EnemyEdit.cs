@@ -8,13 +8,24 @@ public class EnemyEdit:MonoBehaviour {
     int dragging;
     
     void Start() {
+        try {
         EnemyOption = GameObject.Find("sendGameObject").GetComponent<SendGameObject>().getEnemyOption();
 
+        } catch {
+
+        }
     }
     
     void Update()
     {
-        if(EnemyOption==null) EnemyOption = GameObject.Find("sendGameObject").GetComponent<SendGameObject>().getEnemyOption();
+        if (EnemyOption == null) {
+            if (!GameObject.Find("sendGameObject")) {
+                EnemyOption = new GameObject();
+            } else {
+                EnemyOption = GameObject.Find("sendGameObject").GetComponent<SendGameObject>().getEnemyOption();
+            }
+
+        }
         if (this.gameObject.transform.position.z!=0)
         this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, 0f);
     }

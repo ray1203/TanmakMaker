@@ -60,6 +60,7 @@
      <Compile Include="Assets\Script\EnemyEdit.cs" />
      <Compile Include="Assets\Script\gameManager.cs" />
      <Compile Include="Assets\Script\GetTouchXY.cs" />
+     <Compile Include="Assets\Script\MainToEdit.cs" />
      <Compile Include="Assets\Script\mapData.cs" />
      <Compile Include="Assets\Script\MapObjSummon.cs" />
      <Compile Include="Assets\Script\MapReader.cs" />
@@ -74,31 +75,8 @@
      <Compile Include="Assets\Script\TargetCtrl.cs" />
      <Compile Include="Assets\Script\TimeSelect.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
-     <None Include="Assets\Resources\mapnum1 - 복사본.txt" />
-     <None Include="Assets\Resources\zzzzzzzzzzzz.txt" />
-     <None Include="Assets\Resources\mapnum2 - 복사본 (2).txt" />
-     <None Include="Assets\Resources\mapnum2 - 복사본 (3).txt" />
      <None Include="Assets\Resources\mapnum1.txt" />
      <None Include="Assets\Resources\mapnum2.txt" />
-     <None Include="Assets\Resources\fff.txt" />
-     <None Include="Assets\Resources\mapnum1 - 복사본 (4).txt" />
-     <None Include="Assets\Resources\mapnum1 - 복사본 (3).txt" />
-     <None Include="Assets\Resources\qqqqwwww.txt" />
-     <None Include="Assets\Resources\dd.txt" />
-     <None Include="Assets\Resources\qqqqqq.txt" />
-     <None Include="Assets\Resources\ssaaqqwwssxxc.txt" />
-     <None Include="Assets\Resources\xxcc.txt" />
-     <None Include="Assets\Resources\aaa.txt" />
-     <None Include="Assets\Resources\mapnum2 - 복사본 (4).txt" />
-     <None Include="Assets\Resources\adss.txt" />
-     <None Include="Assets\Resources\adwq.txt" />
-     <None Include="Assets\Resources\dweeee.txt" />
-     <None Include="Assets\Resources\wwwwwwwwww.txt" />
-     <None Include="Assets\Resources\하와아.txt" />
-     <None Include="Assets\Resources\ads.txt" />
-     <None Include="Assets\Resources\mapnum2 - 복사본.txt" />
-     <None Include="Assets\Resources\cdd.txt" />
-     <None Include="Assets\Resources\mapnum1 - 복사본 (2).txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

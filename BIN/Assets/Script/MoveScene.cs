@@ -14,6 +14,8 @@ public class MoveScene : MonoBehaviour
         DontDestroyOnLoad(e.gameObject);
         SceneManager.LoadScene(name);
     }
-    
+    public void Move(string name) {
+        SceneManager.LoadScene(name);
+    }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EditorStarter : MonoBehaviour {
     public Slider slider;
-
+    public GameObject OptionBar;
     void Start() {
         if (GameObject.FindWithTag("fill")) {
             GameObject e_empty = GameObject.FindWithTag("empty");
@@ -17,6 +17,9 @@ public class EditorStarter : MonoBehaviour {
                 e_fill.transform.GetChild(0).SetParent(e_empty.transform);
             }
             Destroy(e_fill);
+        }
+        if (GameObject.FindWithTag("MapName")) {
+            GameObject.FindWithTag("MapName").transform.SetParent(OptionBar.transform);
         }
     }
 }

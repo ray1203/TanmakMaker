@@ -21,6 +21,9 @@ public class MainToEdit : MonoBehaviour
     public void toEdit() {
         List<EnemyData> enemyDatas = this.GetComponent<mapData>().EnemyDatas;
         GameObject gameObject = new GameObject();
+        GameObject mapName = new GameObject();
+        mapName.name = this.transform.Find("mapname").GetComponent<Text>().text;
+        mapName.tag = ("MapName");
         gameObject.tag = "fill";
         gameObject.name = "enemy";
         foreach(var Item in enemyDatas) {
@@ -32,6 +35,7 @@ public class MainToEdit : MonoBehaviour
             newObject.transform.SetParent(gameObject.transform);
         }
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(mapName);
         SceneManager.LoadScene("mapEditor");
 
     }

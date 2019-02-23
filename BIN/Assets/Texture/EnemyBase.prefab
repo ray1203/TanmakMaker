@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1267860787305718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.8244079, y: -2.545092, z: -10.306641}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,10 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f250b90154523314ea37093a35b42296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: -1.8171558, y: 1.9977427}
-  pos1: {x: -2.8103838, y: -5}
-  pos2: {x: -2.8103838, y: -5}
-  spawnTime: 0
+  spawnPoint: {x: 0.086956665, y: 0.23913026}
+  pos1: {x: -0.2391305, y: 2.23913}
+  pos2: {x: -1.8913045, y: 1.4565217}
+  spawnTime: 1
   enemySpeed: 0
   bullet: {fileID: 1051164381364156, guid: 82d137ba888337447bb1739375cfe369, type: 3}
   firerate: 0
@@ -133,7 +133,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.41, y: 0.59}
+  m_Size: {x: 41, y: 59}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

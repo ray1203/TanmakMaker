@@ -1373,6 +1373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 281015138}
   EnemyBase: {fileID: 1267860787305718, guid: e3c32d5b851348a4b8572f0cab37cae6, type: 3}
+  sprite: {fileID: 21300000, guid: d546e8836f1622240ac17c2031c69b72, type: 3}
 --- !u!4 &1992752978
 Transform:
   m_ObjectHideFlags: 0

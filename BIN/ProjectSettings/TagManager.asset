@@ -12,6 +12,7 @@ TagManager:
   - empty
   - fill
   - mapcontent
+  - MapName
   layers:
   - Default
   - TransparentFX

@@ -64,6 +64,7 @@
      <Compile Include="Assets\Script\mapData.cs" />
      <Compile Include="Assets\Script\MapObjSummon.cs" />
      <Compile Include="Assets\Script\MapReader.cs" />
+     <Compile Include="Assets\Script\MapSave.cs" />
      <Compile Include="Assets\Script\MiniCtrl.cs" />
      <Compile Include="Assets\Script\MoveScene.cs" />
      <Compile Include="Assets\Script\MyUIHoverListener.cs" />

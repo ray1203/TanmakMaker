@@ -8,11 +8,12 @@ public class gameManager : MonoBehaviour {
     public Text scoreText;
     private int score = 0;
     public GameObject EnemyBase;
+    public Sprite sprite;
     private GameObject e;
     void Awake()
     {
         if (GameObject.Find("Enemy")) {
-            e = GameObject.Find("Enemy").gameObject;
+            e = GameObject.FindWithTag("fill").gameObject;
             for (int i = 0; i < e.transform.childCount; i++) {
                 GameObject E = EnemyBase;
                 E.GetComponent<EnemyCtrl>().spawnPoint = Camera.main.ScreenToWorldPoint(e.transform.GetChild(i).GetComponent<EnemyData>().SpawnPoint);
@@ -22,7 +23,8 @@ public class gameManager : MonoBehaviour {
                 E.GetComponent<EnemyCtrl>().enemySpeed = e.transform.GetChild(i).GetComponent<EnemyData>().EnemySpeed;
                 E.GetComponent<EnemyCtrl>().firerate = e.transform.GetChild(i).GetComponent<EnemyData>().Firerate;
                 E.GetComponent<EnemyCtrl>().bulletSpeed = e.transform.GetChild(i).GetComponent<EnemyData>().BulletSpeed;
-                E.GetComponent<SpriteRenderer>().sprite = e.transform.GetChild(i).GetComponent<EnemyData>().EnemySprite;
+                E.GetComponent<SpriteRenderer>().sprite = sprite;
+                E.transform.localScale = new Vector2(0.01f, 0.01f);
                 E.GetComponent<SpriteRenderer>().color = e.transform.GetChild(i).GetComponent<EnemyData>().Color;
 
                 if (e.transform.GetChild(i).GetComponent<EnemyData>().Bullettype == 0) {

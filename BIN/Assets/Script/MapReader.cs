@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class MapReader : MonoBehaviour
 {
     public InputField mapNameInput;
-    string m_strPath = "Assets/Resources/";
+    string m_strPath = "Assets/Resources/Map/";
     public GameObject ContentUI;
     public GameObject Content;
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(Application.platform);
+        PathForDocumentsFile("Resources");
         if (GameObject.FindWithTag("MapName")) Destroy(GameObject.FindWithTag("MapName"));
         if (GameObject.FindWithTag("fill")) Destroy(GameObject.FindWithTag("fill"));
         reloadmap();
@@ -70,7 +72,26 @@ public class MapReader : MonoBehaviour
     public void reloadScene() {
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
-
+    public string PathForDocumentsFile(string filename) {
+        if (Application.platform == RuntimePlatform.IPhonePlayer) {
+            string path = Application.dataPath.Substring(0, Application.dataPath.Length - 5);
+            path = path.Substring(0, path.LastIndexOf('/'));
+            return Path.Combine(Path.Combine(path, "Documents"), filename);
+        } else if (Application.platform == RuntimePlatform.Android) {
+            string path = Application.persistentDataPath;
+            path = path.Substring(0, path.LastIndexOf('/'));
+            return Path.Combine(path, filename);
+        } else if(Application.platform == RuntimePlatform.WindowsEditor) {
+            return "Assets/Resources/Map/";
+        } else if(Application.platform == RuntimePlatform.WindowsPlayer) {
+            string path = Application.dataPath;
+            return "Assets/Resources/Map/";
+        } else {
+            string path = Application.dataPath;
+            path = path.Substring(0, path.LastIndexOf('/'));
+            return Path.Combine(path, filename);
+        }
+    }
     // Update is called once per frame
     void Update()
     {

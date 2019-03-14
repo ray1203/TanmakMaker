@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MapReader : MonoBehaviour
 {
     public InputField mapNameInput;
-    string m_strPath = "Assets/Resources/Map/";
+    string m_strPath = "Assets/Resources/";
     public GameObject ContentUI;
     public GameObject Content;
     // Start is called before the first frame update
@@ -82,10 +82,10 @@ public class MapReader : MonoBehaviour
             path = path.Substring(0, path.LastIndexOf('/'));
             return Path.Combine(path, filename);
         } else if(Application.platform == RuntimePlatform.WindowsEditor) {
-            return "Assets/Resources/Map/";
+            return "Assets/"+filename+"/";
         } else if(Application.platform == RuntimePlatform.WindowsPlayer) {
             string path = Application.dataPath;
-            return "Assets/Resources/Map/";
+            return "Assets/" + filename + "/";
         } else {
             string path = Application.dataPath;
             path = path.Substring(0, path.LastIndexOf('/'));

@@ -77,11 +77,11 @@
      <Compile Include="Assets\Script\TargetCtrl.cs" />
      <Compile Include="Assets\Script\TimeSelect.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
-     <None Include="Assets\Resources\Map\new.txt" />
-     <None Include="Assets\Resources\Map\mapnum1.txt" />
-     <None Include="Assets\Resources\Map\mapnum2.txt" />
-     <None Include="Assets\Resources\Map\하와와.txt" />
-     <None Include="Assets\Resources\Map\test.txt" />
+     <None Include="Assets\Resources\new.txt" />
+     <None Include="Assets\Resources\mapnum1.txt" />
+     <None Include="Assets\Resources\mapnum2.txt" />
+     <None Include="Assets\Resources\하와와.txt" />
+     <None Include="Assets\Resources\test.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

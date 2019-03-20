@@ -7,6 +7,10 @@ public class GetTouchXY : MonoBehaviour
 {
     public GameObject summon, firstmove, secondmove;
     int flag;
+    private Camera subCamera;
+    public void Start() {
+        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
+    }
     public void getTouch(int flag) {
         this.gameObject.SetActive(true);
         this.flag = flag;
@@ -14,7 +18,8 @@ public class GetTouchXY : MonoBehaviour
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             Vector2 XY;
-            XY = Input.mousePosition;
+            //XY = Input.mousePosition;
+            XY = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             switch (flag) {
                 case 0:
                     summon.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text = "" + XY.x;

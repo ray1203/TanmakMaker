@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class EnemyEdit:MonoBehaviour {
     public GameObject EnemyOption;
+    private Camera subCamera;
     int dragging;
     
     void Start() {
+        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
         try {
         EnemyOption = GameObject.Find("sendGameObject").GetComponent<SendGameObject>().getEnemyOption();
 
@@ -35,7 +37,7 @@ public class EnemyEdit:MonoBehaviour {
             if (dragging < 10)
                 EnemyOption.gameObject.GetComponent<UIclose>().openEnemyOption(this.gameObject);
             else
-                this.gameObject.GetComponent<EnemyData>().SpawnPoint = Camera.main.WorldToScreenPoint((Vector2)this.gameObject.transform.position);
+                this.gameObject.GetComponent<EnemyData>().SpawnPoint = this.gameObject.transform.position;
             dragging = 0;
         }
     }
@@ -45,10 +47,14 @@ public class EnemyEdit:MonoBehaviour {
         }
     }
     void OnMouseDrag() {
+        //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition) +"+"+ Camera.main.ScreenToWorldPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+        //Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f))+"+"+ (new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f))+"+"+Camera.main.WorldToScreenPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f)));
         if (GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable) {
             dragging++;
-            if (dragging >= 10)
-                this.gameObject.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+            if (dragging >= 10) {
+                this.gameObject.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                this.gameObject.GetComponent<EnemyData>().SpawnPoint = this.gameObject.transform.position;
+            }
         }
         
     }

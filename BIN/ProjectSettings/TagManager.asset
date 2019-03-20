@@ -13,6 +13,7 @@ TagManager:
   - fill
   - mapcontent
   - MapName
+  - SubCamera
   layers:
   - Default
   - TransparentFX

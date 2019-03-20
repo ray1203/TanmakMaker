@@ -11,11 +11,13 @@ public class PlayerCtrl:MonoBehaviour {
     public float firerate = 0.5f;
     public bool god = false;
     public GameObject gameover;
+    private Camera subCamera;
     void Start() {
-
+        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
     }
 
     void Update() {
+        Debug.Log(this.transform.position + "," + subCamera.transform.position);
         move();
         stop();
         fire();
@@ -47,10 +49,16 @@ public class PlayerCtrl:MonoBehaviour {
         }
     }
     public void stop() {
-        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        /*Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         viewPos.x = Mathf.Clamp01(viewPos.x);
         viewPos.y = Mathf.Clamp01(viewPos.y);
         Vector3 worldPos = Camera.main.ViewportToWorldPoint(viewPos);
+        transform.position = worldPos;*/
+
+        Vector3 viewPos = subCamera.WorldToViewportPoint(transform.position);
+        viewPos.x = Mathf.Clamp01(viewPos.x);
+        viewPos.y = Mathf.Clamp01(viewPos.y);
+        Vector3 worldPos = subCamera.ViewportToWorldPoint(viewPos);
         transform.position = worldPos;
     }
     public Vector3 pos() {

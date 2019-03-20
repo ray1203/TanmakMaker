@@ -15,9 +15,10 @@ public class EnemyCtrl : MonoBehaviour {
     public float firerate = 0.5f;
     private float rate = 0f;
     public float bulletSpeed=10.0f;
+    private Camera subCamera;
 	void Start () {
-        
-	}
+        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
+    }
 	
 	void Update () {
         if (GameObject.Find("player")) {
@@ -39,14 +40,14 @@ public class EnemyCtrl : MonoBehaviour {
         
         if (flag == 0)
         {
-            transform.position = Vector3.MoveTowards(transform.position, pos1, enemySpeed * Time.deltaTime);
+            transform.position = (Vector3.MoveTowards(transform.position, pos1, enemySpeed * Time.deltaTime));
             pos = gameObject.transform.position;
 
             if (pos1 == pos) flag = 1;
         }
         else if (flag == 1)
         {
-            transform.position = Vector3.MoveTowards(transform.position, pos2, enemySpeed * Time.deltaTime);
+            transform.position = (Vector3.MoveTowards(transform.position, pos2, enemySpeed * Time.deltaTime));
             pos = gameObject.transform.position;
 
             if (pos2 == pos) flag = 2;
@@ -58,6 +59,7 @@ public class EnemyCtrl : MonoBehaviour {
     }
     private void OnBecameInvisible()
     {
+        Debug.Log("Destroy" + this.transform.position);
         Destroy(gameObject);
     }
     private void fire()

@@ -8,7 +8,9 @@ public class UIclose : MonoBehaviour {
     private EnemyData enemyData;
     public Slider slider;
     public GameObject ClickBan;
+    private Camera subCamera;
     void Start() {
+        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
     }
 	public void close()
     {
@@ -34,6 +36,7 @@ public class UIclose : MonoBehaviour {
             if (this.transform.GetChild(i).gameObject.name == "TouchScreen") continue;
             this.transform.GetChild(i).gameObject.SetActive(true);
         }
+        Debug.Log("Spawn:" + enemyData.SpawnPoint);
         summonTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text = ""+enemyData.SpawnTime;
         summonxy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text= "" + enemyData.SpawnPoint.x;
         summonxy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text = "" + enemyData.SpawnPoint.y;
@@ -58,7 +61,9 @@ public class UIclose : MonoBehaviour {
         enemyData.Firerate = float.Parse(firerate.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Bullettype = bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value;
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
-        enemy.gameObject.transform.position = Camera.main.ScreenToWorldPoint(enemyData.SpawnPoint);
+        enemy.gameObject.transform.position = enemyData.SpawnPoint;
+        Debug.Log(Camera.main.ScreenToWorldPoint(enemyData.SpawnPoint));
+
         for (int i = 0; i < this.transform.childCount; i++) {
             this.transform.GetChild(i).gameObject.SetActive(false);
         }

@@ -81,6 +81,7 @@
      <None Include="Assets\Resources\mapnum1.txt" />
      <None Include="Assets\Resources\mapnum2.txt" />
      <None Include="Assets\Resources\하와와.txt" />
+     <None Include="Assets\Resources\newText.txt" />
      <None Include="Assets\Resources\test.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

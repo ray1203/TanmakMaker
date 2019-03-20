@@ -12,7 +12,7 @@ public class EditorStarter : MonoBehaviour {
             int childCount = e_fill.transform.childCount;
             for (int i = 0; i < childCount; i++) {
                 slider.GetComponent<TimeSelect>().MaxSummonTime(e_fill.transform.GetChild(0).GetComponent<EnemyData>().SpawnTime);
-                e_fill.transform.GetChild(0).transform.position = Camera.main.ScreenToWorldPoint(e_fill.transform.GetChild(0).GetComponent<EnemyData>().SpawnPoint);
+                e_fill.transform.GetChild(0).transform.position = (e_fill.transform.GetChild(0).GetComponent<EnemyData>().SpawnPoint);
                 Debug.Log(e_fill.transform.GetChild(0).GetComponent<EnemyData>().SpawnPoint);
                 e_fill.transform.GetChild(0).SetParent(e_empty.transform);
             }

@@ -11,11 +11,13 @@ public class BulletCtrl : MonoBehaviour {
     Vector3 playerPos;
 	// Use this for initialization
 	void Start () {
+        Debug.Log(normalBullet + "," + playerFollowingBullet);
         if (GameObject.Find("player") == true)
         {
             playerPos = GameObject.Find("player").GetComponent<PlayerCtrl>().pos();
-            followPos.x = (playerPos.x-this.gameObject.transform.position.x) * 100;
-            followPos.y = (playerPos.y- this.gameObject.transform.position.y) * 100;
+            Debug.Log("Playerpos:" + playerPos + "," + "Bulletpos:" + this.gameObject.transform.position);
+            followPos.x = (playerPos.x-this.gameObject.transform.position.x);
+            followPos.y = (playerPos.y- this.gameObject.transform.position.y);
             
         }
         else
@@ -37,8 +39,6 @@ public class BulletCtrl : MonoBehaviour {
         }
         else if (playerFollowingBullet)
         {
-            
-            
             transform.position = Vector3.MoveTowards(transform.position, followPos, bulletSpeed * Time.deltaTime);
            
         }

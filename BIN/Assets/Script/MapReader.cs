@@ -23,7 +23,6 @@ public class MapReader : MonoBehaviour
         foreach(var Item in GameObject.FindGameObjectsWithTag("mapcontent")) {
             Destroy(Item);
         }
-        
             RectTransform rt = Content.GetComponent<RectTransform>();
         int c = 0;
         int FileCount = 0;

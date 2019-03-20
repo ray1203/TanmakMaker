@@ -70,7 +70,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 19.317081
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +91,8 @@ MonoBehaviour:
   bullet: {fileID: 1051164381364156, guid: 82d137ba888337447bb1739375cfe369, type: 3}
   firerate: 1
   bulletSpeed: 1
+  normalBullet: 1
+  playerFollowingBullet: 0
 --- !u!212 &13
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -29,11 +29,11 @@ public class gameManager : MonoBehaviour {
                 E.GetComponent<SpriteRenderer>().color = e.transform.GetChild(i).GetComponent<EnemyData>().Color;
 
                 if (e.transform.GetChild(i).GetComponent<EnemyData>().Bullettype == 0) {
-                    E.GetComponent<EnemyCtrl>().bullet.GetComponent<BulletCtrl>().normalBullet = true;
-                    E.GetComponent<EnemyCtrl>().bullet.GetComponent<BulletCtrl>().playerFollowingBullet = false;
+                    E.GetComponent<EnemyCtrl>().normalBullet = true;
+                    E.GetComponent<EnemyCtrl>().playerFollowingBullet = false;
                 } else {
-                    E.GetComponent<EnemyCtrl>().bullet.GetComponent<BulletCtrl>().playerFollowingBullet = true;
-                    E.GetComponent<EnemyCtrl>().bullet.GetComponent<BulletCtrl>().normalBullet = false;
+                    E.GetComponent<EnemyCtrl>().playerFollowingBullet = true;
+                    E.GetComponent<EnemyCtrl>().normalBullet = false;
                 }
                 Instantiate(E);
             }

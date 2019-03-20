@@ -9,9 +9,9 @@ public class EnemyEdit:MonoBehaviour {
     int dragging;
     
     void Start() {
-        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
         try {
         EnemyOption = GameObject.Find("sendGameObject").GetComponent<SendGameObject>().getEnemyOption();
+        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
 
         } catch {
 

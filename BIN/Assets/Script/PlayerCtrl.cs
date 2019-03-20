@@ -17,7 +17,7 @@ public class PlayerCtrl:MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log(this.transform.position + "," + subCamera.transform.position);
+        //Debug.Log(this.transform.position + "," + subCamera.transform.position);
         move();
         stop();
         fire();

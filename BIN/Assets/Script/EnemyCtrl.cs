@@ -15,6 +15,8 @@ public class EnemyCtrl : MonoBehaviour {
     public float firerate = 0.5f;
     private float rate = 0f;
     public float bulletSpeed=10.0f;
+    public bool normalBullet = true;
+    public bool playerFollowingBullet = false;
     private Camera subCamera;
 	void Start () {
         subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
@@ -65,9 +67,10 @@ public class EnemyCtrl : MonoBehaviour {
     private void fire()
     {
         rate += Time.deltaTime;
-        if (rate >= firerate)
-        {
+        if (rate >= firerate) {
             bullet.GetComponent<BulletCtrl>().giveSpeed(bulletSpeed);
+            bullet.GetComponent<BulletCtrl>().playerFollowingBullet = this.playerFollowingBullet;
+            bullet.GetComponent<BulletCtrl>().normalBullet = this.normalBullet;
             Instantiate(bullet,transform.position,Quaternion.identity);
             rate = 0;
         }

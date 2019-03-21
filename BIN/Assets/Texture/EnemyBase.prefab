@@ -83,14 +83,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f250b90154523314ea37093a35b42296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: -0.880361, y: 3.510158}
-  pos1: {x: 1.94131, y: 3.329571}
-  pos2: {x: -2.528217, y: 3.261852}
-  spawnTime: 1
-  enemySpeed: 1
+  spawnPoint: {x: 0.9255078, y: 3.239278}
+  pos1: {x: -0.9255079, y: 3.555305}
+  pos2: {x: -2.257336, y: 2.923251}
+  spawnTime: 2
+  enemySpeed: 22
   bullet: {fileID: 1051164381364156, guid: 82d137ba888337447bb1739375cfe369, type: 3}
-  firerate: 1
-  bulletSpeed: 1
+  firerate: 22
+  bulletSpeed: 22
   normalBullet: 1
   playerFollowingBullet: 0
 --- !u!212 &13

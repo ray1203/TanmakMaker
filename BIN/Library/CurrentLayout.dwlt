@@ -99,10 +99,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 771
-  m_MinSize: {x: 683, y: 498}
-  m_MaxSize: {x: 14004, y: 14048}
+  m_MinSize: {x: 683, y: 348}
+  m_MaxSize: {x: 12008, y: 8048}
   vertical: 0
-  controlID: 60
+  controlID: 50
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,14 +148,14 @@ MonoBehaviour:
     y: 480
     width: 1254
     height: 291
-  m_MinSize: {x: 232, y: 274}
-  m_MaxSize: {x: 10002, y: 10024}
-  m_ActualView: {fileID: 13}
+  m_MinSize: {x: 102, y: 124}
+  m_MaxSize: {x: 4002, y: 4024}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,10 +244,10 @@ MonoBehaviour:
     y: 0
     width: 1254
     height: 771
-  m_MinSize: {x: 406, y: 498}
-  m_MaxSize: {x: 10002, y: 14048}
+  m_MinSize: {x: 406, y: 348}
+  m_MaxSize: {x: 8006, y: 8048}
   vertical: 1
-  controlID: 61
+  controlID: 51
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 62
+  controlID: 52
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -337,19 +337,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Texture
+    - Assets/Script
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Texture
+  - Assets/Script
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Git_project\BINgit\BIN
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 240b0000
-    m_LastClickedID: 2852
+    m_SelectedIDs: ea0a0000
+    m_LastClickedID: 2794
     m_ExpandedIDs: 00000000a40900000a0b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -403,8 +403,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: b6090000
+    m_LastClickedInstanceID: 2486
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 00000000dc2d0000
     m_RenameOverlay:
@@ -525,7 +525,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a67cffffba7cffffc67cffffd47cffffe27cffffe67cffff347dffff487dffff7c7effff947effffc07effffc47effffcac4ffffb8dbffff80f1ffff32f5ffffd4fbfffff4ffffff680c0000ec0c000092320000ba320000423600006a360000823f0000aa3f0000
+      m_ExpandedIDs: 42a1ffff56a1ffff8ca2ffffa4a2ffffd0a2ffffd4a2ffff68a5ffff7ca5ffffb2a6ffffcaa6fffff6a6fffffaa6ffffc6afffffdaafffff10b1ffff28b1ffff54b1ffff58b1ffff40b9ffff46bbffff5abbffff90bcffffa8bcffffd4bcffffd8bcffff62bdffff76bdffffacbeffffc4befffff0befffff4beffffecc3ffff00c4ffff36c5ffff4ec5ffff7ac5ffff7ec5ffff52c7ffff66c7ffff9cc8ffffb4c8ffffe0c8ffffe4c8ffff86c9ffff9ac9ffffd0caffffe8caffff14cbffff18cbffffc0cbffffd4cbffff08cdffff20cdffff4ccdffff50cdffffd4fbfffff4ffffffec0c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

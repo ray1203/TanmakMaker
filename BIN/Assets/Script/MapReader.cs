@@ -4,17 +4,23 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor;
 public class MapReader : MonoBehaviour
 {
     public InputField mapNameInput;
-    string m_strPath = "Assets/Resources/";
+    string m_strPath = "map/";
     public GameObject ContentUI;
     public GameObject Content;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log(Application.platform);
-        PathForDocumentsFile("Resources");
+        Debug.Log(Application.dataPath);
+        m_strPath=PathForDocumentsFile(m_strPath);
+        DirectoryInfo di = new DirectoryInfo(m_strPath);
+        if (di.Exists == false) {
+            di.Create();
+        }
         if (GameObject.FindWithTag("MapName")) Destroy(GameObject.FindWithTag("MapName"));
         if (GameObject.FindWithTag("fill")) Destroy(GameObject.FindWithTag("fill"));
         reloadmap();
@@ -37,9 +43,12 @@ public class MapReader : MonoBehaviour
             GameObject newObject = ContentUI;
             List<EnemyData> enemyDatas = new List<EnemyData>();
             newObject.transform.Find("mapname").GetComponent<Text>().text = Item.Name.Replace(".txt", "");
-            TextAsset data = Resources.Load(Item.Name.Replace(".txt", ""), typeof(TextAsset)) as TextAsset;
-            if (data != null) {
-                StringReader sr = new StringReader(data.text);
+            //TextAsset data = Resources.Load(Item.Name.Replace(".txt", ""), typeof(TextAsset)) as TextAsset;
+            //TextAsset data = AssetDatabase.LoadAssetAtPath(m_strPath + "/" + Item.Name, typeof(TextAsset))as TextAsset;
+            //Debug.Log(data);
+            //if (data != null) {
+            //StringReader sr = new StringReader(data.text);
+            StreamReader sr = Item.OpenText();
                 string source = sr.ReadLine();
                 while (source != null) {
                     string[] values;
@@ -51,10 +60,10 @@ public class MapReader : MonoBehaviour
                     enemyDatas.Add(new EnemyData(new Vector2(float.Parse(values[0]), float.Parse(values[1])), new Vector2(float.Parse(values[2]), float.Parse(values[3])), new Vector2(float.Parse(values[4]), float.Parse(values[5])), float.Parse(values[6]), float.Parse(values[7]), int.Parse(values[8]), float.Parse(values[9]), float.Parse(values[10]), new Color(float.Parse(values[11]), float.Parse(values[12]), float.Parse(values[13])), null, null));
                     source = sr.ReadLine();    // 한줄 읽는다.
                 }
-            }
-                rt.sizeDelta = new Vector2(rt.sizeDelta.x, 100 * (c+1));
+           // }
+            rt.sizeDelta = new Vector2(rt.sizeDelta.x, 100 * (c+1));
             newObject = Instantiate(newObject);
-                newObject.GetComponent<mapData>().EnemyDatas = enemyDatas;
+            newObject.GetComponent<mapData>().EnemyDatas = enemyDatas;
             newObject.transform.SetParent(Content.transform);
             newObject.transform.localPosition = new Vector3(0f, -75+FileCount*50-100 * (c++), 0);
             newObject.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -81,10 +90,11 @@ public class MapReader : MonoBehaviour
             path = path.Substring(0, path.LastIndexOf('/'));
             return Path.Combine(path, filename);
         } else if(Application.platform == RuntimePlatform.WindowsEditor) {
-            return "Assets/"+filename+"/";
+            string path = Application.dataPath + "/" + filename;
+            return path;
         } else if(Application.platform == RuntimePlatform.WindowsPlayer) {
-            string path = Application.dataPath;
-            return "Assets/" + filename + "/";
+            string path = Application.dataPath+"/"+filename;
+            return path;
         } else {
             string path = Application.dataPath;
             path = path.Substring(0, path.LastIndexOf('/'));

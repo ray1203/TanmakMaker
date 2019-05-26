@@ -71,7 +71,9 @@ public class PlayerCtrl:MonoBehaviour {
         playerSpeed = normalSpeed;
     }
     void OnDestroy() {
+        if (gameover!=null) {
         gameover.SetActive(true);
+        }
         Time.timeScale = 0.0f;
     }
 }

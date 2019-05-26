@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MapSave : MonoBehaviour
 {
     public GameObject enemy;
@@ -32,6 +32,30 @@ public class MapSave : MonoBehaviour
             w.WriteLine(str);
         }
         w.Close();
+        m_strPath = "map/";
+        m_strPath = PathForDocumentsFile(m_strPath);
+    }
+    public void delete() {
+        string mapName = GameObject.FindWithTag("MapName").name + ".txt";
+        string path = m_strPath;
+        path = path + mapName;
+        Debug.Log("delete map:" + path);
+        if (File.Exists(path)) {
+            System.IO.File.Delete(path);
+        }
+        m_strPath = "map/";
+        m_strPath = PathForDocumentsFile(m_strPath);
+
+    }
+    public void delete_warning() {
+        GameObject warn=GameObject.Find("background").GetComponent<MapReader>().warn;
+        Debug.Log(warn.name);
+        
+        for (int i = 0; i < warn.transform.childCount; i++) {
+            warn.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        warn.gameObject.SetActive(true);
+        GameObject.FindWithTag("MapName").name= this.transform.Find("mapname").GetComponent<Text>().text;
     }
     public string PathForDocumentsFile(string filename) {
         if (Application.platform == RuntimePlatform.IPhonePlayer) {

@@ -10,7 +10,7 @@ public class UIclose : MonoBehaviour {
     public GameObject ClickBan;
     private Camera subCamera;
     void Start() {
-        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
+        //subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
     }
 	public void close()
     {

@@ -1,0 +1,2 @@
+UI: https://assetstore.unity.com/packages/2d/gui/icons/easy-ui-emerald-default-112796
+탄막,캐릭터: https://assetstore.unity.com/packages/2d/textures-materials/galaxia-2d-space-shooter-sprite-pack-1-64944

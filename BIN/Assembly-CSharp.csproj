@@ -78,8 +78,11 @@
      <Compile Include="Assets\Script\TimeSelect.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
      <None Include="Assets\map\new.txt" />
+     <None Include="Assets\Texture\asset_link.txt" />
      <None Include="Assets\map\mapnum1.txt" />
      <None Include="Assets\map\mapnum2.txt" />
+     <None Include="Assets\map\좌표 테스트용.txt" />
+     <None Include="Assets\Galaxia Sprite Pack #1\README.txt" />
      <None Include="Assets\map\test.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

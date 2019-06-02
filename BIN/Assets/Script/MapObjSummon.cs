@@ -41,7 +41,7 @@ public class MapObjSummon : MonoBehaviour {
         newObject.GetComponent<Image>().color = currentColor;
         newObject.GetComponent<EnemyData>().SpawnTime = canvas.transform.Find("background").Find("Slider").GetComponent<TimeSelect>().GetValue();
         newObject.GetComponent<EnemyData>().EnemySprite = this.GetComponent<Image>().sprite;
-        newObject.GetComponent<EnemyData>().Color = this.GetComponent<Image>().color;
+        //newObject.GetComponent<EnemyData>().Color = this.GetComponent<Image>().color;
         Debug.Log(this.GetComponent<Image>().color.ToString());
         //newObject.transform.parent=canvas.transform.Find("Enemy");
         newObject.rectTransform.SetParent(canvas.transform.Find("background").Find("Enemy"));

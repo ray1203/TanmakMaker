@@ -1090,14 +1090,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d546e8836f1622240ac17c2031c69b72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36da0b7bdceee7a48851d5dd2aefe98f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4428,7 +4428,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1, y: 1.13}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1.1, y: 1.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6232,7 +6232,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 82680305}
   m_Direction: 2
   m_Value: 0.9999995
-  m_Size: 0.6195999
+  m_Size: 0.61959994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7664,6 +7664,26 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212395145762144472, guid: 0d6c774f859edf547a00239706241cc2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.43137258
+      objectReference: {fileID: 0}
+    - target: {fileID: 212395145762144472, guid: 0d6c774f859edf547a00239706241cc2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.43137258
+      objectReference: {fileID: 0}
+    - target: {fileID: 212395145762144472, guid: 0d6c774f859edf547a00239706241cc2,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.43137258
+      objectReference: {fileID: 0}
+    - target: {fileID: 212395145762144472, guid: 0d6c774f859edf547a00239706241cc2,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114775656030430794, guid: 0d6c774f859edf547a00239706241cc2,
         type: 3}
       propertyPath: playerSpeed
@@ -7688,26 +7708,6 @@ PrefabInstance:
         type: 3}
       propertyPath: god
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212395145762144472, guid: 0d6c774f859edf547a00239706241cc2,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.43137258
-      objectReference: {fileID: 0}
-    - target: {fileID: 212395145762144472, guid: 0d6c774f859edf547a00239706241cc2,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.43137258
-      objectReference: {fileID: 0}
-    - target: {fileID: 212395145762144472, guid: 0d6c774f859edf547a00239706241cc2,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.43137258
-      objectReference: {fileID: 0}
-    - target: {fileID: 212395145762144472, guid: 0d6c774f859edf547a00239706241cc2,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 58125123421883878, guid: 0d6c774f859edf547a00239706241cc2,
         type: 3}

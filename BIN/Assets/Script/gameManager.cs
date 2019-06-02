@@ -25,8 +25,8 @@ public class gameManager : MonoBehaviour {
                 E.GetComponent<EnemyCtrl>().firerate = e.transform.GetChild(i).GetComponent<EnemyData>().Firerate;
                 E.GetComponent<EnemyCtrl>().bulletSpeed = e.transform.GetChild(i).GetComponent<EnemyData>().BulletSpeed;
                 E.GetComponent<SpriteRenderer>().sprite = sprite;
-                E.transform.localScale = new Vector2(0.01f, 0.01f);
-                E.GetComponent<SpriteRenderer>().color = e.transform.GetChild(i).GetComponent<EnemyData>().Color;
+                E.transform.localScale = new Vector2(1.0f, 1.0f);
+                //E.GetComponent<SpriteRenderer>().color = e.transform.GetChild(i).GetComponent<EnemyData>().Color;
 
                 if (e.transform.GetChild(i).GetComponent<EnemyData>().Bullettype == 0) {
                     E.GetComponent<EnemyCtrl>().normalBullet = true;

@@ -35,6 +35,11 @@ public class EnemyCtrl : MonoBehaviour {
             move();
             fire();
         }
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
+        if (screenPos.x > 3300 || screenPos.x < 2700 || screenPos.y > 1000 || screenPos.y < 0) {
+            Destroy(this.gameObject);
+        }
+        
         
 	}
     private void move()

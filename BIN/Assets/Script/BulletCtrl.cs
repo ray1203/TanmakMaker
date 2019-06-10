@@ -11,11 +11,10 @@ public class BulletCtrl : MonoBehaviour {
     Vector3 playerPos;
 	// Use this for initialization
 	void Start () {
-        Debug.Log(normalBullet + "," + playerFollowingBullet);
+
         if (GameObject.Find("player") == true)
         {
             playerPos = GameObject.Find("player").GetComponent<PlayerCtrl>().pos();
-            Debug.Log("Playerpos:" + playerPos + "," + "Bulletpos:" + this.gameObject.transform.position);
             followPos.x = (playerPos.x-this.gameObject.transform.position.x);
             followPos.y = (playerPos.y- this.gameObject.transform.position.y);
             

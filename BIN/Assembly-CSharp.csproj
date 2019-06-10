@@ -60,6 +60,7 @@
      <Compile Include="Assets\Script\EnemyEdit.cs" />
      <Compile Include="Assets\Script\gameManager.cs" />
      <Compile Include="Assets\Script\GetTouchXY.cs" />
+     <Compile Include="Assets\Script\JoyStick.cs" />
      <Compile Include="Assets\Script\MainToEdit.cs" />
      <Compile Include="Assets\Script\mapData.cs" />
      <Compile Include="Assets\Script\MapObjSummon.cs" />
@@ -81,7 +82,6 @@
      <None Include="Assets\Texture\asset_link.txt" />
      <None Include="Assets\map\mapnum1.txt" />
      <None Include="Assets\map\mapnum2.txt" />
-     <None Include="Assets\map\좌표 테스트용.txt" />
      <None Include="Assets\Galaxia Sprite Pack #1\README.txt" />
      <None Include="Assets\map\test.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">

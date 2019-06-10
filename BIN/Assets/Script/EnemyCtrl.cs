@@ -66,7 +66,7 @@ public class EnemyCtrl : MonoBehaviour {
     }
     private void OnBecameInvisible()
     {
-        Debug.Log("Destroy" + this.transform.position);
+
         Destroy(gameObject);
     }
     private void fire()

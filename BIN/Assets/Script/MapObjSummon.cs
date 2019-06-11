@@ -11,6 +11,7 @@ public class MapObjSummon : MonoBehaviour {
     private GameObject[,] aaa;
     private List<GameObject> list;
     private GameObject canvas;
+    public Sprite EnemySprite;
     private void Start()
     {
         canvas = GameObject.Find("Canvas");
@@ -37,10 +38,13 @@ public class MapObjSummon : MonoBehaviour {
         //newObject.transform.position = new Vector3(0f,0f,0f);
         //newObject.rectTransform.position= new Vector3(0f, 0f, 0f);
         newObject.gameObject.transform.position=new Vector3(0f, 0f, 0f);
-        newObject.GetComponent<Image>().sprite = currentSprite;
+        newObject.GetComponent<Image>().sprite = EnemySprite;
         newObject.GetComponent<Image>().color = currentColor;
         newObject.GetComponent<EnemyData>().SpawnTime = canvas.transform.Find("background").Find("Slider").GetComponent<TimeSelect>().GetValue();
-        newObject.GetComponent<EnemyData>().EnemySprite = this.GetComponent<Image>().sprite;
+        newObject.GetComponent<EnemyData>().EnemySpeed = 1f;
+        newObject.GetComponent<EnemyData>().Firerate = 1f;
+        newObject.GetComponent<EnemyData>().BulletSpeed = 1f;
+        newObject.GetComponent<EnemyData>().EnemySprite = EnemySprite;
         //newObject.GetComponent<EnemyData>().Color = this.GetComponent<Image>().color;
         Debug.Log(this.GetComponent<Image>().color.ToString());
         //newObject.transform.parent=canvas.transform.Find("Enemy");

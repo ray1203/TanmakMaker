@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCtrl:MonoBehaviour {
-    public float playerSpeed = 10f;
-    public float normalSpeed = 10f, slowSpeed = 1f;
+    public float playerSpeed = 5f;
+    public float normalSpeed = 5f, slowSpeed = 1f;
     public float aliveTime = 0f;
     public GameObject bullet;
     public float rate = 0f;
@@ -13,7 +13,12 @@ public class PlayerCtrl:MonoBehaviour {
     public GameObject gameover;
     private Camera subCamera;
     void Start() {
-        subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
+
+
+        playerSpeed = 5f;
+        normalSpeed = 5f;
+        slowSpeed = 1f;
+    subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
     }
 
     void Update() {

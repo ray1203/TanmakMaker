@@ -71,4 +71,10 @@ public class UIclose : MonoBehaviour {
         GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = true;
         this.gameObject.SetActive(false);
     }
+    public void deleteEnemy() {
+        ClickBan.SetActive(false);
+        GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = true;
+        Destroy(enemy);
+        close();
+    }
 }

@@ -84,6 +84,7 @@
      <None Include="Assets\Texture\asset_link.txt" />
      <None Include="Assets\map\mapnum1.txt" />
      <None Include="Assets\map\mapnum2.txt" />
+     <None Include="Assets\map\tfhth.txt" />
      <None Include="Assets\Galaxia Sprite Pack #1\README.txt" />
      <None Include="Assets\map\ss.txt" />
      <None Include="Assets\map\test.txt" />

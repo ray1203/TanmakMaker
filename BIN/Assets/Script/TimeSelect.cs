@@ -8,10 +8,15 @@ public class TimeSelect : MonoBehaviour
     Slider slider;
     float max = 0;
     int value = 0;
+    int lastvalue = 0;
+    string lastText = "";
     public GameObject enemy;
+    int lastChild = 0, nowChild = 0;
     // Start is called before the first frame update
     void Start()
     {
+        enemy.GetComponent<ShowEnemyByTime>().show(value);
+        inputField.text = "0";
         slider = this.gameObject.GetComponent<Slider>();
     }
 
@@ -19,8 +24,18 @@ public class TimeSelect : MonoBehaviour
     void Update()
     {
         value = (int)Mathf.Floor(this.transform.GetComponent<Slider>().value);
-        enemy.GetComponent<ShowEnemyByTime>().show(value);
-        inputField.text = value.ToString();
+        if (value != lastvalue) {
+            inputField.text = value.ToString();
+            enemy.GetComponent<ShowEnemyByTime>().show(value);
+        }
+        
+        lastvalue= value;
+        nowChild = enemy.transform.childCount;
+        if (nowChild != lastChild) {
+            enemy.GetComponent<ShowEnemyByTime>().show(value);
+
+        }
+        lastChild = nowChild;
 
     }
     public void MaxSummonTime(float t) {
@@ -36,5 +51,18 @@ public class TimeSelect : MonoBehaviour
     }
     public int GetValue() {
         return value;
+    }
+    public void GetText() {
+        if(int.Parse(inputField.text)<int.MaxValue&& int.Parse(inputField.text)>=0)
+        this.transform.GetComponent<Slider>().value = int.Parse(inputField.text);
+    }
+    public void resetValue() {
+        this.transform.GetComponent<Slider>().value = 0;
+        this.transform.GetComponent<Slider>().maxValue = 0;
+        inputField.text = "0";
+        max = 0;
+        value = 0;
+        lastvalue = 0;
+
     }
 }

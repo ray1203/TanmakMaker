@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UIclose : MonoBehaviour {
     private GameObject enemy;
+    private GameObject Enemy;//enemy가 저장되어 모여있는 오브젝트
     public GameObject summonTime, summonxy, firstmovexy, secondmovexy, movespeed, firerate, bullettype, bulletspeed;
     private EnemyData enemyData;
     public Slider slider;
@@ -11,6 +12,7 @@ public class UIclose : MonoBehaviour {
     private Camera subCamera;
     void Start() {
         //subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
+        Enemy = GameObject.Find("Enemy");
     }
 	public void close()
     {
@@ -36,7 +38,6 @@ public class UIclose : MonoBehaviour {
             if (this.transform.GetChild(i).gameObject.name == "TouchScreen") continue;
             this.transform.GetChild(i).gameObject.SetActive(true);
         }
-        Debug.Log("Spawn:" + enemyData.SpawnPoint);
         summonTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text = ""+enemyData.SpawnTime;
         summonxy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text= "" + enemyData.SpawnPoint.x;
         summonxy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text = "" + enemyData.SpawnPoint.y;
@@ -53,6 +54,8 @@ public class UIclose : MonoBehaviour {
     }
     public void closeEnemyOption() {
         enemyData.SpawnTime = float.Parse(summonTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        if (enemyData.SpawnTime < 0) enemyData.SpawnTime = 0;
+        else if (enemyData.SpawnTime > 3600) enemyData.SpawnTime = 3600;
         slider.GetComponent<TimeSelect>().MaxSummonTime(enemyData.SpawnTime);
         enemyData.SpawnPoint = new Vector2(float.Parse(summonxy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(summonxy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
         enemyData.Pos1 = new Vector2(float.Parse(firstmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(firstmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
@@ -62,19 +65,42 @@ public class UIclose : MonoBehaviour {
         enemyData.Bullettype = bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value;
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemy.gameObject.transform.position = enemyData.SpawnPoint;
-        Debug.Log(Camera.main.ScreenToWorldPoint(enemyData.SpawnPoint));
 
         for (int i = 0; i < this.transform.childCount; i++) {
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
         ClickBan.SetActive(false);
         GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = true;
+        Enemy.GetComponent<ShowEnemyByTime>().show((int)slider.value);
         this.gameObject.SetActive(false);
     }
     public void deleteEnemy() {
+        GameObject enemys;
+        float enemyTime = 0f;
+        enemyTime = enemy.GetComponent<EnemyData>().SpawnTime;
+        enemys = GameObject.Find("Enemy");
+        TimeSelect timeSelect = slider.GetComponent<TimeSelect>();
+        
         ClickBan.SetActive(false);
         GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = true;
+        timeSelect.resetValue();
+        for (int i = 0; i < enemys.transform.childCount; i++) {
+            float t = enemys.transform.GetChild(i).GetComponent<EnemyData>().SpawnTime;
+            if (enemyTime==t) {
+                enemyTime = -1;
+                continue;
+            }
+            timeSelect.MaxSummonTime(t);
+
+        }
         Destroy(enemy);
+        
         close();
+            
+                
+            
+            
+        
+        
     }
 }

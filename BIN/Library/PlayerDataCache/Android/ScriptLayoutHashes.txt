@@ -124,6 +124,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MyUIHoverListener
 2318ddd6a260093b3b071632b5716280 Assembly-CSharp.dll:.JoyStick
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CanvasScaleSet
 b8b42ba420b738adfcdbdea870d5e6d5 Assembly-CSharp.dll:.MapSave
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 4ae89b330cc08056f07ede9533c99279 Assembly-CSharp.dll:.PlayerCtrl
@@ -186,4 +187,3 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EnemyData
 4246d526fe403411c2fb1408634b8fab Assembly-CSharp.dll:.MainToEdit
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CanvasScaleSet

@@ -14,8 +14,9 @@ public class EnemyData :MonoBehaviour {
     private float bulletSpeed = 0f;
     private Sprite enemySprite;
     private Color color;
+    private int spreadPoint;
 
-    public EnemyData(Vector2 spawnPoint, Vector2 pos1, Vector2 pos2, float spawnTime, float enemySpeed,  int bullettype, float firerate, float bulletSpeed,  Color color,Sprite bulletSprite,Sprite enemySprite) {
+    public EnemyData(Vector2 spawnPoint, Vector2 pos1, Vector2 pos2, float spawnTime, float enemySpeed,  int bullettype, float firerate, float bulletSpeed,  Color color,Sprite bulletSprite,Sprite enemySprite, int spreadPoint) {
         this.spawnPoint = spawnPoint;
         this.pos1 = pos1;
         this.pos2 = pos2;
@@ -27,6 +28,7 @@ public class EnemyData :MonoBehaviour {
         this.bulletSpeed = bulletSpeed;
         this.enemySprite = enemySprite;
         this.color = color;
+        this.spreadPoint = spreadPoint;
     }
     public void putDatas(EnemyData e) {
         this.spawnPoint = e.spawnPoint;
@@ -40,6 +42,7 @@ public class EnemyData :MonoBehaviour {
         this.bulletSpeed = e.bulletSpeed;
         this.enemySprite = e.enemySprite;
         this.color = e.color;
+        this.spreadPoint = e.spreadPoint;
     }
     public void printDatas() {
         Debug.Log("spawnpoint:" + spawnPoint + ",pos1:" + pos1 + ",pos2:" + pos2 + ",spawntime:" + spawnTime + ",enemyspeed:" + enemySpeed);
@@ -150,6 +153,15 @@ public class EnemyData :MonoBehaviour {
 
         set {
             color = value;
+        }
+    }
+    public int SpreadPoint {
+        get {
+            return spreadPoint;
+        }
+
+        set {
+            spreadPoint = value;
         }
     }
 }

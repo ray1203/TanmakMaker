@@ -24,6 +24,7 @@ public class gameManager : MonoBehaviour {
                 E.GetComponent<EnemyCtrl>().enemySpeed = e.transform.GetChild(i).GetComponent<EnemyData>().EnemySpeed;
                 E.GetComponent<EnemyCtrl>().firerate = e.transform.GetChild(i).GetComponent<EnemyData>().Firerate;
                 E.GetComponent<EnemyCtrl>().bulletSpeed = e.transform.GetChild(i).GetComponent<EnemyData>().BulletSpeed;
+                E.GetComponent<EnemyCtrl>().spreadPoint = e.transform.GetChild(i).GetComponent<EnemyData>().SpreadPoint;
                 E.GetComponent<SpriteRenderer>().sprite = sprite;
                 E.transform.localScale = new Vector2(1.0f, 1.0f);
                 //E.GetComponent<SpriteRenderer>().color = e.transform.GetChild(i).GetComponent<EnemyData>().Color;
@@ -31,9 +32,15 @@ public class gameManager : MonoBehaviour {
                 if (e.transform.GetChild(i).GetComponent<EnemyData>().Bullettype == 0) {
                     E.GetComponent<EnemyCtrl>().normalBullet = true;
                     E.GetComponent<EnemyCtrl>().playerFollowingBullet = false;
-                } else {
+                    E.GetComponent<EnemyCtrl>().spreadBullet = false;
+                } else if(e.transform.GetChild(i).GetComponent<EnemyData>().Bullettype == 1) {
                     E.GetComponent<EnemyCtrl>().playerFollowingBullet = true;
                     E.GetComponent<EnemyCtrl>().normalBullet = false;
+                    E.GetComponent<EnemyCtrl>().spreadBullet = false;
+                } else if (e.transform.GetChild(i).GetComponent<EnemyData>().Bullettype == 2) {
+                    E.GetComponent<EnemyCtrl>().playerFollowingBullet = false;
+                    E.GetComponent<EnemyCtrl>().normalBullet = false;
+                    E.GetComponent<EnemyCtrl>().spreadBullet = true;
                 }
                 Instantiate(E);
             }

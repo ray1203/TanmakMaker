@@ -17,9 +17,15 @@ public class EnemyCtrl : MonoBehaviour {
     public float bulletSpeed=10.0f;
     public bool normalBullet = true;
     public bool playerFollowingBullet = false;
+    public bool spreadBullet = false;
+    public int spreadPoint = 0;
+    public float angle = 0f;
     private Camera subCamera;
+    private BulletCtrl bulletCtrl;
 	void Start () {
+        bulletCtrl = bullet.GetComponent<BulletCtrl>();
         subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
+        angle = 360f / (float)(spreadPoint);
     }
 	
 	void Update () {
@@ -35,7 +41,7 @@ public class EnemyCtrl : MonoBehaviour {
             move();
             fire();
         }
-        Vector2 screenPos = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
+        //Vector2 screenPos = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
         //if (screenPos.x > 3300 || screenPos.x < 2700 || screenPos.y > 1000 || screenPos.y < 0) {
         //    Destroy(this.gameObject);
        // }
@@ -73,10 +79,19 @@ public class EnemyCtrl : MonoBehaviour {
     {
         rate += Time.deltaTime;
         if (rate >= firerate) {
-            bullet.GetComponent<BulletCtrl>().giveSpeed(bulletSpeed);
-            bullet.GetComponent<BulletCtrl>().playerFollowingBullet = this.playerFollowingBullet;
-            bullet.GetComponent<BulletCtrl>().normalBullet = this.normalBullet;
-            Instantiate(bullet,transform.position,Quaternion.identity);
+            bulletCtrl.giveSpeed(bulletSpeed);
+            bulletCtrl.playerFollowingBullet = this.playerFollowingBullet;
+            bulletCtrl.normalBullet = this.normalBullet;
+            bulletCtrl.spreadBullet = this.spreadBullet;
+            if (spreadBullet) {
+                for(int i = 0; i < spreadPoint; i++) {
+                    bulletCtrl.spreadAngle = 180f+i * angle;
+                    Instantiate(bullet,transform.position,Quaternion.identity);
+                }
+            } else {
+                Instantiate(bullet, transform.position, Quaternion.identity);
+            }
+            
             rate = 0;
         }
     }

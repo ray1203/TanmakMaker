@@ -59,7 +59,7 @@ public class MapReader : MonoBehaviour
                         sr.Close();
                         return;
                     }
-                    enemyDatas.Add(new EnemyData(new Vector2(float.Parse(values[0]), float.Parse(values[1])), new Vector2(float.Parse(values[2]), float.Parse(values[3])), new Vector2(float.Parse(values[4]), float.Parse(values[5])), float.Parse(values[6]), float.Parse(values[7]), int.Parse(values[8]), float.Parse(values[9]), float.Parse(values[10]), new Color(float.Parse(values[11]), float.Parse(values[12]), float.Parse(values[13])), null, null));
+                    enemyDatas.Add(new EnemyData(new Vector2(float.Parse(values[0]), float.Parse(values[1])), new Vector2(float.Parse(values[2]), float.Parse(values[3])), new Vector2(float.Parse(values[4]), float.Parse(values[5])), float.Parse(values[6]), float.Parse(values[7]), int.Parse(values[8]), float.Parse(values[9]), float.Parse(values[10]), new Color(float.Parse(values[11]), float.Parse(values[12]), float.Parse(values[13])), null, null,int.Parse(values[16])));
                     source = sr.ReadLine();    // 한줄 읽는다.
                 }
            // }

@@ -9,6 +9,7 @@ public class UIclose : MonoBehaviour {
     private EnemyData enemyData;
     public Slider slider;
     public GameObject ClickBan;
+    public GameObject EnemyListWindow;
     private Camera subCamera;
     void Start() {
         //subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
@@ -75,6 +76,7 @@ public class UIclose : MonoBehaviour {
         ClickBan.SetActive(false);
         GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = true;
         Enemy.GetComponent<ShowEnemyByTime>().show((int)slider.value);
+        EnemyListWindow.GetComponent<ShowEnemyList>().show();
         this.gameObject.SetActive(false);
     }
     public void deleteEnemy() {

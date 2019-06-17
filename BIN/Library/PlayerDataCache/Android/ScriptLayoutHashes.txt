@@ -21,7 +21,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-7675d112b07128814df5c9bb092e04a8 Assembly-CSharp.dll:.EnemyCtrl
+0fd51ee9bb5d941fc0edf8d009a872a9 Assembly-CSharp.dll:.EnemyCtrl
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.Editor.dll:UnityEngine.Advertisements.Editor.Placeholder
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -172,11 +172,11 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ScreenResolution
-22414d64f965fdab16a375870eb66835 Assembly-CSharp.dll:.BulletCtrl
+71d9df5100db67d9fcf5164a38383c15 Assembly-CSharp.dll:.BulletCtrl
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-ab770e07db022327e8d4553ee637452a Assembly-CSharp.dll:.UIclose
+9991e00c472ac5abdfc9f5479c8cb81e Assembly-CSharp.dll:.UIclose
 146055669f9da6daa2556c7284e75964 Assembly-CSharp.dll:.mapData
 7e75706fdc62d33efaf312b7e562a3b5 Assembly-CSharp.dll:.MapReader
 44275bf3eda303e9e1bc96149e1e3c51 Assembly-CSharp.dll:.TimeSelect
@@ -187,3 +187,5 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EnemyData
 4246d526fe403411c2fb1408634b8fab Assembly-CSharp.dll:.MainToEdit
+b100b2cc379748b0bb48d4afd458dd18 Assembly-CSharp.dll:.ShowEnemyList
+4a751cbe61dd4537df864729b27d0bef Assembly-CSharp.dll:.ShowEnemyListData

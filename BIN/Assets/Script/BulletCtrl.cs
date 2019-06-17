@@ -20,8 +20,8 @@ public class BulletCtrl : MonoBehaviour {
         } else if (GameObject.Find("player") == true)
         {
             playerPos = GameObject.Find("player").GetComponent<PlayerCtrl>().pos();
-            followPos.x = playerPos.x+((this.gameObject.transform.position.x-playerPos.x)*100);
-            followPos.y = playerPos.y + ((this.gameObject.transform.position.y-playerPos.y )*100);
+            followPos.x = playerPos.x-((this.gameObject.transform.position.x-playerPos.x)*100);
+            followPos.y = playerPos.y - ((this.gameObject.transform.position.y-playerPos.y )*100);
             
         }
         else

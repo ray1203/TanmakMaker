@@ -26,7 +26,9 @@ public class PlayerCtrl:MonoBehaviour {
         move();
         stop();
         fire();
-
+        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)) {
+            SlowSpeed();
+        } else if(Input.GetKeyUp(KeyCode.LeftAlt)||Input.GetKeyUp(KeyCode.LeftControl))NormalSpeed();
         aliveTime += Time.deltaTime;
 
 

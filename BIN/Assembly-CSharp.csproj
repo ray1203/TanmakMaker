@@ -76,14 +76,20 @@
      <Compile Include="Assets\Script\ScreenResolution.cs" />
      <Compile Include="Assets\Script\SendGameObject.cs" />
      <Compile Include="Assets\Script\ShowEnemyByTime.cs" />
+     <Compile Include="Assets\Script\ShowEnemyList.cs" />
+     <Compile Include="Assets\Script\ShowEnemyListData.cs" />
      <Compile Include="Assets\Script\TargetCtrl.cs" />
      <Compile Include="Assets\Script\TimeSelect.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
      <None Include="Assets\map\dd.txt" />
+     <None Include="Assets\map\ff.txt" />
      <None Include="Assets\Texture\asset_link.txt" />
      <None Include="Assets\map\mapnum1.txt" />
+     <None Include="Assets\map\생성.txt" />
+     <None Include="Assets\map\겹침 테스트.txt" />
      <None Include="Assets\map\방사 테스트.txt" />
      <None Include="Assets\Galaxia Sprite Pack #1\README.txt" />
+     <None Include="Assets\map\te.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

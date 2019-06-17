@@ -58,5 +58,7 @@ public class EnemyEdit:MonoBehaviour {
         }
         
     }
-
+    public void edit() {
+        EnemyOption.gameObject.GetComponent<UIclose>().openEnemyOption(this.gameObject);
+    }
 }

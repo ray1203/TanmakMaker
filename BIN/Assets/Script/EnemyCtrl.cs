@@ -98,11 +98,11 @@ public class EnemyCtrl : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (spawnflag == 1) {
-            if (other.gameObject.tag.Equals("playerBullet")){
+            /*if (other.gameObject.tag.Equals("playerBullet")){
                 gameManager.instance.AddScore(500);
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
-            }else if (other.gameObject.tag.Equals("Player")) {
+            }else */if (other.gameObject.tag.Equals("Player")) {
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
             }

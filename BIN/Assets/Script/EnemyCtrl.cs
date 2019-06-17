@@ -7,7 +7,7 @@ public class EnemyCtrl : MonoBehaviour {
     public Vector2 pos1;
     public Vector2 pos2;
     private int flag = 0;//pos1 도착 시 1 pos2 도착 시 2
-    private int spawnflag = 0;
+    public int spawnflag = 0;
     public float spawnTime = 2f;
     public float enemySpeed = 2.0f;
     private Vector2 pos;

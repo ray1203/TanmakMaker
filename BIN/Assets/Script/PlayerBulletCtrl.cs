@@ -27,7 +27,7 @@ public class PlayerBulletCtrl : MonoBehaviour {
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }else */
-            if (flag==0&&other.gameObject.tag.Equals("Enemy")) {
+            if (flag==0&&other.gameObject.tag.Equals("Enemy")&&other.GetComponent<EnemyCtrl>().spawnflag==1) {
             flag++;
             Debug.Log("B");
             gameManager.instance.AddScore(500);

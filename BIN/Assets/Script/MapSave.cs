@@ -21,9 +21,8 @@ public class MapSave : MonoBehaviour
         string mapName = GameObject.FindWithTag("MapName").name+".txt";
         string path = m_strPath;
         path = path + mapName;
-        Debug.Log(path);
         FileStream fs = new FileStream(path, FileMode.Create);
-        Debug.Log(mapName + "," + fs);
+     
         StreamWriter w = new StreamWriter(fs);
         for(int i = 0; i < enemy.transform.childCount; i++) {
             Debug.Log(i);

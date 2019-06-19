@@ -17,7 +17,7 @@ public class PlayerCtrl:MonoBehaviour {
 
         playerSpeed = 5f;
         normalSpeed = 5f;
-        slowSpeed = 1f;
+        slowSpeed = 2f;
     subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
     }
 
@@ -26,9 +26,9 @@ public class PlayerCtrl:MonoBehaviour {
         move();
         stop();
         fire();
-        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)) {
+        if (Input.touchCount>=2||Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)||Input.GetKeyDown(KeyCode.LeftShift)) {
             SlowSpeed();
-        } else if(Input.GetKeyUp(KeyCode.LeftAlt)||Input.GetKeyUp(KeyCode.LeftControl))NormalSpeed();
+        } else if(Input.touchCount < 2||Input.GetKeyUp(KeyCode.LeftAlt)||Input.GetKeyUp(KeyCode.LeftControl))NormalSpeed();
         aliveTime += Time.deltaTime;
 
 

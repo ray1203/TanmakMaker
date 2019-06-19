@@ -15,8 +15,6 @@ public class MapReader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Application.platform);
-        Debug.Log(Application.dataPath);
         m_strPath=PathForDocumentsFile(m_strPath);
         DirectoryInfo di = new DirectoryInfo(m_strPath);
         if (di.Exists == false) {
@@ -45,11 +43,6 @@ public class MapReader : MonoBehaviour
             GameObject newObject = ContentUI;
             List<EnemyData> enemyDatas = new List<EnemyData>();
             newObject.transform.Find("mapname").GetComponent<Text>().text = Item.Name.Replace(".txt", "");
-            //TextAsset data = Resources.Load(Item.Name.Replace(".txt", ""), typeof(TextAsset)) as TextAsset;
-            //TextAsset data = AssetDatabase.LoadAssetAtPath(m_strPath + "/" + Item.Name, typeof(TextAsset))as TextAsset;
-            //Debug.Log(data);
-            //if (data != null) {
-            //StringReader sr = new StringReader(data.text);
             StreamReader sr = Item.OpenText();
                 string source = sr.ReadLine();
                 while (source != null) {

@@ -181,6 +181,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 146055669f9da6daa2556c7284e75964 Assembly-CSharp.dll:.mapData
 7e75706fdc62d33efaf312b7e562a3b5 Assembly-CSharp.dll:.MapReader
 44275bf3eda303e9e1bc96149e1e3c51 Assembly-CSharp.dll:.TimeSelect
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.OpenFolder
 b100b2cc379748b0bb48d4afd458dd18 Assembly-CSharp.dll:.ShowEnemyList
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 e7819536a7398985b276ebf583c56ea7 Assembly-CSharp.dll:.SendGameObject

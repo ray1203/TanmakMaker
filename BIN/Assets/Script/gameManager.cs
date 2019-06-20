@@ -62,7 +62,9 @@ public class gameManager : MonoBehaviour {
         t++;
         if (t>10&&!GameObject.FindWithTag("Enemy")) {
             victory.SetActive(true);
+            victory.transform.Find("Image").Find("Result").GetComponent<Text>().text = GameObject.FindWithTag("MapName").name + " 맵에서 " + score + "점을 달성하였습니다.";
             Time.timeScale = 0.0f;
+            
         }
 	}
 }

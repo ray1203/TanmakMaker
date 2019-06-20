@@ -85,10 +85,10 @@ public class UIclose : MonoBehaviour {
         enemyTime = enemy.GetComponent<EnemyData>().SpawnTime;
         enemys = GameObject.Find("Enemy");
         TimeSelect timeSelect = slider.GetComponent<TimeSelect>();
-        
+        int value = timeSelect.GetValue();
         ClickBan.SetActive(false);
         GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = true;
-        timeSelect.resetValue();
+        /*timeSelect.resetValue();
         for (int i = 0; i < enemys.transform.childCount; i++) {
             float t = enemys.transform.GetChild(i).GetComponent<EnemyData>().SpawnTime;
             if (enemyTime==t) {
@@ -97,9 +97,10 @@ public class UIclose : MonoBehaviour {
             }
             timeSelect.MaxSummonTime(t);
 
-        }
+        }*/
+        //timeSelect.ChangeValue(value);
         Destroy(enemy);
-        
+        Enemy.GetComponent<ShowEnemyByTime>().show((int)slider.value);
         close();
             
                 

@@ -38,7 +38,6 @@ public class MapSave : MonoBehaviour
         string mapName = GameObject.FindWithTag("MapName").name + ".txt";
         string path = m_strPath;
         path = path + mapName;
-        Debug.Log("delete map:" + path);
         if (File.Exists(path)) {
             System.IO.File.Delete(path);
         }
@@ -48,7 +47,6 @@ public class MapSave : MonoBehaviour
     }
     public void delete_warning() {
         GameObject warn=GameObject.Find("background").GetComponent<MapReader>().warn;
-        Debug.Log(warn.name);
         
         for (int i = 0; i < warn.transform.childCount; i++) {
             warn.transform.GetChild(i).gameObject.SetActive(true);

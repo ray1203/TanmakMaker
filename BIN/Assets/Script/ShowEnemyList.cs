@@ -11,7 +11,9 @@ public class ShowEnemyList:MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        for(int i = 0; i < Content.transform.childCount; i++) {
+            if (Content.transform.GetChild(i).Find("Button").GetComponent<ShowEnemyListData>().editingEnemy == null) Destroy(Content.transform.GetChild(i).gameObject);
+        }
     }
     public void show() {
         for (int i = 0; i < Content.transform.childCount; i++) {
@@ -35,5 +37,6 @@ public class ShowEnemyList:MonoBehaviour {
                 Destroy(Enemy.transform.GetChild(i).gameObject);
             }
         }
+        show();
     }
 }

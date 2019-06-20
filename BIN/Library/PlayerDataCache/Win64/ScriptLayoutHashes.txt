@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/HP/Documents/유니티 빌드/BIN.exe
+C:/Users/HP/Documents/유니티 빌드/탄막메이커.exe
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/mapEditor.unity
@@ -21,7 +21,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-a7082d256cdc01ccdc0aba594de6dacf Assembly-CSharp.dll:.EnemyCtrl
+5b0f5e2225557d18b6f5d45321141930 Assembly-CSharp.dll:.EnemyCtrl
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.Editor.dll:UnityEngine.Advertisements.Editor.Placeholder
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -190,3 +190,5 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EnemyData
 4246d526fe403411c2fb1408634b8fab Assembly-CSharp.dll:.MainToEdit
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DefaultMap
+56a48eaace5d1afe2625633bb61e7ec3 Assembly-CSharp.dll:.ShowPath

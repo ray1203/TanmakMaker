@@ -20,6 +20,7 @@ public class EnemyCtrl : MonoBehaviour {
     public bool spreadBullet = false;
     public int spreadPoint = 0;
     public float angle = 0f;
+    public float spreadRotateAngle = 0f;
     private Camera subCamera;
     private BulletCtrl bulletCtrl;
 	void Start () {
@@ -85,9 +86,12 @@ public class EnemyCtrl : MonoBehaviour {
             bulletCtrl.spreadBullet = this.spreadBullet;
             if (spreadBullet) {
                 for(int i = 0; i < spreadPoint; i++) {
-                    bulletCtrl.spreadAngle = 180f+i * angle;
+                    bulletCtrl.spreadAngle = 180f+i * angle+spreadRotateAngle;
                     Instantiate(bullet,transform.position,Quaternion.identity);
                 }
+                spreadRotateAngle += 10f;
+                //spreadRotateAngle += angle / 2;
+                if (spreadRotateAngle >= 360f) spreadRotateAngle -= 360f;
             } else {
                 Instantiate(bullet, transform.position, Quaternion.identity);
             }

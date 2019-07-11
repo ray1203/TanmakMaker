@@ -33,8 +33,9 @@ public class MapObjSummon : MonoBehaviour {
     public void Summon()
     {
         Image newObject = Instantiate(baseEnemy) as Image;
+        newObject.rectTransform.SetParent(canvas.transform.Find("background").Find("Enemy"));
         //newObject.transform.localScale = new Vector3(0.1f, 0.1f, 1);
-        newObject.rectTransform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        newObject.rectTransform.localScale = new Vector3(1f, 1f, 1f);
         //newObject.transform.position = new Vector3(0f,0f,0f);
         //newObject.rectTransform.position= new Vector3(0f, 0f, 0f);
         newObject.gameObject.transform.position=new Vector3(0f, 0f, 0f);
@@ -51,7 +52,6 @@ public class MapObjSummon : MonoBehaviour {
         newObject.GetComponent<EnemyData>().Pos = posList;
         //newObject.GetComponent<EnemyData>().Color = this.GetComponent<Image>().color;
         //newObject.transform.parent=canvas.transform.Find("Enemy");
-        newObject.rectTransform.SetParent(canvas.transform.Find("background").Find("Enemy"));
     }
     /*private void OnMouseDrag()
     {

@@ -28,11 +28,11 @@ public class MainToEdit : MonoBehaviour
         gameObject.name = "enemy";
         foreach(var Item in enemyDatas) {
             GameObject newObject=Instantiate(EnemyEditor);
+            newObject.transform.SetParent(gameObject.transform);
             newObject.GetComponent<EnemyData>().putDatas(Item);
             newObject.GetComponent<Image>().sprite = EnemySprite;
             newObject.transform.position = Item.Pos[0];
             newObject.transform.localScale = new Vector2(0.01f, 0.01f);
-            newObject.transform.SetParent(gameObject.transform);
         }
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(mapName);

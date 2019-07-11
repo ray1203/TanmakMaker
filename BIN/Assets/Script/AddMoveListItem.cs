@@ -19,14 +19,17 @@ public class AddMoveListItem : MonoBehaviour
     }
     public void AddItem() {
         GameObject gameObject = Instantiate(MoveXY)as GameObject;
-        gameObject.transform.localScale = new Vector3(1/160f,1/160f, 1);
         gameObject.transform.SetParent(Content.transform);
+        gameObject.transform.localScale = new Vector3(1f,1f, 1f);
     }
     public void AddItem(Vector2 pos) {
         GameObject gameObject = Instantiate(MoveXY) as GameObject;
-        gameObject.transform.localScale = new Vector3(1 / 160f, 1 / 160f, 1);
+        gameObject.transform.SetParent(Content.transform);
+        gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        //gameObject.transform.localScale.Set(1f, 1f, 1f);
+        //gameObject.transform.localScale = new Vector3(1 / 160f, 1 / 160f, 1);
+        
         gameObject.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text = "" + pos.x;
         gameObject.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text = "" + pos.y;
-        gameObject.transform.SetParent(Content.transform);
     }
 }

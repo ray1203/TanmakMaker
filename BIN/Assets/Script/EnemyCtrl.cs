@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class EnemyCtrl : MonoBehaviour {
     public int hp;
-    public Vector2 spawnPoint;
-    public Vector2 pos1;
-    public Vector2 pos2;
+    public List<Vector2> posList;
     private int flag = 0;//pos1 도착 시 1 pos2 도착 시 2
     public int spawnflag = 0;
     public float spawnTime = 2f;
@@ -37,7 +35,7 @@ public class EnemyCtrl : MonoBehaviour {
         }
         if (GameObject.Find("player")) {
             if (spawnflag == 0 && GameObject.Find("player").GetComponent<PlayerCtrl>().aliveTime >= spawnTime) {
-                gameObject.transform.position = spawnPoint;
+                gameObject.transform.position = posList[0];
                 spawnflag = 1;
             }
         }
@@ -56,25 +54,13 @@ public class EnemyCtrl : MonoBehaviour {
 	}
     private void move()
     {
+        try {
+            transform.position = (Vector3.MoveTowards(transform.position, posList[flag], enemySpeed * Time.deltaTime));
+            pos = gameObject.transform.position;
+            if (pos == posList[flag]) flag++;
+        } catch { };
         
-        if (flag == 0)
-        {
-            transform.position = (Vector3.MoveTowards(transform.position, pos1, enemySpeed * Time.deltaTime));
-            pos = gameObject.transform.position;
-
-            if (pos1 == pos) flag = 1;
-        }
-        else if (flag == 1)
-        {
-            transform.position = (Vector3.MoveTowards(transform.position, pos2, enemySpeed * Time.deltaTime));
-            pos = gameObject.transform.position;
-
-            if (pos2 == pos) flag = 2;
-        }
-        else if (flag == 2)
-        {
-            transform.Translate(0, enemySpeed * Time.deltaTime, 0);
-        }
+        
     }
     private void OnBecameInvisible()
     {

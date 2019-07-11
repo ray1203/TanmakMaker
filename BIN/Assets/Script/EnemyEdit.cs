@@ -37,7 +37,7 @@ public class EnemyEdit:MonoBehaviour {
             if (dragging < 10)
                 EnemyOption.gameObject.GetComponent<UIclose>().openEnemyOption(this.gameObject);
             else
-                this.gameObject.GetComponent<EnemyData>().SpawnPoint = this.gameObject.transform.position;
+                this.gameObject.GetComponent<EnemyData>().Pos[0] = this.gameObject.transform.position;
             dragging = 0;
         }
     }
@@ -53,7 +53,7 @@ public class EnemyEdit:MonoBehaviour {
             dragging++;
             if (dragging >= 10) {
                 this.gameObject.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                this.gameObject.GetComponent<EnemyData>().SpawnPoint = this.gameObject.transform.position;
+                this.gameObject.GetComponent<EnemyData>().Pos[0] = this.gameObject.transform.position;
             }
         }
         

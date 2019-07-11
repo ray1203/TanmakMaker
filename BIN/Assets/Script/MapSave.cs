@@ -27,7 +27,12 @@ public class MapSave : MonoBehaviour
         for(int i = 0; i < enemy.transform.childCount; i++) {
             Debug.Log(i);
             EnemyData e = enemy.transform.GetChild(i).GetComponent<EnemyData>();
-            string str = e.SpawnPoint.x + "," + e.SpawnPoint.y + ","+e.Pos1.x+","+e.Pos1.y+","+ e.Pos2.x + "," + e.Pos2.y + "," +e.SpawnTime+","+e.EnemySpeed+","+e.Bullettype+","+e.Firerate+","+e.BulletSpeed+","+e.SpreadPoint+","+e.Hp;
+            string str = e.SpawnTime+","+e.EnemySpeed+","+e.Bullettype+","+e.Firerate+","+e.BulletSpeed+","+e.SpreadPoint+","+e.Hp;
+            for(int j = 0; j < e.Pos.Count; j++) {
+                str = str + "," + e.Pos[j].x + "," + e.Pos[j].y;
+                
+            }
+            Debug.Log(str);
             w.WriteLine(str);
         }
         w.Close();

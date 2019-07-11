@@ -5,6 +5,7 @@ using UnityEngine;
 public class SendGameObject : MonoBehaviour
 {
     public GameObject enemyOption;
+    public GameObject TouchScreen;
     // Start is called before the first frame update
     void Start()
     {

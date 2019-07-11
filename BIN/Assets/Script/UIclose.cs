@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class UIclose : MonoBehaviour {
     private GameObject enemy;
     private GameObject Enemy;//enemy가 저장되어 모여있는 오브젝트
-    public GameObject summonTime, summonxy, firstmovexy, secondmovexy, movespeed, firerate, bullettype, bulletspeed,spreadpoint,hp;
+    public GameObject summonTime, movespeed, firerate, bullettype, bulletspeed,spreadpoint,hp,pos,addPos;
     private EnemyData enemyData;
     public Slider slider;
     public GameObject ClickBan;
@@ -40,18 +40,16 @@ public class UIclose : MonoBehaviour {
             this.transform.GetChild(i).gameObject.SetActive(true);
         }
         summonTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text = ""+enemyData.SpawnTime;
-        summonxy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text= "" + enemyData.SpawnPoint.x;
-        summonxy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text = "" + enemyData.SpawnPoint.y;
-        firstmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text = "" + enemyData.Pos1.x;
-        firstmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text = "" + enemyData.Pos1.y;
-        secondmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text = "" + enemyData.Pos2.x;
-        secondmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text = "" + enemyData.Pos2.y;
         movespeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.EnemySpeed;
         firerate.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Firerate;
         bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value = enemyData.Bullettype;
         bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.BulletSpeed;
         spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.SpreadPoint;
         hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Hp;
+        Debug.Log("posCount:" + enemyData.Pos.Count);
+        for(int i = 0; i < enemyData.Pos.Count; i++) {
+            addPos.GetComponent<AddMoveListItem>().AddItem(enemyData.Pos[i]);
+        }
         ClickBan.SetActive(true);
         GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = false;
     }
@@ -60,19 +58,34 @@ public class UIclose : MonoBehaviour {
         if (enemyData.SpawnTime < 0) enemyData.SpawnTime = 0;
         else if (enemyData.SpawnTime > 3600) enemyData.SpawnTime = 3600;
         slider.GetComponent<TimeSelect>().MaxSummonTime(enemyData.SpawnTime);
-        enemyData.SpawnPoint = new Vector2(float.Parse(summonxy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(summonxy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
-        enemyData.Pos1 = new Vector2(float.Parse(firstmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(firstmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
-        enemyData.Pos2 = new Vector2(float.Parse(secondmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(secondmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
         enemyData.EnemySpeed = float.Parse(movespeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Firerate = float.Parse(firerate.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Bullettype = bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value;
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.SpreadPoint = int.Parse(spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Hp= int.Parse(hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        List<Vector2> posList = new List<Vector2>();
+        
+            for(int i = 0; i < pos.transform.childCount; i++) {
+                Vector2 vector2 = new Vector2();
+                
+                try {
+                    vector2 = new Vector2(float.Parse(pos.transform.GetChild(i).transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(pos.transform.GetChild(i).transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
+                } catch {
+                    continue;
+                }
+                posList.Add(vector2);
+            }
+        if (posList.Count == 0) posList.Add(new Vector2(0f, 0f));
+        
+        
+        enemyData.Pos = posList;
         if (enemyData.SpreadPoint > 30) enemyData.SpreadPoint = 30;
         if (enemyData.Hp <= 0) enemyData.Hp = 1;
-        enemy.gameObject.transform.position = enemyData.SpawnPoint;
-
+        enemy.gameObject.transform.position = enemyData.Pos[0];
+        for(int i = 0; i < pos.transform.childCount; i++) {
+            Destroy(pos.transform.GetChild(i).gameObject);
+        }
         for (int i = 0; i < this.transform.childCount; i++) {
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
@@ -102,6 +115,9 @@ public class UIclose : MonoBehaviour {
 
         }*/
         //timeSelect.ChangeValue(value);
+        for (int i = 0; i < pos.transform.childCount; i++) {
+            Destroy(pos.transform.GetChild(i).gameObject);
+        }
         Destroy(enemy);
         Enemy.GetComponent<ShowEnemyByTime>().show((int)slider.value);
         close();
@@ -123,17 +139,30 @@ public class UIclose : MonoBehaviour {
         if (enemyData.SpawnTime < 0) enemyData.SpawnTime = 0;
         else if (enemyData.SpawnTime > 3600) enemyData.SpawnTime = 3600;
         slider.GetComponent<TimeSelect>().MaxSummonTime(enemyData.SpawnTime);
-        enemyData.SpawnPoint = new Vector2(float.Parse(summonxy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(summonxy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
-        enemyData.Pos1 = new Vector2(float.Parse(firstmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(firstmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
-        enemyData.Pos2 = new Vector2(float.Parse(secondmovexy.transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(secondmovexy.transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
         enemyData.EnemySpeed = float.Parse(movespeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Firerate = float.Parse(firerate.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Bullettype = bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value;
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.SpreadPoint = int.Parse(spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
-        enemyData.Hp = int.Parse(spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.Hp = int.Parse(hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        List<Vector2> posList = new List<Vector2>();
+
+        for (int i = 0; i < pos.transform.childCount; i++) {
+            Vector2 vector2 = new Vector2();
+
+            try {
+                vector2 = new Vector2(float.Parse(pos.transform.GetChild(i).transform.Find("InputFieldx").gameObject.GetComponent<InputField>().text), float.Parse(pos.transform.GetChild(i).transform.Find("InputFieldy").gameObject.GetComponent<InputField>().text));
+            } catch {
+                continue;
+            }
+            posList.Add(vector2);
+        }
+        if (posList.Count == 0) posList.Add(new Vector2(0f, 0f));
+
+
+        enemyData.Pos = posList;
         if (enemyData.Hp <= 0) enemyData.Hp = 1;
-        newObject.gameObject.transform.position = enemyData.SpawnPoint;
+        newObject.gameObject.transform.position = enemyData.Pos[0];
         Enemy.GetComponent<ShowEnemyByTime>().show((int)slider.value);
     }
 }

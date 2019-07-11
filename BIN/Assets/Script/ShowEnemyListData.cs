@@ -9,7 +9,7 @@ public class ShowEnemyListData : MonoBehaviour
     void Start()
     {
         EnemyData e = editingEnemy.GetComponent<EnemyData>();
-        this.transform.Find("Text").GetComponent<Text>().text = "소환 위치  x:" + e.SpawnPoint.x + "  y:" + e.SpawnPoint.y;
+        this.transform.Find("Text").GetComponent<Text>().text = "소환 위치  x:" + e.Pos[0].x + "  y:" + e.Pos[0].y;
     }
 
     // Update is called once per frame

@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\AddMoveListItem.cs" />
      <Compile Include="Assets\Script\BulletCtrl.cs" />
      <Compile Include="Assets\Script\CanvasScaleSet.cs" />
      <Compile Include="Assets\Script\DefaultMap.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Script\MapSave.cs" />
      <Compile Include="Assets\Script\MiniCtrl.cs" />
      <Compile Include="Assets\Script\MoveScene.cs" />
+     <Compile Include="Assets\Script\MoveXYItem.cs" />
      <Compile Include="Assets\Script\MyUIHoverListener.cs" />
      <Compile Include="Assets\Script\OpenFolder.cs" />
      <Compile Include="Assets\Script\Pause.cs" />
@@ -84,21 +86,9 @@
      <Compile Include="Assets\Script\TargetCtrl.cs" />
      <Compile Include="Assets\Script\TimeSelect.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
-     <None Include="Assets\map\기본맵1.txt" />
-     <None Include="Assets\map\기본맵3.txt" />
-     <None Include="Assets\Resources\DefaultMap\기본맵4.txt" />
      <None Include="Assets\Texture\asset_link.txt" />
-     <None Include="Assets\map\기본맵2.txt" />
-     <None Include="Assets\Resources\DefaultMap\기본맵2.txt" />
-     <None Include="Assets\map\test.txt" />
+     <None Include="Assets\map\c.txt" />
      <None Include="Assets\Galaxia Sprite Pack #1\README.txt" />
-     <None Include="Assets\map\기본맵6.txt" />
-     <None Include="Assets\map\기본맵5.txt" />
-     <None Include="Assets\Resources\DefaultMap\기본맵1.txt" />
-     <None Include="Assets\Resources\DefaultMap\기본맵6.txt" />
-     <None Include="Assets\map\기본맵4.txt" />
-     <None Include="Assets\Resources\DefaultMap\기본맵3.txt" />
-     <None Include="Assets\Resources\DefaultMap\기본맵5.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

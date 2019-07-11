@@ -30,7 +30,7 @@ public class MainToEdit : MonoBehaviour
             GameObject newObject=Instantiate(EnemyEditor);
             newObject.GetComponent<EnemyData>().putDatas(Item);
             newObject.GetComponent<Image>().sprite = EnemySprite;
-            newObject.transform.position = Item.SpawnPoint;
+            newObject.transform.position = Item.Pos[0];
             newObject.transform.localScale = new Vector2(0.01f, 0.01f);
             newObject.transform.SetParent(gameObject.transform);
         }

@@ -17,9 +17,7 @@ public class gameManager : MonoBehaviour {
             e = GameObject.FindWithTag("fill").gameObject;
             for (int i = 0; i < e.transform.childCount; i++) {
                 GameObject E = EnemyBase;
-                E.GetComponent<EnemyCtrl>().spawnPoint = e.transform.GetChild(i).GetComponent<EnemyData>().SpawnPoint;
-                E.GetComponent<EnemyCtrl>().pos1 = e.transform.GetChild(i).GetComponent<EnemyData>().Pos1;
-                E.GetComponent<EnemyCtrl>().pos2 = e.transform.GetChild(i).GetComponent<EnemyData>().Pos2;
+                E.GetComponent<EnemyCtrl>().posList = e.transform.GetChild(i).GetComponent<EnemyData>().Pos;
                 E.GetComponent<EnemyCtrl>().spawnTime = e.transform.GetChild(i).GetComponent<EnemyData>().SpawnTime;
                 E.GetComponent<EnemyCtrl>().enemySpeed = e.transform.GetChild(i).GetComponent<EnemyData>().EnemySpeed;
                 E.GetComponent<EnemyCtrl>().firerate = e.transform.GetChild(i).GetComponent<EnemyData>().Firerate;

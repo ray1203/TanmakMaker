@@ -44,7 +44,11 @@ public class MapObjSummon : MonoBehaviour {
         newObject.GetComponent<EnemyData>().EnemySpeed = 1f;
         newObject.GetComponent<EnemyData>().Firerate = 1f;
         newObject.GetComponent<EnemyData>().BulletSpeed = 1f;
+        newObject.GetComponent<EnemyData>().Hp = 1;
         newObject.GetComponent<EnemyData>().EnemySprite = EnemySprite;
+        List<Vector2> posList = new List<Vector2>();
+        posList.Add(new Vector2(0f, 0f));
+        newObject.GetComponent<EnemyData>().Pos = posList;
         //newObject.GetComponent<EnemyData>().Color = this.GetComponent<Image>().color;
         //newObject.transform.parent=canvas.transform.Find("Enemy");
         newObject.rectTransform.SetParent(canvas.transform.Find("background").Find("Enemy"));

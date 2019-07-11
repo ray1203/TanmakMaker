@@ -128,6 +128,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 b8b42ba420b738adfcdbdea870d5e6d5 Assembly-CSharp.dll:.MapSave
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 4ae89b330cc08056f07ede9533c99279 Assembly-CSharp.dll:.PlayerCtrl
+56a48eaace5d1afe2625633bb61e7ec3 Assembly-CSharp.dll:.ShowPath
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 3e9bbe4ecf7bebb56f785c16c7745916 Assembly-CSharp.dll:.MapObjSummon
@@ -152,6 +153,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 f2d51413902f70ce79160d626e30c2ed Assembly-CSharp.dll:.gameManager
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DefaultMap
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MoveScene
 aa82b3ce4c0c9b227036c0337315c5d3 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
@@ -190,5 +192,3 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EnemyData
 4246d526fe403411c2fb1408634b8fab Assembly-CSharp.dll:.MainToEdit
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DefaultMap
-56a48eaace5d1afe2625633bb61e7ec3 Assembly-CSharp.dll:.ShowPath

@@ -90,11 +90,15 @@
      <None Include="Assets\Texture\asset_link.txt" />
      <None Include="Assets\map\기본맵2.txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵2.txt" />
+     <None Include="Assets\map\test.txt" />
      <None Include="Assets\Galaxia Sprite Pack #1\README.txt" />
+     <None Include="Assets\map\기본맵6.txt" />
+     <None Include="Assets\map\기본맵5.txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵1.txt" />
+     <None Include="Assets\Resources\DefaultMap\기본맵6.txt" />
      <None Include="Assets\map\기본맵4.txt" />
-     <None Include="Assets\map\무아앙.txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵3.txt" />
+     <None Include="Assets\Resources\DefaultMap\기본맵5.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCtrl : MonoBehaviour {
+    public int hp;
     public Vector2 spawnPoint;
     public Vector2 pos1;
     public Vector2 pos2;
@@ -30,6 +31,10 @@ public class EnemyCtrl : MonoBehaviour {
     }
 	
 	void Update () {
+        if (hp <= 0) {
+            gameManager.instance.AddScore(500);
+            Destroy(this.gameObject);
+        }
         if (GameObject.Find("player")) {
             if (spawnflag == 0 && GameObject.Find("player").GetComponent<PlayerCtrl>().aliveTime >= spawnTime) {
                 gameObject.transform.position = spawnPoint;

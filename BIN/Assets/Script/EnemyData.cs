@@ -3,32 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyData :MonoBehaviour {
-    private Vector2 spawnPoint = new Vector2(0, 0);
-    private Vector2 pos1=new Vector2(0,0);
-    private Vector2 pos2 = new Vector2(0, 0);
-    private float spawnTime = 2f;
-    private float enemySpeed = 2.0f;
-    private Sprite bulletSprite;
-    private int bullettype;//0:normal 1:following
-    private float firerate = 0f;
-    private float bulletSpeed = 0f;
+    private Vector2 spawnPoint = new Vector2(0, 0);//0,1
+    private Vector2 pos1=new Vector2(0,0);//2,3
+    private Vector2 pos2 = new Vector2(0, 0);//4,5
+    private float spawnTime = 2f;//6
+    private float enemySpeed = 2.0f;//7
+    private int bullettype;//0:normal 1:following//8
+    private float firerate = 0f;//9
+    private float bulletSpeed = 0f;//10
+    private int spreadPoint;//11
+    private int hp = 1;//12
     private Sprite enemySprite;
-    private Color color;
-    private int spreadPoint;
-
-    public EnemyData(Vector2 spawnPoint, Vector2 pos1, Vector2 pos2, float spawnTime, float enemySpeed,  int bullettype, float firerate, float bulletSpeed,  Color color,Sprite bulletSprite,Sprite enemySprite, int spreadPoint) {
+    public EnemyData(Vector2 spawnPoint, Vector2 pos1, Vector2 pos2, float spawnTime, float enemySpeed, int bullettype, float firerate, float bulletSpeed, int spreadPoint, int hp,Sprite enemySprite) {
         this.spawnPoint = spawnPoint;
         this.pos1 = pos1;
         this.pos2 = pos2;
         this.spawnTime = spawnTime;
         this.enemySpeed = enemySpeed;
-        this.bulletSprite = bulletSprite;
         this.bullettype = bullettype;
         this.firerate = firerate;
         this.bulletSpeed = bulletSpeed;
-        this.enemySprite = enemySprite;
-        this.color = color;
         this.spreadPoint = spreadPoint;
+        this.hp = hp;
+        this.enemySprite = enemySprite;
     }
     public void putDatas(EnemyData e) {
         this.spawnPoint = e.spawnPoint;
@@ -36,17 +33,14 @@ public class EnemyData :MonoBehaviour {
         this.pos2 = e.pos2;
         this.spawnTime = e.spawnTime;
         this.enemySpeed = e.enemySpeed;
-        this.bulletSprite = e.bulletSprite;
         this.bullettype = e.bullettype;
         this.firerate = e.firerate;
         this.bulletSpeed = e.bulletSpeed;
-        this.enemySprite = e.enemySprite;
-        this.color = e.color;
         this.spreadPoint = e.spreadPoint;
+        this.hp = e.hp;
+        this.enemySprite = e.enemySprite;
     }
-    public void printDatas() {
-        Debug.Log("spawnpoint:" + spawnPoint + ",pos1:" + pos1 + ",pos2:" + pos2 + ",spawntime:" + spawnTime + ",enemyspeed:" + enemySpeed);
-    }
+
     public Vector2 SpawnPoint {
         get {
             return spawnPoint;
@@ -97,13 +91,13 @@ public class EnemyData :MonoBehaviour {
         }
     }
 
-    public Sprite BulletSprite {
+    public int Bullettype {
         get {
-            return bulletSprite;
+            return bullettype;
         }
 
         set {
-            bulletSprite = value;
+            bullettype = value;
         }
     }
 
@@ -127,34 +121,6 @@ public class EnemyData :MonoBehaviour {
         }
     }
 
-    public int Bullettype {
-        get {
-            return bullettype;
-        }
-
-        set {
-            bullettype = value;
-        }
-    }
-    public Sprite EnemySprite {
-        get {
-            return enemySprite;
-        }
-
-        set {
-            enemySprite = value;
-        }
-    }
-
-    public Color Color {
-        get {
-            return color;
-        }
-
-        set {
-            color = value;
-        }
-    }
     public int SpreadPoint {
         get {
             return spreadPoint;
@@ -162,6 +128,26 @@ public class EnemyData :MonoBehaviour {
 
         set {
             spreadPoint = value;
+        }
+    }
+
+    public int Hp {
+        get {
+            return hp;
+        }
+
+        set {
+            hp = value;
+        }
+    }
+
+    public Sprite EnemySprite {
+        get {
+            return enemySprite;
+        }
+
+        set {
+            enemySprite = value;
         }
     }
 }

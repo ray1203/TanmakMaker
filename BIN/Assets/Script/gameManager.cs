@@ -25,6 +25,7 @@ public class gameManager : MonoBehaviour {
                 E.GetComponent<EnemyCtrl>().firerate = e.transform.GetChild(i).GetComponent<EnemyData>().Firerate;
                 E.GetComponent<EnemyCtrl>().bulletSpeed = e.transform.GetChild(i).GetComponent<EnemyData>().BulletSpeed;
                 E.GetComponent<EnemyCtrl>().spreadPoint = e.transform.GetChild(i).GetComponent<EnemyData>().SpreadPoint;
+                E.GetComponent<EnemyCtrl>().hp = e.transform.GetChild(i).GetComponent<EnemyData>().Hp;
                 E.GetComponent<SpriteRenderer>().sprite = sprite;
                 E.transform.localScale = new Vector2(1.0f, 1.0f);
                 //E.GetComponent<SpriteRenderer>().color = e.transform.GetChild(i).GetComponent<EnemyData>().Color;
@@ -62,7 +63,12 @@ public class gameManager : MonoBehaviour {
         t++;
         if (t>10&&!GameObject.FindWithTag("Enemy")) {
             victory.SetActive(true);
-            victory.transform.Find("Image").Find("Result").GetComponent<Text>().text = GameObject.FindWithTag("MapName").name + " 맵에서 " + score + "점을 달성하였습니다.";
+            try {
+                victory.transform.Find("Image").Find("Result").GetComponent<Text>().text = GameObject.FindWithTag("MapName").name + " 맵에서 " + score + "점을 달성하였습니다.";
+            }catch {
+
+            }
+            
             Time.timeScale = 0.0f;
             
         }

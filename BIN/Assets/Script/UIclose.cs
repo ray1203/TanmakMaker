@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class UIclose : MonoBehaviour {
     private GameObject enemy;
     private GameObject Enemy;//enemy가 저장되어 모여있는 오브젝트
-    public GameObject summonTime, summonxy, firstmovexy, secondmovexy, movespeed, firerate, bullettype, bulletspeed,spreadpoint;
+    public GameObject summonTime, summonxy, firstmovexy, secondmovexy, movespeed, firerate, bullettype, bulletspeed,spreadpoint,hp;
     private EnemyData enemyData;
     public Slider slider;
     public GameObject ClickBan;
@@ -51,6 +51,7 @@ public class UIclose : MonoBehaviour {
         bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value = enemyData.Bullettype;
         bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.BulletSpeed;
         spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.SpreadPoint;
+        hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Hp;
         ClickBan.SetActive(true);
         GameObject.Find("Canvas").GetComponent<MyUIHoverListener>().ClickAvailable = false;
     }
@@ -67,7 +68,9 @@ public class UIclose : MonoBehaviour {
         enemyData.Bullettype = bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value;
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.SpreadPoint = int.Parse(spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.Hp= int.Parse(hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         if (enemyData.SpreadPoint > 30) enemyData.SpreadPoint = 30;
+        if (enemyData.Hp <= 0) enemyData.Hp = 1;
         enemy.gameObject.transform.position = enemyData.SpawnPoint;
 
         for (int i = 0; i < this.transform.childCount; i++) {
@@ -128,6 +131,8 @@ public class UIclose : MonoBehaviour {
         enemyData.Bullettype = bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value;
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.SpreadPoint = int.Parse(spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.Hp = int.Parse(spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        if (enemyData.Hp <= 0) enemyData.Hp = 1;
         newObject.gameObject.transform.position = enemyData.SpawnPoint;
         Enemy.GetComponent<ShowEnemyByTime>().show((int)slider.value);
     }

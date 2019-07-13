@@ -24,6 +24,8 @@ public class gameManager : MonoBehaviour {
                 E.GetComponent<EnemyCtrl>().bulletSpeed = e.transform.GetChild(i).GetComponent<EnemyData>().BulletSpeed;
                 E.GetComponent<EnemyCtrl>().spreadPoint = e.transform.GetChild(i).GetComponent<EnemyData>().SpreadPoint;
                 E.GetComponent<EnemyCtrl>().hp = e.transform.GetChild(i).GetComponent<EnemyData>().Hp;
+                E.GetComponent<EnemyCtrl>().enemyScore = e.transform.GetChild(i).GetComponent<EnemyData>().Score;
+                E.GetComponent<EnemyCtrl>().spreadAngle = e.transform.GetChild(i).GetComponent<EnemyData>().SpreadAngle;
                 E.GetComponent<SpriteRenderer>().sprite = sprite;
                 E.transform.localScale = new Vector2(1.0f, 1.0f);
                 //E.GetComponent<SpriteRenderer>().color = e.transform.GetChild(i).GetComponent<EnemyData>().Color;

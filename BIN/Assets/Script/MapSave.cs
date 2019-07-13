@@ -25,14 +25,13 @@ public class MapSave : MonoBehaviour
      
         StreamWriter w = new StreamWriter(fs);
         for(int i = 0; i < enemy.transform.childCount; i++) {
-            Debug.Log(i);
             EnemyData e = enemy.transform.GetChild(i).GetComponent<EnemyData>();
             string str = e.SpawnTime+","+e.EnemySpeed+","+e.Bullettype+","+e.Firerate+","+e.BulletSpeed+","+e.SpreadPoint+","+e.Hp;
             for(int j = 0; j < e.Pos.Count; j++) {
                 str = str + "," + e.Pos[j].x + "," + e.Pos[j].y;
                 
             }
-            Debug.Log(str);
+            str = str + "," + e.SpreadAngle + "," + e.Score;
             w.WriteLine(str);
         }
         w.Close();

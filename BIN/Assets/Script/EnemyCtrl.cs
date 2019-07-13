@@ -22,6 +22,8 @@ public class EnemyCtrl : MonoBehaviour {
     public float spreadRotateAngle = 0f;
     private Camera subCamera;
     private BulletCtrl bulletCtrl;
+    public int enemyScore = 500;
+    public float spreadAngle = 10f;
 	void Start () {
         bulletCtrl = bullet.GetComponent<BulletCtrl>();
         subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
@@ -30,7 +32,7 @@ public class EnemyCtrl : MonoBehaviour {
 	
 	void Update () {
         if (hp <= 0) {
-            gameManager.instance.AddScore(500);
+            gameManager.instance.AddScore(enemyScore);
             Destroy(this.gameObject);
         }
         if (GameObject.Find("player")) {
@@ -80,7 +82,7 @@ public class EnemyCtrl : MonoBehaviour {
                     bulletCtrl.spreadAngle = 180f+i * angle+spreadRotateAngle;
                     Instantiate(bullet,transform.position,Quaternion.identity);
                 }
-                spreadRotateAngle += 10f;
+                spreadRotateAngle += spreadAngle;
                 //spreadRotateAngle += angle / 2;
                 if (spreadRotateAngle >= 360f) spreadRotateAngle -= 360f;
             } else {

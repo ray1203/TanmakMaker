@@ -86,8 +86,9 @@
      <Compile Include="Assets\Script\TargetCtrl.cs" />
      <Compile Include="Assets\Script\TimeSelect.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
+     <None Include="Assets\map\test.txt" />
      <None Include="Assets\Texture\asset_link.txt" />
-     <None Include="Assets\map\c.txt" />
+     <None Include="Assets\map\test1.txt" />
      <None Include="Assets\Galaxia Sprite Pack #1\README.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

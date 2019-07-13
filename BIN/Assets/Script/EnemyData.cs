@@ -12,8 +12,10 @@ public class EnemyData :MonoBehaviour {
     private int hp = 1;//6
     private Sprite enemySprite;
     private List<Vector2> pos;//7~
+    private float spreadAngle;
+    private int score;
 
-    public EnemyData(float spawnTime, float enemySpeed, int bullettype, float firerate, float bulletSpeed, int spreadPoint, int hp, Sprite enemySprite, List<Vector2> pos) {
+    public EnemyData(float spawnTime, float enemySpeed, int bullettype, float firerate, float bulletSpeed, int spreadPoint, int hp, Sprite enemySprite, List<Vector2> pos, float spreadAngle, int score) {
         this.spawnTime = spawnTime;
         this.enemySpeed = enemySpeed;
         this.bullettype = bullettype;
@@ -23,7 +25,10 @@ public class EnemyData :MonoBehaviour {
         this.hp = hp;
         this.enemySprite = enemySprite;
         this.pos = pos;
+        this.spreadAngle = spreadAngle;
+        this.score = score;
     }
+
     public void putDatas(EnemyData e) {
         this.spawnTime = e.spawnTime;
         this.enemySpeed = e.enemySpeed;
@@ -34,6 +39,8 @@ public class EnemyData :MonoBehaviour {
         this.hp = e.hp;
         this.enemySprite = e.enemySprite;
         this.pos = e.pos;
+        this.spreadAngle = e.spreadAngle;
+        this.score = e.score;
     }
 
     public float SpawnTime {
@@ -123,6 +130,26 @@ public class EnemyData :MonoBehaviour {
 
         set {
             pos = value;
+        }
+    }
+
+    public float SpreadAngle {
+        get {
+            return spreadAngle;
+        }
+
+        set {
+            spreadAngle = value;
+        }
+    }
+
+    public int Score {
+        get {
+            return score;
+        }
+
+        set {
+            score = value;
         }
     }
 }

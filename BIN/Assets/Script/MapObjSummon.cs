@@ -47,6 +47,8 @@ public class MapObjSummon : MonoBehaviour {
         newObject.GetComponent<EnemyData>().BulletSpeed = 1f;
         newObject.GetComponent<EnemyData>().Hp = 1;
         newObject.GetComponent<EnemyData>().EnemySprite = EnemySprite;
+        newObject.GetComponent<EnemyData>().SpreadAngle = 10;
+        newObject.GetComponent<EnemyData>().Score = 500;
         List<Vector2> posList = new List<Vector2>();
         posList.Add(new Vector2(0f, 0f));
         newObject.GetComponent<EnemyData>().Pos = posList;

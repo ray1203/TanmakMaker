@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class UIclose : MonoBehaviour {
     private GameObject enemy;
     private GameObject Enemy;//enemy가 저장되어 모여있는 오브젝트
-    public GameObject summonTime, movespeed, firerate, bullettype, bulletspeed,spreadpoint,hp,pos,addPos;
+    public GameObject summonTime, movespeed, firerate, bullettype, bulletspeed,spreadpoint,hp,pos,addPos,enemyScore,spreadAngle;
     private EnemyData enemyData;
     public Slider slider;
     public GameObject ClickBan;
@@ -39,14 +39,16 @@ public class UIclose : MonoBehaviour {
             if (this.transform.GetChild(i).gameObject.name == "TouchScreen") continue;
             this.transform.GetChild(i).gameObject.SetActive(true);
         }
+        
         summonTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text = ""+enemyData.SpawnTime;
         movespeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.EnemySpeed;
         firerate.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Firerate;
         bullettype.transform.Find("Dropdown").gameObject.GetComponent<Dropdown>().value = enemyData.Bullettype;
         bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.BulletSpeed;
         spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.SpreadPoint;
+        enemyScore.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Score;
         hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Hp;
-        Debug.Log("posCount:" + enemyData.Pos.Count);
+        spreadAngle.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.SpreadAngle;
         for(int i = 0; i < enemyData.Pos.Count; i++) {
             addPos.GetComponent<AddMoveListItem>().AddItem(enemyData.Pos[i]);
         }
@@ -64,6 +66,9 @@ public class UIclose : MonoBehaviour {
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.SpreadPoint = int.Parse(spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Hp= int.Parse(hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.Score = int.Parse(enemyScore.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.SpreadAngle = float.Parse(spreadAngle.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+       
         List<Vector2> posList = new List<Vector2>();
         
             for(int i = 0; i < pos.transform.childCount; i++) {
@@ -145,6 +150,8 @@ public class UIclose : MonoBehaviour {
         enemyData.BulletSpeed = float.Parse(bulletspeed.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.SpreadPoint = int.Parse(spreadpoint.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Hp = int.Parse(hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.SpreadAngle = float.Parse(spreadAngle.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.Score = int.Parse(enemyScore.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         List<Vector2> posList = new List<Vector2>();
 
         for (int i = 0; i < pos.transform.childCount; i++) {

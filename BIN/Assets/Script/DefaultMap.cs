@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class DefaultMap : MonoBehaviour {
     void Awake() {
-        
         int c = 0;
         string m_strPath = "map/";
         if (Application.platform == RuntimePlatform.IPhonePlayer) {

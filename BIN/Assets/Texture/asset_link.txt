@@ -2,3 +2,6 @@ UI: https://assetstore.unity.com/packages/2d/gui/icons/easy-ui-emerald-default-1
 https://assetstore.unity.com/packages/2d/gui/icons/blue-icons-set-free-128419
 탄막,캐릭터: https://assetstore.unity.com/packages/2d/textures-materials/galaxia-2d-space-shooter-sprite-pack-1-64944
 조이스틱: https://assetstore.unity.com/packages/2d/gui/techno-blue-gui-skin-19115
+편집 아이콘:https://pixabay.com/ko/vectors/%ED%8E%B8%EC%A7%91-%EC%84%A4%EC%A0%95-%EC%98%B5%EC%85%98-%EC%95%84%EC%9D%B4%EC%BD%98-1103598/
+휴지통 아이콘:https://silhouette-ac.com/ko/silhouette/136233/%ED%9C%B4%EC%A7%80%ED%86%B5
+홈 아이콘:https://pixabay.com/ko/vectors/%ED%99%88-%EC%A7%91-%EC%8B%A4%EB%A3%A8%EC%97%A3-%EC%95%84%EC%9D%B4%EC%BD%98-%EA%B1%B4%EB%AC%BC-146585/

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 10}
   - component: {fileID: 14}
   - component: {fileID: 12}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -83,9 +83,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f250b90154523314ea37093a35b42296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: 0.1580135, y: 3.555305}
-  pos1: {x: 22222, y: 22222}
-  pos2: {x: 0, y: 0}
+  hp: 0
+  posList: []
+  spawnflag: 0
   spawnTime: 0
   enemySpeed: 0
   bullet: {fileID: 1051164381364156, guid: 82d137ba888337447bb1739375cfe369, type: 3}
@@ -93,6 +93,12 @@ MonoBehaviour:
   bulletSpeed: 0
   normalBullet: 1
   playerFollowingBullet: 0
+  spreadBullet: 0
+  spreadPoint: 0
+  angle: 0
+  spreadRotateAngle: 0
+  enemyScore: 500
+  spreadAngle: 10
 --- !u!212 &12
 SpriteRenderer:
   m_ObjectHideFlags: 0

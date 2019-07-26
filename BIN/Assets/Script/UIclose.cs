@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class UIclose : MonoBehaviour {
     private GameObject enemy;
     private GameObject Enemy;//enemy가 저장되어 모여있는 오브젝트
-    public GameObject summonTime, movespeed, firerate, bullettype, bulletspeed,spreadpoint,hp,pos,addPos,enemyScore,spreadAngle;
+    public GameObject summonTime, movespeed, firerate, bullettype, bulletspeed,spreadpoint,hp,pos,addPos,enemyScore,spreadAngle,maintainTime,loop,bulletSize;
     private EnemyData enemyData;
     public Slider slider;
     public GameObject ClickBan;
@@ -49,7 +49,11 @@ public class UIclose : MonoBehaviour {
         enemyScore.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Score;
         hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.Hp;
         spreadAngle.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.SpreadAngle;
-        for(int i = 0; i < enemyData.Pos.Count; i++) {
+        maintainTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.MaintainTime;
+        bulletSize.transform.Find("InputField").gameObject.GetComponent<InputField>().text = "" + enemyData.BulletSize;
+        loop.transform.Find("Toggle").gameObject.GetComponent<Toggle>().isOn = enemyData.Loop;
+        
+        for (int i = 0; i < enemyData.Pos.Count; i++) {
             addPos.GetComponent<AddMoveListItem>().AddItem(enemyData.Pos[i]);
         }
         ClickBan.SetActive(true);
@@ -68,7 +72,10 @@ public class UIclose : MonoBehaviour {
         enemyData.Hp= int.Parse(hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Score = int.Parse(enemyScore.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.SpreadAngle = float.Parse(spreadAngle.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
-       
+        enemyData.MaintainTime = float.Parse(maintainTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.BulletSize = float.Parse(bulletSize.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        if (enemyData.BulletSize <= 0) enemyData.BulletSize = 1;
+        enemyData.Loop=loop.transform.Find("Toggle").gameObject.GetComponent<Toggle>().isOn;
         List<Vector2> posList = new List<Vector2>();
         
             for(int i = 0; i < pos.transform.childCount; i++) {
@@ -152,6 +159,10 @@ public class UIclose : MonoBehaviour {
         enemyData.Hp = int.Parse(hp.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.SpreadAngle = float.Parse(spreadAngle.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
         enemyData.Score = int.Parse(enemyScore.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.MaintainTime = float.Parse(maintainTime.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        enemyData.BulletSize = float.Parse(bulletSize.transform.Find("InputField").gameObject.GetComponent<InputField>().text);
+        if (enemyData.BulletSize <= 0) enemyData.BulletSize = 1;
+        enemyData.Loop = loop.transform.Find("Toggle").gameObject.GetComponent<Toggle>().isOn;
         List<Vector2> posList = new List<Vector2>();
 
         for (int i = 0; i < pos.transform.childCount; i++) {

@@ -8,14 +8,18 @@ public class EnemyData :MonoBehaviour {
     private int bullettype;//0:normal 1:following//2
     private float firerate = 0f;//3
     private float bulletSpeed = 0f;//4
-    private int spreadPoint;//5
-    private int hp = 1;//6
+    private float bulletSize = 0f;//5
+    private int spreadPoint;//6
+    private int hp = 1;//7
+    private float maintainTime = 1;//8
+    private float spreadAngle;//9
+    private int score;//10
+    private bool loop;//11
+    private List<Vector2> pos;//12~
     private Sprite enemySprite;
-    private List<Vector2> pos;//7~
-    private float spreadAngle;
-    private int score;
 
-    public EnemyData(float spawnTime, float enemySpeed, int bullettype, float firerate, float bulletSpeed, int spreadPoint, int hp, Sprite enemySprite, List<Vector2> pos, float spreadAngle, int score) {
+    /*VERSION0
+     * public EnemyData(float spawnTime, float enemySpeed, int bullettype, float firerate, float bulletSpeed, int spreadPoint, int hp, Sprite enemySprite, List<Vector2> pos, float spreadAngle, int score) {
         this.spawnTime = spawnTime;
         this.enemySpeed = enemySpeed;
         this.bullettype = bullettype;
@@ -27,6 +31,23 @@ public class EnemyData :MonoBehaviour {
         this.pos = pos;
         this.spreadAngle = spreadAngle;
         this.score = score;
+    }*/
+
+    public EnemyData(float spawnTime, float enemySpeed, int bullettype, float firerate, float bulletSpeed, float bulletSize, int spreadPoint, int hp, float maintainTime, float spreadAngle, int score, bool loop, List<Vector2> pos, Sprite enemySprite) {
+        this.spawnTime = spawnTime;
+        this.enemySpeed = enemySpeed;
+        this.bullettype = bullettype;
+        this.firerate = firerate;
+        this.bulletSpeed = bulletSpeed;
+        this.bulletSize = bulletSize;
+        this.spreadPoint = spreadPoint;
+        this.hp = hp;
+        this.maintainTime = maintainTime;
+        this.spreadAngle = spreadAngle;
+        this.score = score;
+        this.loop = loop;
+        this.pos = pos;
+        this.enemySprite = enemySprite;
     }
 
     public void putDatas(EnemyData e) {
@@ -41,6 +62,9 @@ public class EnemyData :MonoBehaviour {
         this.pos = e.pos;
         this.spreadAngle = e.spreadAngle;
         this.score = e.score;
+        this.loop = e.loop;
+        this.maintainTime = e.maintainTime;
+        this.bulletSize = e.bulletSize;
     }
 
     public float SpawnTime {
@@ -152,4 +176,36 @@ public class EnemyData :MonoBehaviour {
             score = value;
         }
     }
+
+    public float BulletSize {
+        get {
+            return bulletSize;
+        }
+
+        set {
+            bulletSize = value;
+        }
+    }
+
+    public bool Loop {
+        get {
+            return loop;
+        }
+
+        set {
+            loop = value;
+        }
+    }
+
+    public float MaintainTime {
+        get {
+            return maintainTime;
+        }
+
+        set {
+            maintainTime = value;
+        }
+    }
+
+
 }

@@ -24,14 +24,16 @@ public class MapSave : MonoBehaviour
         FileStream fs = new FileStream(path, FileMode.Create);
      
         StreamWriter w = new StreamWriter(fs);
+        w.WriteLine("MAP_VERSION:1");
         for(int i = 0; i < enemy.transform.childCount; i++) {
             EnemyData e = enemy.transform.GetChild(i).GetComponent<EnemyData>();
-            string str = e.SpawnTime+","+e.EnemySpeed+","+e.Bullettype+","+e.Firerate+","+e.BulletSpeed+","+e.SpreadPoint+","+e.Hp;
-            for(int j = 0; j < e.Pos.Count; j++) {
+            int loop;
+            if (e.Loop) loop = 1; else loop = 0;
+            string str = e.SpawnTime+","+e.EnemySpeed+","+e.Bullettype+","+e.Firerate+","+e.BulletSpeed+"," + e.BulletSize + "," + e.SpreadPoint+","+e.Hp + "," + e.MaintainTime+ "," + e.SpreadAngle + "," + e.Score + "," +loop;
+            for (int j = 0; j < e.Pos.Count; j++) {
                 str = str + "," + e.Pos[j].x + "," + e.Pos[j].y;
                 
             }
-            str = str + "," + e.SpreadAngle + "," + e.Score;
             w.WriteLine(str);
         }
         w.Close();

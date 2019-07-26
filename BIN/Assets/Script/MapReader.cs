@@ -24,6 +24,10 @@ public class MapReader : MonoBehaviour
         if (GameObject.FindWithTag("fill")) Destroy(GameObject.FindWithTag("fill"));
         reloadmap();
     }
+    /*
+        MAP_VERSION
+        null:EnemyData(float spawnTime, float enemySpeed, int bullettype, float firerate, float bulletSpeed, int spreadPoint, int hp, Sprite enemySprite, List<Vector2> pos, float spreadAngle, int score)
+         */
     public void reloadmap() {
         foreach(var Item in GameObject.FindGameObjectsWithTag("mapcontent")) {
             Destroy(Item);
@@ -39,12 +43,23 @@ public class MapReader : MonoBehaviour
             }
         }
         foreach (var Item in di.GetFiles()) {
+            int MAP_VERSION = 0;
             if (Item.Name.Contains(".meta")) continue;
             GameObject newObject = ContentUI;
             List<EnemyData> enemyDatas = new List<EnemyData>();
             newObject.transform.Find("mapname").GetComponent<Text>().text = Item.Name.Replace(".txt", "");
             StreamReader sr = Item.OpenText();
-                string source = sr.ReadLine();
+            string source = sr.ReadLine();
+            if (source.Contains("MAP_VERSION")) {
+                string[] values;
+                values = source.Split(':');
+
+                MAP_VERSION = int.Parse(values[1]);
+                source = sr.ReadLine();
+            } else {
+                MAP_VERSION = 0;
+            }
+            Debug.Log("MAP_NAME:"+Item.Name+"  MAP_VERSION:" + MAP_VERSION + "  source:" + source);
                 while (source != null) {
                     string[] values;
                     values = source.Split(',');
@@ -52,17 +67,38 @@ public class MapReader : MonoBehaviour
                         sr.Close();
                         return;
                     }
-                List<Vector2> pos = new List<Vector2>();
-                for(int i = 7; i < values.Length-2; i+=2) {
-                    pos.Add(new Vector2(float.Parse(values[i]), float.Parse(values[i + 1])));
-                }
-                try {
-                    enemyDatas.Add(new EnemyData(float.Parse(values[0]), float.Parse(values[1]), int.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]), int.Parse(values[5]), int.Parse(values[6]),null,pos,float.Parse(values[values.Length-2]),int.Parse(values[values.Length-1])));
+                if (MAP_VERSION == 0) {
+                    List<Vector2> pos = new List<Vector2>();
+                    for(int i = 7; i < values.Length-2; i+=2) {
+                        pos.Add(new Vector2(float.Parse(values[i]), float.Parse(values[i + 1])));
+                    }
+                    try {
+                        enemyDatas.Add(new EnemyData(float.Parse(values[0]), float.Parse(values[1]), int.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]),1, int.Parse(values[5]), int.Parse(values[6]),0,float.Parse(values[values.Length-2]),int.Parse(values[values.Length-1]),false,pos,null));
+                    } catch {
+                        enemyDatas = new List<EnemyData>();
+                        break;
+                    }
+                }else if (MAP_VERSION == 1) {
 
-                } catch {
-                    enemyDatas = new List<EnemyData>();
-                    break;
+                    List<Vector2> pos = new List<Vector2>();
+                    for (int i = 12; i < values.Length; i += 2) {
+                        pos.Add(new Vector2(float.Parse(values[i]), float.Parse(values[i + 1])));
+                    }
+                    bool loopValue=false;
+                    Debug.Log(Item.Name + "," + values);
+                    if (int.Parse(values[11]) == 1) {
+                        loopValue = true;
+                    }else if (int.Parse(values[11]) == 0) {
+                        loopValue = false;
+                    }
+                    try {
+                        enemyDatas.Add(new EnemyData(float.Parse(values[0]), float.Parse(values[1]), int.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]), float.Parse(values[5]), int.Parse(values[6]), int.Parse(values[7]), float.Parse(values[8]), float.Parse(values[9]), int.Parse(values[10]), loopValue, pos, null));
+                    } catch {
+                        enemyDatas = new List<EnemyData>();
+                        break;
+                    }
                 }
+               
                     source = sr.ReadLine();    // 한줄 읽는다.
                 }
            // }
@@ -79,7 +115,15 @@ public class MapReader : MonoBehaviour
     }
     public void makemap() {
         if (!File.Exists(m_strPath + mapNameInput.text+".txt")) {
-            File.Create(m_strPath + mapNameInput.text+".txt");
+            //File.Create(m_strPath + mapNameInput.text+".txt");
+            string path = m_strPath;
+            path = path + mapNameInput.text+".txt";
+            FileStream fs = new FileStream(path, FileMode.Create);
+
+            StreamWriter w = new StreamWriter(fs);
+            w.WriteLine("MAP_VERSION:1");
+            w.Close();
+            
 
         }
     }

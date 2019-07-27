@@ -24,12 +24,16 @@ public class EnemyCtrl : MonoBehaviour {
     private BulletCtrl bulletCtrl;
     public int enemyScore = 500;
     public float spreadAngle = 10f;
+    public float maintainTime = 3600f;
+    public float bulletSize = 1f;
+    public bool loop = false;
 	void Start () {
+        
         bulletCtrl = bullet.GetComponent<BulletCtrl>();
         subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
         angle = 360f / (float)(spreadPoint);
     }
-	
+    private float lifeTime;
 	void Update () {
         if (hp <= 0) {
             gameManager.instance.AddScore(enemyScore);
@@ -44,6 +48,8 @@ public class EnemyCtrl : MonoBehaviour {
         pos = gameObject.transform.position;
         if (spawnflag == 1)
         {
+            lifeTime += Time.deltaTime;
+            if (lifeTime >= maintainTime) Destroy(gameObject);
             move();
             fire();
         }
@@ -60,7 +66,9 @@ public class EnemyCtrl : MonoBehaviour {
             transform.position = (Vector3.MoveTowards(transform.position, posList[flag], enemySpeed * Time.deltaTime));
             pos = gameObject.transform.position;
             if (pos == posList[flag]) flag++;
-        } catch { };
+        } catch {
+            if (loop) flag = 0;
+        };
         
         
     }
@@ -71,6 +79,7 @@ public class EnemyCtrl : MonoBehaviour {
     }
     private void fire()
     {
+        
         rate += Time.deltaTime;
         if (rate >= firerate) {
             bulletCtrl.giveSpeed(bulletSpeed);
@@ -80,13 +89,15 @@ public class EnemyCtrl : MonoBehaviour {
             if (spreadBullet) {
                 for(int i = 0; i < spreadPoint; i++) {
                     bulletCtrl.spreadAngle = 180f+i * angle+spreadRotateAngle;
-                    Instantiate(bullet,transform.position,Quaternion.identity);
+                    GameObject newObject = Instantiate(bullet,transform.position,Quaternion.identity);
+                    newObject.transform.localScale = new Vector3(bulletSize, bulletSize, 0);
                 }
                 spreadRotateAngle += spreadAngle;
                 //spreadRotateAngle += angle / 2;
                 if (spreadRotateAngle >= 360f) spreadRotateAngle -= 360f;
             } else {
-                Instantiate(bullet, transform.position, Quaternion.identity);
+                GameObject newObject = Instantiate(bullet, transform.position, Quaternion.identity);
+                newObject.transform.localScale = new Vector3(bulletSize, bulletSize, 0);
             }
             
             rate = 0;

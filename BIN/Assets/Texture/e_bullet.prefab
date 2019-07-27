@@ -97,6 +97,8 @@ MonoBehaviour:
   bulletSpeed: 10
   normalBullet: 1
   playerFollowingBullet: 0
+  spreadBullet: 0
+  spreadAngle: 0
 --- !u!50 &50045040687806690
 Rigidbody2D:
   serializedVersion: 4
@@ -131,6 +133,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0010082722, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.12520576

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCtrl : MonoBehaviour {
+public class EnemyCtrl:MonoBehaviour {
     public int hp;
     public List<Vector2> posList;
     private int flag = 0;//pos1 도착 시 1 pos2 도착 시 2
@@ -13,7 +13,7 @@ public class EnemyCtrl : MonoBehaviour {
     public GameObject bullet;
     public float firerate = 0.5f;
     private float rate = 0f;
-    public float bulletSpeed=10.0f;
+    public float bulletSpeed = 10.0f;
     public bool normalBullet = true;
     public bool playerFollowingBullet = false;
     public bool spreadBullet = false;
@@ -24,13 +24,17 @@ public class EnemyCtrl : MonoBehaviour {
     private BulletCtrl bulletCtrl;
     public int enemyScore = 500;
     public float spreadAngle = 10f;
-	void Start () {
+    public float maintainTime = 3600f;
+    public float bulletSize = 1f;
+    public bool loop = false;
+    void Start() {
+
         bulletCtrl = bullet.GetComponent<BulletCtrl>();
         subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
         angle = 360f / (float)(spreadPoint);
     }
-	
-	void Update () {
+    private float lifeTime;
+    void Update() {
         if (hp <= 0) {
             gameManager.instance.AddScore(enemyScore);
             Destroy(this.gameObject);
@@ -42,35 +46,36 @@ public class EnemyCtrl : MonoBehaviour {
             }
         }
         pos = gameObject.transform.position;
-        if (spawnflag == 1)
-        {
+        if (spawnflag == 1) {
+            lifeTime += Time.deltaTime;
+            if (lifeTime >= maintainTime) Destroy(gameObject);
             move();
             fire();
         }
         //Vector2 screenPos = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
         //if (screenPos.x > 3300 || screenPos.x < 2700 || screenPos.y > 1000 || screenPos.y < 0) {
         //    Destroy(this.gameObject);
-       // }
-        
-        
-	}
-    private void move()
-    {
+        // }
+
+
+    }
+    private void move() {
         try {
             transform.position = (Vector3.MoveTowards(transform.position, posList[flag], enemySpeed * Time.deltaTime));
             pos = gameObject.transform.position;
             if (pos == posList[flag]) flag++;
-        } catch { };
-        
-        
+        } catch {
+            if (loop) flag = 0;
+        };
+
+
     }
-    private void OnBecameInvisible()
-    {
+    private void OnBecameInvisible() {
 
         Destroy(gameObject);
     }
-    private void fire()
-    {
+    private void fire() {
+
         rate += Time.deltaTime;
         if (rate >= firerate) {
             bulletCtrl.giveSpeed(bulletSpeed);
@@ -78,34 +83,36 @@ public class EnemyCtrl : MonoBehaviour {
             bulletCtrl.normalBullet = this.normalBullet;
             bulletCtrl.spreadBullet = this.spreadBullet;
             if (spreadBullet) {
-                for(int i = 0; i < spreadPoint; i++) {
-                    bulletCtrl.spreadAngle = 180f+i * angle+spreadRotateAngle;
-                    Instantiate(bullet,transform.position,Quaternion.identity);
+                for (int i = 0; i < spreadPoint; i++) {
+                    bulletCtrl.spreadAngle = 180f + i * angle + spreadRotateAngle;
+                    GameObject newObject = Instantiate(bullet, transform.position, Quaternion.identity);
+                    newObject.transform.localScale = new Vector3(bulletSize, bulletSize, 0);
                 }
                 spreadRotateAngle += spreadAngle;
                 //spreadRotateAngle += angle / 2;
                 if (spreadRotateAngle >= 360f) spreadRotateAngle -= 360f;
             } else {
-                Instantiate(bullet, transform.position, Quaternion.identity);
+                GameObject newObject = Instantiate(bullet, transform.position, Quaternion.identity);
+                newObject.transform.localScale = new Vector3(bulletSize, bulletSize, 0);
             }
-            
+
             rate = 0;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (spawnflag == 1) {
             /*if (other.gameObject.tag.Equals("playerBullet")){
                 gameManager.instance.AddScore(500);
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
-            }else */if (other.gameObject.tag.Equals("Player")) {
+            }else */
+            if (other.gameObject.tag.Equals("Player")) {
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
             }
-            
+
         }
-        
+
     }
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "CameraColider")

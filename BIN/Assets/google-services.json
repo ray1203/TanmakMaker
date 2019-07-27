@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "190836102723",
+    "firebase_url": "https://shootingame1203.firebaseio.com",
+    "project_id": "shootingame1203",
+    "storage_bucket": "shootingame1203.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190836102723:android:ea64e913880caa68",
+        "android_client_info": {
+          "package_name": "com.ray1203.ShootingGame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190836102723-qhc4577nkn74ss6g1c8upkjdduluofd7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvDgthlp2qoOS7_mxBGB06FnFgkzfnsqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190836102723-qhc4577nkn74ss6g1c8upkjdduluofd7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

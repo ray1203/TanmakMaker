@@ -11,7 +11,10 @@ public class MapUpload : MonoBehaviour
     private GameObject uploadTab;
     public GameObject uploadName;
     public GameObject description;
+    public GameObject showMapCodeTab;
     public List<EnemyData> enemyDatas;
+    public int mapCode = -1;
+    public string mapName = null;
     private static RealTimeDatabase Instance;
     public DatabaseReference reference;
     void Awake() {
@@ -28,14 +31,14 @@ public class MapUpload : MonoBehaviour
             }
         }
         uploadTab.GetComponent<MapUpload>().enemyDatas = gameObject.GetComponent<mapData>().enemyDatas;
-        
-        
+        uploadTab.transform.Find("Image").Find("UploadName").GetComponent<InputField>().text = "";
+        uploadTab.transform.Find("Image").Find("Description").GetComponent<InputField>().text = "";
+
     }
     public void upload() {
-        int mapCode = 0;
+
+        if (uploadName.GetComponent<InputField>().text == "" || description.GetComponent<InputField>().text=="") return;
         
-        if (uploadName.GetComponent<InputField>().text == null || description.GetComponent<InputField>().text==null) return;
-        string mapName = null;
         string m_strPath = "map/";
         string uploadNameStr =  uploadName.GetComponent<InputField>().text;
         string descriptionStr = description.GetComponent<InputField>().text;
@@ -72,11 +75,20 @@ public class MapUpload : MonoBehaviour
             }
             });
 
-        uploadName.GetComponent<InputField>().text=null;
-        description.GetComponent<InputField>().text=null;
+        StartCoroutine(SomeCoroutine());
+        showMapCode(mapCode, mapName);
+        gameObject.SetActive(false);
+
 
     }
-
+    public void showMapCode(int mapCode,string mapName) {
+        showMapCodeTab.gameObject.SetActive(true);
+        for(int i = 0; i < showMapCodeTab.transform.childCount; i++) {
+            showMapCodeTab.transform.GetChild(i).gameObject.SetActive(true);
+            showMapCodeTab.transform.Find("Image").Find("InputField").GetComponent<InputField>().text = mapCode.ToString();
+            showMapCodeTab.transform.Find("Image").Find("Text (1)").GetComponent<Text>().text = mapName+ "의 맵코드는";
+        }
+    }
     public string PathForDocumentsFile(string filename) {
         if (Application.platform == RuntimePlatform.IPhonePlayer) {
             string path = Application.dataPath.Substring(0, Application.dataPath.Length - 5);
@@ -97,5 +109,12 @@ public class MapUpload : MonoBehaviour
             path = path.Substring(0, path.LastIndexOf('/'));
             return Path.Combine(path, filename);
         }
+    }
+    IEnumerator SomeCoroutine() {
+        Debug.Log("Start Coroutine");
+        yield return new WaitForSeconds(1000f);
+        Debug.Log("Waited!");
+        yield return null;
+        Debug.Log("End Coroutine!");
     }
 }

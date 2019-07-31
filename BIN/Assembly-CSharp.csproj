@@ -66,6 +66,7 @@
      <Compile Include="Assets\Script\GetTouchXY.cs" />
      <Compile Include="Assets\Script\JoyStick.cs" />
      <Compile Include="Assets\Script\MainToEdit.cs" />
+     <Compile Include="Assets\Script\MapCodeUpdate.cs" />
      <Compile Include="Assets\Script\mapData.cs" />
      <Compile Include="Assets\Script\MapObjSummon.cs" />
      <Compile Include="Assets\Script\MapReader.cs" />

@@ -59,7 +59,6 @@ public class MapReader : MonoBehaviour
             } else {
                 MAP_VERSION = 0;
             }
-            Debug.Log("MAP_NAME:"+Item.Name+"  MAP_VERSION:" + MAP_VERSION + "  source:" + source);
                 while (source != null) {
                     string[] values;
                     values = source.Split(',');
@@ -85,7 +84,6 @@ public class MapReader : MonoBehaviour
                         pos.Add(new Vector2(float.Parse(values[i]), float.Parse(values[i + 1])));
                     }
                     bool loopValue=false;
-                    Debug.Log(Item.Name + "," + values);
                     if (int.Parse(values[11]) == 1) {
                         loopValue = true;
                     }else if (int.Parse(values[11]) == 0) {

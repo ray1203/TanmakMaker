@@ -15,13 +15,6 @@ public class mapData : MonoBehaviour
             enemyDatas = value;
         }
     }
-    void Update() {/*
-        enemyDatas[0].printDatas();
-        enemyDatas[1].printDatas();
-        enemyDatas[2].printDatas();
-        enemyDatas[3].printDatas();
-        */
+    
 
-
-    }
 }

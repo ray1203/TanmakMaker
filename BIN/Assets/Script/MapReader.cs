@@ -121,8 +121,26 @@ public class MapReader : MonoBehaviour
             StreamWriter w = new StreamWriter(fs);
             w.WriteLine("MAP_VERSION:1");
             w.Close();
-            
+            return;
 
+
+        } else {
+            int count = 1;
+            while (true) {
+                if (!File.Exists(m_strPath + mapNameInput.text +"("+count+")"+ ".txt")) {
+                    //File.Create(m_strPath + mapNameInput.text+".txt");
+                    string path = m_strPath;
+                    path = path + mapNameInput.text + "(" + count + ")" + ".txt";
+                    FileStream fs = new FileStream(path, FileMode.Create);
+
+                    StreamWriter w = new StreamWriter(fs);
+                    w.WriteLine("MAP_VERSION:1");
+                    w.Close();
+                    return;
+
+                }
+                count++;
+            }
         }
     }
     public void reloadScene() {

@@ -82,14 +82,7 @@ public class MapDownload : MonoBehaviour {
                                 }
                             });
                         }
-                        for(int i = 0; i < dataCount; i++) {
-                            if (mapDatas[i].Contains("MAP_VERSION")) {
-                                string str = mapDatas[0];
-                                mapDatas[0] = mapDatas[i];
-                                mapDatas[i] = str;
-                                break;
-                            }
-                        }
+                        
                     }
                 });
 
@@ -114,6 +107,14 @@ public class MapDownload : MonoBehaviour {
     }
     public void download() {
         if (!File.Exists(m_strPath + mapName + ".txt")) {
+            for (int i = 0; i < dataCount; i++) {
+                if (mapDatas[i].Contains("MAP_VERSION")) {
+                    string str = mapDatas[0];
+                    mapDatas[0] = mapDatas[i];
+                    mapDatas[i] = str;
+                    break;
+                }
+            }
             Debug.Log("success");
             //File.Create(m_strPath + mapNameInput.text+".txt");
             string path = m_strPath;
@@ -174,6 +175,7 @@ public class MapDownload : MonoBehaviour {
     }
     IEnumerator Success() {
         successTab.SetActive(true);
+        for (int i = 0; i <= successTab.transform.childCount; i++) successTab.transform.GetChild(i).gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         successTab.SetActive(false);
     }

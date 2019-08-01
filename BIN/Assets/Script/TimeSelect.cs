@@ -9,7 +9,7 @@ public class TimeSelect : MonoBehaviour
     float max = 0;
     int value = 0;
     int lastvalue = 0;
-    string lastText = "";
+    //string lastText = "";
     public GameObject enemy;
     int lastChild = 0, nowChild = 0;
     // Start is called before the first frame update

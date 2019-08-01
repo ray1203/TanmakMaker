@@ -9,6 +9,7 @@ Assets/Scenes/play.unity
 Assets/Scenes/test.unity
 Assets/Scenes/mapDownload.unity
 SceneListEnd?
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.closeClick
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -135,6 +136,7 @@ b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 4ae89b330cc08056f07ede9533c99279 Assembly-CSharp.dll:.PlayerCtrl
 56a48eaace5d1afe2625633bb61e7ec3 Assembly-CSharp.dll:.ShowPath
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
+a23a6e5119b72cbc23c1df320883fc6d Assembly-CSharp.dll:.MapDownload
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 3e9bbe4ecf7bebb56f785c16c7745916 Assembly-CSharp.dll:.MapObjSummon
 f4368f79db6880aeb6f06d068bc40570 Assembly-CSharp.dll:.EnemyEdit
@@ -183,6 +185,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ScreenResolution
 71d9df5100db67d9fcf5164a38383c15 Assembly-CSharp.dll:.BulletCtrl
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
+a24e0b14c7f0b88e61abb43edf1898db Assembly-CSharp.dll:.SearchDataUpdate
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 53467aae447c0604e833ba6ee59de469 Assembly-CSharp.dll:.UIclose
@@ -200,6 +203,4 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 52b036e007293037c7eb81ff5a68fbcf Assembly-CSharp.dll:.MapCodeUpdate
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EnemyData
 4246d526fe403411c2fb1408634b8fab Assembly-CSharp.dll:.MainToEdit
-89c6cdf1b030d068a939ea02ca59d096 Assembly-CSharp.dll:.MapDownload
-c54e70e14a5f3d67fac640346eae3a20 Assembly-CSharp.dll:.SearchDataUpdate
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.closeClick
+acf2ac8c57b52a1336affce36ec42d3e Assembly-CSharp.dll:.WifiCheck

@@ -8,11 +8,14 @@ using Firebase.Database;
 using Firebase;
 
 public class MapDownload : MonoBehaviour {
+    public GameObject wifiTab;
     public GameObject mapCodeTab;
     public string mapName;
     public string mapDescription;
+    public string mapAccessCount;
     public List<string> mapDatas;
     public GameObject successTab;
+    public int searchFlag = 0;//0:기본 1:실패
     string m_strPath = "map/";
     private static RealTimeDatabase Instance;
     public DatabaseReference reference;
@@ -28,13 +31,16 @@ public class MapDownload : MonoBehaviour {
         }
     }
     public void search() {
-
+        if (Application.internetReachability == NetworkReachability.NotReachable) {
+            wifiTab.SetActive(true);
+            for (int i = 0; i < wifiTab.transform.childCount; i++) wifiTab.transform.GetChild(i).gameObject.SetActive(true);
+        }
         mapDatas = new List<string>();
         string mapCode = mapCodeTab.GetComponent<InputField>().text;
         if (mapCode == "") return;
         reference.Child("map").Child(mapCode).GetValueAsync().ContinueWith(task1 => {
-            if (task1.IsFaulted) {
-                Debug.Log("error:mapCode");
+            if (task1.Result.Value == null) {
+                searchFlag = 1;
                 return;
             } else if (task1.IsCompleted) {
                 reference.Child("map").Child(mapCode).Child("mapName").GetValueAsync().ContinueWith(task2 => {
@@ -56,6 +62,7 @@ public class MapDownload : MonoBehaviour {
 
                     }
                 });
+
                 reference.Child("map").Child(mapCode).Child("mapData").Child("dataCount").GetValueAsync().ContinueWith(task2 => {
                 if (task2.IsFaulted) {
                         Debug.Log("error:mapData");
@@ -85,6 +92,22 @@ public class MapDownload : MonoBehaviour {
                         }
                     }
                 });
+
+                reference.Child("map").Child(mapCode).Child("accessCount").GetValueAsync().ContinueWith(task2 => {
+                    if (task2.IsFaulted) {
+                        Debug.Log("error:accessCount");
+                        return;
+                    } else if (task2.IsCompleted) {
+                        DataSnapshot snapshot = task2.Result;
+                        reference.Child("map").Child(mapCode).Child("accessCount").SetValueAsync((int.Parse(snapshot.Value.ToString())+1).ToString());
+                        mapAccessCount = snapshot.Value.ToString();
+
+
+                    }
+                });
+            } else {
+                Debug.Log("error:mapCode");
+
             }
         });
 

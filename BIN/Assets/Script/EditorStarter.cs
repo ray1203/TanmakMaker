@@ -13,10 +13,9 @@ public class EditorStarter : MonoBehaviour {
             for (int i = 0; i < childCount; i++) {
                 Transform c = e_fill.transform.GetChild(0);
                 slider.GetComponent<TimeSelect>().MaxSummonTime(c.GetComponent<EnemyData>().SpawnTime);
-                c.transform.position = (c.GetComponent<EnemyData>().Pos[0]);
                 c.SetParent(e_empty.transform);
                 c.localScale = new Vector3(1f, 1f, 0f);
-
+                //c.transform.position = (c.GetComponent<EnemyData>().Pos[0]);
             }
             Destroy(e_fill);
         }

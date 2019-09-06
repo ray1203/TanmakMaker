@@ -43,22 +43,23 @@ public class MapReader : MonoBehaviour
             }
         }
         foreach (var Item in di.GetFiles()) {
-            int MAP_VERSION = 0;
-            if (Item.Name.Contains(".meta")) continue;
-            GameObject newObject = ContentUI;
-            List<EnemyData> enemyDatas = new List<EnemyData>();
-            newObject.transform.Find("mapname").GetComponent<Text>().text = Item.Name.Replace(".txt", "");
-            StreamReader sr = Item.OpenText();
-            string source = sr.ReadLine();
-            if (source.Contains("MAP_VERSION")) {
-                string[] values;
-                values = source.Split(':');
+            try {
+                int MAP_VERSION = 0;
+                if (Item.Name.Contains(".meta")) continue;
+                GameObject newObject = ContentUI;
+                List<EnemyData> enemyDatas = new List<EnemyData>();
+                newObject.transform.Find("mapname").GetComponent<Text>().text = Item.Name.Replace(".txt", "");
+                StreamReader sr = Item.OpenText();
+                string source = sr.ReadLine();
+                if (source.Contains("MAP_VERSION")) {
+                    string[] values;
+                    values = source.Split(':');
 
-                MAP_VERSION = int.Parse(values[1]);
-                source = sr.ReadLine();
-            } else {
-                MAP_VERSION = 0;
-            }
+                    MAP_VERSION = int.Parse(values[1]);
+                    source = sr.ReadLine();
+                } else {
+                    MAP_VERSION = 0;
+                }
                 while (source != null) {
                     string[] values;
                     values = source.Split(',');
@@ -66,49 +67,53 @@ public class MapReader : MonoBehaviour
                         sr.Close();
                         return;
                     }
-                if (MAP_VERSION == 0) {
-                    List<Vector2> pos = new List<Vector2>();
-                    for(int i = 7; i < values.Length-2; i+=2) {
-                        pos.Add(new Vector2(float.Parse(values[i]), float.Parse(values[i + 1])));
-                    }
-                    try {
-                        enemyDatas.Add(new EnemyData(float.Parse(values[0]), float.Parse(values[1]), int.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]),1, int.Parse(values[5]), int.Parse(values[6]),0,float.Parse(values[values.Length-2]),int.Parse(values[values.Length-1]),false,pos,null));
-                    } catch {
-                        enemyDatas = new List<EnemyData>();
-                        break;
-                    }
-                }else if (MAP_VERSION == 1) {
+                    if (MAP_VERSION == 0) {
+                        List<Vector2> pos = new List<Vector2>();
+                        for (int i = 7; i < values.Length - 2; i += 2) {
+                            pos.Add(new Vector2(float.Parse(values[i]), float.Parse(values[i + 1])));
+                        }
+                        try {
+                            enemyDatas.Add(new EnemyData(float.Parse(values[0]), float.Parse(values[1]), int.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]), 1, int.Parse(values[5]), int.Parse(values[6]), 0, float.Parse(values[values.Length - 2]), int.Parse(values[values.Length - 1]), false, pos, null));
+                        } catch {
+                            enemyDatas = new List<EnemyData>();
+                            break;
+                        }
+                    } else if (MAP_VERSION == 1) {
 
-                    List<Vector2> pos = new List<Vector2>();
-                    for (int i = 12; i < values.Length; i += 2) {
-                        pos.Add(new Vector2(float.Parse(values[i]), float.Parse(values[i + 1])));
+                        List<Vector2> pos = new List<Vector2>();
+                        for (int i = 12; i < values.Length; i += 2) {
+                            pos.Add(new Vector2(float.Parse(values[i]), float.Parse(values[i + 1])));
+                        }
+                        bool loopValue = false;
+                        if (int.Parse(values[11]) == 1) {
+                            loopValue = true;
+                        } else if (int.Parse(values[11]) == 0) {
+                            loopValue = false;
+                        }
+                        try {
+                            enemyDatas.Add(new EnemyData(float.Parse(values[0]), float.Parse(values[1]), int.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]), float.Parse(values[5]), int.Parse(values[6]), int.Parse(values[7]), float.Parse(values[8]), float.Parse(values[9]), int.Parse(values[10]), loopValue, pos, null));
+                        } catch {
+                            enemyDatas = new List<EnemyData>();
+                            break;
+                        }
                     }
-                    bool loopValue=false;
-                    if (int.Parse(values[11]) == 1) {
-                        loopValue = true;
-                    }else if (int.Parse(values[11]) == 0) {
-                        loopValue = false;
-                    }
-                    try {
-                        enemyDatas.Add(new EnemyData(float.Parse(values[0]), float.Parse(values[1]), int.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]), float.Parse(values[5]), int.Parse(values[6]), int.Parse(values[7]), float.Parse(values[8]), float.Parse(values[9]), int.Parse(values[10]), loopValue, pos, null));
-                    } catch {
-                        enemyDatas = new List<EnemyData>();
-                        break;
-                    }
-                }
-               
+
                     source = sr.ReadLine();    // 한줄 읽는다.
                 }
-           // }
-            rt.sizeDelta = new Vector2(rt.sizeDelta.x * 3.6f, 100 * (c+1) * 3.6f);
-            newObject = Instantiate(newObject);
-            newObject.GetComponent<mapData>().EnemyDatas = enemyDatas;
-            newObject.transform.SetParent(Content.transform);
-            newObject.transform.localPosition = new Vector3(0f, (-75+FileCount*50-100 * (c++))*3.6f, 0);
-            newObject.transform.localScale = new Vector3(1f, 1f, 1f);
-            newObject.transform.tag = "mapcontent";
-            //if (rt.sizeDelta.y < 50 * c)
-            sr.Close();
+                // }
+                rt.sizeDelta = new Vector2(rt.sizeDelta.x * 3.6f, 100 * (c + 1) * 3.6f);
+                newObject = Instantiate(newObject);
+                newObject.GetComponent<mapData>().EnemyDatas = enemyDatas;
+                newObject.transform.SetParent(Content.transform);
+                newObject.transform.localPosition = new Vector3(0f, (-75 + FileCount * 50 - 100 * (c++)) * 3.6f, 0);
+                newObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                newObject.transform.tag = "mapcontent";
+                //if (rt.sizeDelta.y < 50 * c)
+                sr.Close();
+            } catch {
+                Debug.Log("MapFindError");
+                FileCount -= 1;
+            }
         }
     }
     public void makemap() {

@@ -30,84 +30,98 @@ public class MapDownload : MonoBehaviour {
             di.Create();
         }
     }
-    public void search() {
-        if (Application.internetReachability == NetworkReachability.NotReachable) {
-            wifiTab.SetActive(true);
-            for (int i = 0; i < wifiTab.transform.childCount; i++) wifiTab.transform.GetChild(i).gameObject.SetActive(true);
-        }
-        mapDatas = new List<string>();
-        string mapCode = mapCodeTab.GetComponent<InputField>().text;
-        if (mapCode == "") return;
-        reference.Child("map").Child(mapCode).GetValueAsync().ContinueWith(task1 => {
-            if (task1.Result.Value == null) {
-                searchFlag = 1;
-                return;
-            } else if (task1.IsCompleted) {
-                reference.Child("map").Child(mapCode).Child("mapName").GetValueAsync().ContinueWith(task2 => {
-                    if (task2.IsFaulted) {
-                        Debug.Log("error:mapName");
-                        return;
-                    } else if (task2.IsCompleted) {
-                        DataSnapshot snapshot = task2.Result;
-                        mapName = snapshot.Value.ToString();
-                    }
-                });
-                reference.Child("map").Child(mapCode).Child("description").GetValueAsync().ContinueWith(task2 => {
-                    if (task2.IsFaulted) {
-                        Debug.Log("error:description");
-                        return;
-                    } else if (task2.IsCompleted) {
-                        DataSnapshot snapshot = task2.Result;
-                        mapDescription = snapshot.Value.ToString();
-
-                    }
-                });
-
-                reference.Child("map").Child(mapCode).Child("mapData").Child("dataCount").GetValueAsync().ContinueWith(task2 => {
-                if (task2.IsFaulted) {
-                        Debug.Log("error:mapData");
-                        return;
-                } else if (task2.IsCompleted) {
-                        DataSnapshot snapshot = task2.Result;
-                        dataCount = int.Parse(snapshot.Value.ToString());
-                        for (int i = 0; i < dataCount; i++) {
-                            reference.Child("map").Child(mapCode).Child("mapData").Child(i.ToString()).GetValueAsync().ContinueWith(task3 => {
-                                if (task3.IsFaulted) {
-                                    Debug.Log("error:mapData:"+i);
-                                    return;
-                                } else if (task3.IsCompleted) {
-                                    DataSnapshot snapshot2 = task3.Result;
-                                    mapDatas.Add(snapshot2.Value.ToString());
-
-                                }
-                            });
-                        }
-                        
-                    }
-                });
-
-                reference.Child("map").Child(mapCode).Child("accessCount").GetValueAsync().ContinueWith(task2 => {
-                    if (task2.IsFaulted) {
-                        Debug.Log("error:accessCount");
-                        return;
-                    } else if (task2.IsCompleted) {
-                        DataSnapshot snapshot = task2.Result;
-                        reference.Child("map").Child(mapCode).Child("accessCount").SetValueAsync((int.Parse(snapshot.Value.ToString())+1).ToString());
-                        mapAccessCount = snapshot.Value.ToString();
-
-
-                    }
-                });
-            } else {
-                Debug.Log("error:mapCode");
-
+    bool flag = true;//true 면 검색 가능
+    float t = 0f;
+    void Update() {
+        if (!flag) {
+            t += Time.deltaTime;
+            if (t > 1.0f) {
+                flag = true;
+                t = 0f;
             }
-        });
+        }
+    }
+    public void search() {
+        if (flag) {
+            if (Application.internetReachability == NetworkReachability.NotReachable) {
+                wifiTab.SetActive(true);
+                for (int i = 0; i < wifiTab.transform.childCount; i++) wifiTab.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            //mapDatas = new List<string>();
+            mapDatas.Clear();
+            Debug.Log(mapDatas.Count);
+            string mapCode = mapCodeTab.GetComponent<InputField>().text;
+            if (mapCode == "") return;
+            reference.Child("map").Child(mapCode).GetValueAsync().ContinueWith(task1 => {
+                if (task1.Result.Value == null) {
+                    searchFlag = 1;
+                    return;
+                } else if (task1.IsCompleted) {
+                    reference.Child("map").Child(mapCode).Child("mapName").GetValueAsync().ContinueWith(task2 => {
+                        if (task2.IsFaulted) {
+                            Debug.Log("error:mapName");
+                            return;
+                        } else if (task2.IsCompleted) {
+                            DataSnapshot snapshot = task2.Result;
+                            mapName = snapshot.Value.ToString();
+                        }
+                    });
+                    reference.Child("map").Child(mapCode).Child("description").GetValueAsync().ContinueWith(task2 => {
+                        if (task2.IsFaulted) {
+                            Debug.Log("error:description");
+                            return;
+                        } else if (task2.IsCompleted) {
+                            DataSnapshot snapshot = task2.Result;
+                            mapDescription = snapshot.Value.ToString();
 
+                        }
+                    });
+
+                    reference.Child("map").Child(mapCode).Child("mapData").Child("dataCount").GetValueAsync().ContinueWith(task2 => {
+                        if (task2.IsFaulted) {
+                            Debug.Log("error:mapData");
+                            return;
+                        } else if (task2.IsCompleted) {
+                            DataSnapshot snapshot = task2.Result;
+                            dataCount = int.Parse(snapshot.Value.ToString());
+                            for (int i = 0; i < dataCount; i++) {
+                                reference.Child("map").Child(mapCode).Child("mapData").Child(i.ToString()).GetValueAsync().ContinueWith(task3 => {
+                                    if (task3.IsFaulted) {
+                                        Debug.Log("error:mapData:" + i);
+                                        return;
+                                    } else if (task3.IsCompleted) {
+                                        DataSnapshot snapshot2 = task3.Result;
+                                        mapDatas.Add(snapshot2.Value.ToString());
+
+                                    }
+                                });
+                            }
+
+                        }
+                    });
+
+                    reference.Child("map").Child(mapCode).Child("accessCount").GetValueAsync().ContinueWith(task2 => {
+                        if (task2.IsFaulted) {
+                            Debug.Log("error:accessCount");
+                            return;
+                        } else if (task2.IsCompleted) {
+                            DataSnapshot snapshot = task2.Result;
+                            reference.Child("map").Child(mapCode).Child("accessCount").SetValueAsync((int.Parse(snapshot.Value.ToString()) + 1).ToString());
+                            mapAccessCount = snapshot.Value.ToString();
+
+
+                        }
+                    });
+                } else {
+                    Debug.Log("error:mapCode");
+
+                }
+            });
+            flag = false;
+        }
     }
     public void download() {
-        if (!File.Exists(m_strPath + mapName + ".txt")) {
-            for (int i = 0; i < dataCount; i++) {
+        for (int i = 0; i < dataCount; i++) {
                 if (mapDatas[i].Contains("MAP_VERSION")) {
                     string str = mapDatas[0];
                     mapDatas[0] = mapDatas[i];
@@ -115,6 +129,8 @@ public class MapDownload : MonoBehaviour {
                     break;
                 }
             }
+        if (!File.Exists(m_strPath + mapName + ".txt")) {
+           
             Debug.Log("success");
             //File.Create(m_strPath + mapNameInput.text+".txt");
             string path = m_strPath;
@@ -149,7 +165,7 @@ public class MapDownload : MonoBehaviour {
 
                 }
                 count++;
-            }
+            } 
         }
     }
     public string PathForDocumentsFile(string filename) {
@@ -175,7 +191,7 @@ public class MapDownload : MonoBehaviour {
     }
     IEnumerator Success() {
         successTab.SetActive(true);
-        for (int i = 0; i <= successTab.transform.childCount; i++) successTab.transform.GetChild(i).gameObject.SetActive(true);
+        for (int i = 0; i < successTab.transform.childCount; i++) successTab.transform.GetChild(i).gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         successTab.SetActive(false);
     }

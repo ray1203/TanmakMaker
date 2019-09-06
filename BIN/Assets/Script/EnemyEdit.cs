@@ -9,6 +9,7 @@ public class EnemyEdit:MonoBehaviour {
     int dragging;
     
     void Start() {
+        gameObject.transform.position = gameObject.GetComponent<EnemyData>().Pos[0];
         try {
         EnemyOption = GameObject.Find("sendGameObject").GetComponent<SendGameObject>().getEnemyOption();
         subCamera = GameObject.FindWithTag("SubCamera").GetComponent<Camera>();
@@ -18,8 +19,10 @@ public class EnemyEdit:MonoBehaviour {
         }
     }
     
-    void Update()
-    {
+    void Update() {
+        if (transform.position.x!= gameObject.GetComponent<EnemyData>().Pos[0].x&& transform.position.y != gameObject.GetComponent<EnemyData>().Pos[0].y) {
+            gameObject.transform.position = gameObject.GetComponent<EnemyData>().Pos[0];
+        }
         if (EnemyOption == null) {
             if (!GameObject.Find("sendGameObject")) {
                 EnemyOption = new GameObject();

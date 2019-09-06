@@ -94,7 +94,8 @@ public class UIclose : MonoBehaviour {
         enemyData.Pos = posList;
         if (enemyData.SpreadPoint > 30) enemyData.SpreadPoint = 30;
         if (enemyData.Hp <= 0) enemyData.Hp = 1;
-        enemy.gameObject.transform.position = enemyData.Pos[0];
+        enemy.gameObject.transform.position = new Vector3(enemyData.Pos[0].x,enemyData.Pos[0].y,0f);
+        Debug.Log(enemy.gameObject.transform.position + "," + enemyData.Pos[0]+","+Camera.main.WorldToScreenPoint(enemyData.Pos[0]));
         for(int i = 0; i < pos.transform.childCount; i++) {
             Destroy(pos.transform.GetChild(i).gameObject);
         }

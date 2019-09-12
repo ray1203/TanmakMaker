@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 36da0b7bdceee7a48851d5dd2aefe98f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af6c681387359da43a54d88f34e48a67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f250b90154523314ea37093a35b42296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: 0, y: 0}
-  pos1: {x: 0, y: 0}
-  pos2: {x: 0, y: 0}
+  hp: 0
+  posList: []
+  spawnflag: 0
   spawnTime: 2
   enemySpeed: 2
   bullet: {fileID: 0}
@@ -104,6 +104,15 @@ MonoBehaviour:
   bulletSpeed: 10
   normalBullet: 1
   playerFollowingBullet: 0
+  spreadBullet: 0
+  spreadPoint: 0
+  angle: 0
+  spreadRotateAngle: 0
+  enemyScore: 500
+  spreadAngle: 10
+  maintainTime: 3600
+  bulletSize: 1
+  loop: 0
 --- !u!58 &58290727071717556
 CircleCollider2D:
   m_ObjectHideFlags: 0

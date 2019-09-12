@@ -66,6 +66,7 @@
      <Compile Include="Assets\Script\gameManager.cs" />
      <Compile Include="Assets\Script\GetTouchXY.cs" />
      <Compile Include="Assets\Script\JoyStick.cs" />
+     <Compile Include="Assets\Script\Log.cs" />
      <Compile Include="Assets\Script\MainToEdit.cs" />
      <Compile Include="Assets\Script\MapCodeUpdate.cs" />
      <Compile Include="Assets\Script\mapData.cs" />
@@ -97,35 +98,34 @@
      <None Include="Assets\Texture\asset_link.txt" />
      <None Include="Assets\map\기본맵4.txt" />
      <None Include="Assets\map\기본맵2.txt" />
+     <None Include="Assets\map\조이스틱 테스트.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
-     <None Include="Assets\Resources\DefaultMap\기본맵3.txt" />
+     <None Include="Assets\Resources\DefaultMap\기본맵4.txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵5.txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵2.txt" />
      <None Include="Assets\map\기본맵5.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
-     <None Include="Assets\map\기본맵1(1).txt" />
      <None Include="Assets\AssetStore\Galaxia Sprite Pack #1\README.txt" />
-     <None Include="Assets\map\기본맵6.txt" />
+     <None Include="Assets\Resources\DefaultMap\기본맵3.txt" />
      <None Include="Assets\map\튜토 맵.txt" />
      <None Include="Assets\map\기본맵3.txt" />
      <None Include="Assets\map\기본맵1.txt" />
-     <None Include="Assets\Resources\DefaultMap\기본맵4.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -326,49 +326,49 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Analytics">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.App">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Auth">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Database">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Platform">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.TaskExtension">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
  </Reference>
  <Reference Include="Google.MiniJson">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
  </Reference>
  <Reference Include="Google.Sharpen">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Compat">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Tasks">
- <HintPath>C:/Git_project/BINgit/BIN/Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Git_project/BINgit/BIN/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements.Editor">
- <HintPath>C:/Git_project/BINgit/BIN/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Git_project/BINgit/BIN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Git_project/BINgit/BIN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Git_project/BINgit/BIN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/HP/Desktop/BIN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

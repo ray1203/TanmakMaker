@@ -44,7 +44,7 @@ public class DefaultMap : MonoBehaviour {
             c++;
 
         }
-        if(c>0)SceneManager.LoadScene("MainMenu");
+        //if(c>0)SceneManager.LoadScene("MainMenu");
     }
     
 }

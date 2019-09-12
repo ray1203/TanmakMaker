@@ -83,22 +83,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f250b90154523314ea37093a35b42296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  posList: []
+  hp: 5
+  posList:
+  - {x: 0.4316881, y: 2.573786}
   spawnflag: 0
-  spawnTime: 0
-  enemySpeed: 0
+  spawnTime: 3
+  enemySpeed: 1
   bullet: {fileID: 1051164381364156, guid: 82d137ba888337447bb1739375cfe369, type: 3}
-  firerate: 0
-  bulletSpeed: 0
-  normalBullet: 1
+  firerate: 0.3
+  bulletSpeed: 1
+  normalBullet: 0
   playerFollowingBullet: 0
-  spreadBullet: 0
-  spreadPoint: 0
+  spreadBullet: 1
+  spreadPoint: 7
   angle: 0
   spreadRotateAngle: 0
   enemyScore: 500
   spreadAngle: 10
+  maintainTime: 3600
+  bulletSize: 1
+  loop: 0
 --- !u!212 &12
 SpriteRenderer:
   m_ObjectHideFlags: 0

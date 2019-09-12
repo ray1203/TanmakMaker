@@ -24,6 +24,7 @@ public class JoyStick:MonoBehaviour {
         float Can = transform.parent.GetComponent<RectTransform>().localScale.x;
         Radius *= Can;
     }
+    public bool touchFlag = false;
     void Update() {
         if (Input.touchCount > 0) {
         Touch touch = Input.GetTouch(0);
@@ -45,6 +46,7 @@ public class JoyStick:MonoBehaviour {
         }
         //if (Input.touchCount>0) {
         if (touch.phase == TouchPhase.Began) {
+                Debug.Log("beg");
             //StickFirstPos = Input.GetTouch(0).position;
             StickFirstPos = Camera.main.ScreenToWorldPoint(touch.position);
             StickFirstPos.z = 0f;
@@ -54,15 +56,26 @@ public class JoyStick:MonoBehaviour {
             JoyVec = Vector3.zero;
         }
         if (touch.phase==TouchPhase.Moved&&JoyId==touch.fingerId) {
-            Vector3 Pos = (touch.position) - new Vector2(Camera.main.WorldToScreenPoint(this.transform.position).x, Camera.main.WorldToScreenPoint(this.transform.position).y);
-            Pos.z = 0f;
+                if (!touchFlag) {
+                    touchFlag = true;
+                    Debug.Log("beg");
+
+                }
+                
+                Debug.Log("moved");
+                Vector3 Pos = (touch.position) - new Vector2(Camera.main.WorldToScreenPoint(this.transform.parent.position).x, Camera.main.WorldToScreenPoint(this.transform.parent.position).y);
+                //Vector3 Pos = Camera.main.ScreenToWorldPoint(touch.position); 
+                    Pos.z = 0f;
             Pos += StickFirstPos;
             // 조이스틱을 이동시킬 방향을 구함.(오른쪽,왼쪽,위,아래)
             JoyVec = (Pos - StickFirstPos).normalized;
-            if(Pos.x-StickFirstPos.x<0.1&& Pos.x - StickFirstPos.x > -0.1&& Pos.y - StickFirstPos.y < 0.1 && Pos.y - StickFirstPos.y > -0.1) {
-                //Debug.Log("zero");
+                Debug.Log(Pos + "," + StickFirstPos + "," + JoyVec+","+touch.position+","+ Camera.main.ScreenToWorldPoint(touch.position)+","+ new Vector2(Camera.main.WorldToScreenPoint(this.transform.position).x, Camera.main.WorldToScreenPoint(this.transform.position).y));
+            if(Pos.x-StickFirstPos.x<10&& Pos.x - StickFirstPos.x > -10&& Pos.y - StickFirstPos.y < 10 && Pos.y - StickFirstPos.y > -10) {
+                Debug.Log("zero");
                 JoyVec = new Vector3(0f, 0f, 0f);
+                    Pos = StickFirstPos;
             }
+            
             // 조이스틱의 처음 위치와 현재 내가 터치하고있는 위치의 거리를 구한다.
             
             float Dis = Vector3.Distance(Pos, StickFirstPos);
@@ -70,26 +83,35 @@ public class JoyStick:MonoBehaviour {
             
             if (StickFirstPos!= Camera.main.ScreenToWorldPoint(touch.position)) {
                     //Debug.Log(Radius+","+StickFirstPos+Pos+JoyVec+Dis);
-            // 거리가 반지름보다 작으면 조이스틱을 현재 터치하고 있는곳으로 이동. 
-            if (Dis <= Radius)
-                Stick.localPosition = StickFirstPos + JoyVec * Dis;
-            // 거리가 반지름보다 커지면 조이스틱을 반지름의 크기만큼만 이동.
-            else
-                Stick.localPosition = StickFirstPos + JoyVec * Radius;
+                    // 거리가 반지름보다 작으면 조이스틱을 현재 터치하고 있는곳으로 이동. 
+                    if (Dis <= Radius) {
+                        Debug.Log("1");
+                        // Stick.localPosition = StickFirstPos + JoyVec * Dis;
+                        Stick.localPosition = JoyVec * Dis;
+                        Debug.Log("AA" + Stick.localPosition + "," + StickFirstPos);
+                        // 거리가 반지름보다 커지면 조이스틱을 반지름의 크기만큼만 이동.
+                    } else {
+                        Debug.Log("2");
+                        Stick.localPosition =JoyVec * Radius;
+                    }
             }
             
         }
         if (touch.phase == TouchPhase.Ended) {
-            this.transform.localPosition= new Vector3(0f, 0f, 0f);
+                StickFirstPos = new Vector3(0, 0, 0);
+                touchFlag = false;
+                Debug.Log("end");
+                this.transform.localPosition= new Vector3(0f, 0f, 0f);
             Stick.localPosition = new Vector3(0f, 0f, 0f);
             JoyVec = Vector3.zero;
 
         }
         }
         
-    }
+    }/*
     // 드래그
     public void Drag(BaseEventData _Data) {
+        Debug.Log("DDDA");
         PointerEventData Data = _Data as PointerEventData;
         //Vector3 Pos = Camera.main.ScreenToWorldPoint(Data.position);
         Vector3 Pos = Data.position-new Vector2(Camera.main.WorldToScreenPoint(this.transform.position).x, Camera.main.WorldToScreenPoint(this.transform.position).y);
@@ -114,6 +136,6 @@ public class JoyStick:MonoBehaviour {
         //Stick.position = StickFirstPos; // 스틱을 원래의 위치로.
         Stick.localPosition = new Vector3(0f, 0f, 0f);
         JoyVec = Vector3.zero;          // 방향을 0으로.
-    }
+    }*/
 }
 

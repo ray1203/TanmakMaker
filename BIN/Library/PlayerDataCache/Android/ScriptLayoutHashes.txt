@@ -9,6 +9,10 @@ Assets/Scenes/play.unity
 Assets/Scenes/test.unity
 Assets/Scenes/mapDownload.unity
 Assets/Scenes/help.unity
+Assets/Scenes/help_mapSelect.unity
+Assets/Scenes/help_mapPlay.unity
+Assets/Scenes/help_mapEdit.unity
+Assets/Scenes/help_mapDownload.unity
 SceneListEnd?
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.closeClick
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
@@ -206,3 +210,4 @@ acf2ac8c57b52a1336affce36ec42d3e Assembly-CSharp.dll:.WifiCheck
 52b036e007293037c7eb81ff5a68fbcf Assembly-CSharp.dll:.MapCodeUpdate
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EnemyData
 4246d526fe403411c2fb1408634b8fab Assembly-CSharp.dll:.MainToEdit
+7c86c7faf7a68922d2af53f7458272a6 Assembly-CSharp.dll:.Tutorial

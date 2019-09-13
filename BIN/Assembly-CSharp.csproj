@@ -92,6 +92,7 @@
      <Compile Include="Assets\Script\ShowPath.cs" />
      <Compile Include="Assets\Script\TargetCtrl.cs" />
      <Compile Include="Assets\Script\TimeSelect.cs" />
+     <Compile Include="Assets\Script\Tutorial.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
      <Compile Include="Assets\Script\WifiCheck.cs" />
      <None Include="Assets\Resources\DefaultMap\기본맵1.txt" />

@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/HP/Documents/유니티 앱 빌드/탄막 메이커.apk
+C:/Users/HP/Documents/유니티 앱 빌드/탄막 메이커.aab
 SceneListBegin?
 Assets/Scenes/StartScreen.unity
 Assets/Scenes/MainMenu.unity

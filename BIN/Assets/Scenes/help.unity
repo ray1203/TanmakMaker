@@ -2184,6 +2184,11 @@ PrefabInstance:
       propertyPath: activeBanner
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2952504042783167216, guid: cfd4517e2e7ce0a418a4781afcafb305,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfd4517e2e7ce0a418a4781afcafb305, type: 3}
 --- !u!224 &1855160131 stripped

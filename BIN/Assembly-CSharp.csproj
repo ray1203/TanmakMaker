@@ -148,31 +148,28 @@
      <Compile Include="Assets\Script\Tutorial.cs" />
      <Compile Include="Assets\Script\UIclose.cs" />
      <Compile Include="Assets\Script\WifiCheck.cs" />
-     <None Include="Assets\map\(2).txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵1.txt" />
+     <None Include="Assets\map\기본맵6.txt" />
      <None Include="Assets\Texture\asset_link.txt" />
      <None Include="Assets\map\기본맵4.txt" />
      <None Include="Assets\map\기본맵2.txt" />
-     <None Include="Assets\map\조이스틱 테스트.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
+     <None Include="Assets\Resources\DefaultMap\기본맵6.txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵4.txt" />
-     <None Include="Assets\map\기본맵1(1).txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵5.txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵2.txt" />
      <None Include="Assets\map\기본맵5.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
+     <None Include="Assets\Resources\DefaultMap\기본맵7.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
-     <None Include="Assets\map\(6).txt" />
-     <None Include="Assets\map\(3).txt" />
      <None Include="Assets\AssetStore\Galaxia Sprite Pack #1\README.txt" />
-     <None Include="Assets\map\(5).txt" />
-     <None Include="Assets\map\(1).txt" />
+     <None Include="Assets\map\기본맵8.txt" />
      <None Include="Assets\Resources\DefaultMap\기본맵3.txt" />
-     <None Include="Assets\map\튜토 맵.txt" />
+     <None Include="Assets\Resources\DefaultMap\기본맵8.txt" />
      <None Include="Assets\map\기본맵3.txt" />
+     <None Include="Assets\map\기본맵7.txt" />
      <None Include="Assets\map\기본맵1.txt" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
-     <None Include="Assets\map\(4).txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Git_project/BINgit/BIN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

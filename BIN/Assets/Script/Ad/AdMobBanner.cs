@@ -17,17 +17,19 @@ public class AdMobBanner : MonoBehaviour
     }
     private void InitAd() {
         //string id = Debug.isDebugBuild ? test_unitId : unitId;
+
         string id = unitId;
+        //string id = test_unitId;
         MobileAds.Initialize(id);
         banner = new BannerView(id, AdSize.Banner, position);
 
-        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice(test_deviceId).Build();
-
+        //AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice(test_deviceId).Build();
+        AdRequest request = new AdRequest.Builder().Build();
         banner.LoadAd(request);
+        
         ToggleAd(activeBanner);
         //banner.Show();
     }
-    
     public void ToggleAd(bool active) {
         if (active) {
             banner.Show();

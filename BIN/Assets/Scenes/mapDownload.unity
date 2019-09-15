@@ -2767,6 +2767,11 @@ PrefabInstance:
       propertyPath: activeBanner
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2952504042783167216, guid: cfd4517e2e7ce0a418a4781afcafb305,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfd4517e2e7ce0a418a4781afcafb305, type: 3}
 --- !u!224 &2047792804 stripped
@@ -2810,7 +2815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000036597252}
+  m_AnchoredPosition: {x: 0, y: 0.0000060796738}
   m_SizeDelta: {x: 709, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107515915

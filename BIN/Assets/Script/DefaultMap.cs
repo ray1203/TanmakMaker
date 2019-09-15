@@ -29,7 +29,7 @@ public class DefaultMap : MonoBehaviour {
             m_strPath = Path.Combine(path, m_strPath);
         }
         foreach (var item in Resources.LoadAll("DefaultMap", typeof(TextAsset))) {
-            if (PlayerPrefs.GetInt(item.name, 0) == 1) {
+            if (PlayerPrefs.GetInt(item.name+"_1", 0) == 1) {
                 Resources.UnloadAsset(item);
                 continue;
             }
@@ -39,7 +39,7 @@ public class DefaultMap : MonoBehaviour {
             }
             TextAsset text = (TextAsset)item;
             File.WriteAllBytes(m_strPath + "/" + item.name + ".txt", text.bytes);
-            PlayerPrefs.SetInt(item.name, 1);
+            PlayerPrefs.SetInt(item.name+"_1", 1);
             Resources.UnloadAsset(item);
             c++;
 
